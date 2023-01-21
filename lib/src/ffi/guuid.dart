@@ -4,7 +4,7 @@ import '../guuid.dart';
 import 'ffi_x.dart';
 import 'libglib.dart';
 
-mixin FfiGUuidMixin on GUuidMixin {
+mixin GUuidFfiMixin on GUuidMixin {
   @override
   bool g_uuid_string_is_valid(String str) {
     return ffi.using((arena) {

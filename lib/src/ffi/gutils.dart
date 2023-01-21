@@ -5,7 +5,7 @@ import '../gutils.dart';
 import 'ffi_x.dart';
 import 'libglib.dart';
 
-mixin FfiGUtilsMixin on GUtilsMixin {
+mixin GUtilsFfiMixin on GUtilsMixin {
   @override
   String g_get_user_name() => lib.g_get_user_name().toDartString()!;
 

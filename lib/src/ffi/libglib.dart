@@ -3,8 +3,16 @@ import 'dart:io' as io;
 
 import 'package:meta/meta.dart';
 
+import '../glib.dart';
+import 'gutils.dart';
+import 'guuid.dart';
+import 'gversion.dart';
 import 'libglib.g.dart';
-export 'libglib.g.dart';
+
+final glib = GLib();
+
+class GLib extends GLibInterface
+    with GUtilsFfiMixin, GUuidFfiMixin, GVersionFfiMixin {}
 
 LibGLib? _lib;
 LibGLib get lib => _lib ??= LibGLib(ffi.DynamicLibrary.open(_env ?? _platform));

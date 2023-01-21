@@ -2,6 +2,6 @@ import 'gutils.dart';
 import 'guuid.dart';
 import 'gversion.dart';
 
-export 'stub/glib_stub.dart' if (dart.library.ffi) 'ffi/glib_ffi.dart';
+export 'stub.dart' if (dart.library.ffi) 'ffi/libglib.dart';
 
-abstract class GLib with GUtilsMixin, GUuidMixin, GVersionMixin {}
+abstract class GLibInterface with GUtilsMixin, GUuidMixin, GVersionMixin {}

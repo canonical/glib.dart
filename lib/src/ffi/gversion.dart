@@ -2,7 +2,7 @@ import '../gversion.dart';
 import 'ffi_x.dart';
 import 'libglib.dart';
 
-mixin FfiGVersionMixin on GVersionMixin {
+mixin GVersionFfiMixin on GVersionMixin {
   @override
   int get glib_major_version => lib.glib_major_version;
   @override
