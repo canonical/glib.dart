@@ -18,18 +18,12 @@ jobs:
 
   compile:
     runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        type:
-          - exe
-          - js
-        target:
-          - example/utils.dart
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
       - run: dart pub get
-      - run: dart compile ${{matrix.type}} ${{matrix.target}}
+      - name: Run dart compile exe
+        run: find example/ -name *.dart -exec dart compile exe {} \;
 
   coverage:
     runs-on: ubuntu-22.04
@@ -107,3 +101,12 @@ jobs:
       - uses: dart-lang/setup-dart@v1
       - run: dart pub get
       - run: dart test
+
+  web:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - name: Run dart compile js
+        run: find example/ -name *.dart -exec dart compile js {} \;
