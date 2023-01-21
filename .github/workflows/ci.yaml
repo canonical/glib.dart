@@ -18,11 +18,18 @@ jobs:
 
   compile:
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        type:
+          - exe
+          - js
+        target:
+          - example/utils.dart
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
       - run: dart pub get
-      - run: dart compile exe example/utils.dart
+      - run: dart compile ${{matrix.type}} ${{matrix.target}}
 
   coverage:
     runs-on: ubuntu-22.04
