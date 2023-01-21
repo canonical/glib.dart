@@ -24,15 +24,15 @@ jobs:
       - run: dart pub get
       - run: dart compile exe example/utils.dart
 
-  # coverage:
-  #   runs-on: ubuntu-22.04
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: subosito/flutter-action@v2
-  #     - run: flutter test --coverage
-  #     - uses: codecov/codecov-action@v3
-  #       with:
-  #         token: ${{secrets.CODECOV_TOKEN}}
+  coverage:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+      - run: flutter test --coverage
+      - uses: codecov/codecov-action@v3
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
 
   format:
     runs-on: ubuntu-22.04
