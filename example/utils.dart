@@ -44,7 +44,7 @@ void main() {
   print('- state: ${g_get_user_state_dir()}');
   print('- runtime: ${g_get_user_runtime_dir()}');
   print('- special directories:');
-  printUserSpecialDirectory(String type, GUserDirectory directory) {
+  void printUserSpecialDirectory(String type, GUserDirectory directory) {
     print('  - $type: ${g_get_user_special_dir(directory)}');
   }
 

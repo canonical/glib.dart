@@ -1,5 +1,7 @@
 // coverage:ignore-file
+// ignore_for_file: library_private_types_in_public_api
 // ignore_for_file: non_constant_identifier_names
+// ignore_for_file: sort_constructors_first
 // ignore_for_file: unused_element, unused_field
 
 // AUTO GENERATED FILE, DO NOT EDIT.
