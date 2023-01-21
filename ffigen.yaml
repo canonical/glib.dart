@@ -17,12 +17,18 @@ exclude-all-by-default: true
 enums:
   include:
     - 'G.*'
+globals:
+  include:
+    - 'g_.*'
+    - 'glib_.*'
 functions:
   include:
     - 'g_.*'
+    - 'glib_.*'
 macros:
   include:
     - 'G_.*'
+    - 'GLIB_.*'
 structs:
   include:
     - '_G.*'

@@ -8514,6 +8514,22 @@ class LibGLib {
   late final _g_mem_is_system_malloc =
       _g_mem_is_system_mallocPtr.asFunction<int Function()>();
 
+  late final ffi.Pointer<gboolean> _g_mem_gc_friendly =
+      _lookup<gboolean>('g_mem_gc_friendly');
+
+  int get g_mem_gc_friendly => _g_mem_gc_friendly.value;
+
+  set g_mem_gc_friendly(int value) => _g_mem_gc_friendly.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<GMemVTable>> _glib_mem_profiler_table =
+      _lookup<ffi.Pointer<GMemVTable>>('glib_mem_profiler_table');
+
+  ffi.Pointer<GMemVTable> get glib_mem_profiler_table =>
+      _glib_mem_profiler_table.value;
+
+  set glib_mem_profiler_table(ffi.Pointer<GMemVTable> value) =>
+      _glib_mem_profiler_table.value = value;
+
   void g_mem_profile() {
     return _g_mem_profile();
   }
@@ -12871,6 +12887,31 @@ class LibGLib {
   late final _g_main_context_invoke = _g_main_context_invokePtr.asFunction<
       void Function(ffi.Pointer<GMainContext>, GSourceFunc, gpointer)>();
 
+  late final ffi.Pointer<GSourceFuncs> _g_timeout_funcs =
+      _lookup<GSourceFuncs>('g_timeout_funcs');
+
+  GSourceFuncs get g_timeout_funcs => _g_timeout_funcs.ref;
+
+  late final ffi.Pointer<GSourceFuncs> _g_child_watch_funcs =
+      _lookup<GSourceFuncs>('g_child_watch_funcs');
+
+  GSourceFuncs get g_child_watch_funcs => _g_child_watch_funcs.ref;
+
+  late final ffi.Pointer<GSourceFuncs> _g_idle_funcs =
+      _lookup<GSourceFuncs>('g_idle_funcs');
+
+  GSourceFuncs get g_idle_funcs => _g_idle_funcs.ref;
+
+  late final ffi.Pointer<GSourceFuncs> _g_unix_signal_funcs =
+      _lookup<GSourceFuncs>('g_unix_signal_funcs');
+
+  GSourceFuncs get g_unix_signal_funcs => _g_unix_signal_funcs.ref;
+
+  late final ffi.Pointer<GSourceFuncs> _g_unix_fd_source_funcs =
+      _lookup<GSourceFuncs>('g_unix_fd_source_funcs');
+
+  GSourceFuncs get g_unix_fd_source_funcs => _g_unix_fd_source_funcs.ref;
+
   int g_unicode_script_to_iso15924(
     int script,
   ) {
@@ -13386,6 +13427,13 @@ class LibGLib {
   late final _g_unicode_canonical_decomposition =
       _g_unicode_canonical_decompositionPtr.asFunction<
           ffi.Pointer<gunichar> Function(int, ffi.Pointer<gsize>)>();
+
+  late final ffi.Pointer<ffi.Pointer<gchar>> _g_utf8_skip =
+      _lookup<ffi.Pointer<gchar>>('g_utf8_skip');
+
+  ffi.Pointer<gchar> get g_utf8_skip => _g_utf8_skip.value;
+
+  set g_utf8_skip(ffi.Pointer<gchar> value) => _g_utf8_skip.value = value;
 
   int g_utf8_get_char(
     ffi.Pointer<gchar> p,
@@ -15358,6 +15406,11 @@ class LibGLib {
           'g_io_channel_unix_get_fd');
   late final _g_io_channel_unix_get_fd = _g_io_channel_unix_get_fdPtr
       .asFunction<int Function(ffi.Pointer<GIOChannel>)>();
+
+  late final ffi.Pointer<GSourceFuncs> _g_io_watch_funcs =
+      _lookup<GSourceFuncs>('g_io_watch_funcs');
+
+  GSourceFuncs get g_io_watch_funcs => _g_io_watch_funcs.ref;
 
   int g_key_file_error_quark() {
     return _g_key_file_error_quark();
@@ -24692,6 +24745,13 @@ class LibGLib {
   late final _g_spawn_close_pid =
       _g_spawn_close_pidPtr.asFunction<void Function(int)>();
 
+  late final ffi.Pointer<ffi.Pointer<guint16>> _g_ascii_table =
+      _lookup<ffi.Pointer<guint16>>('g_ascii_table');
+
+  ffi.Pointer<guint16> get g_ascii_table => _g_ascii_table.value;
+
+  set g_ascii_table(ffi.Pointer<guint16> value) => _g_ascii_table.value = value;
+
   int g_ascii_tolower(
     int c,
   ) {
@@ -26757,6 +26817,14 @@ class LibGLib {
   late final _g_test_add_vtable = _g_test_add_vtablePtr.asFunction<
       void Function(ffi.Pointer<ffi.Char>, int, gconstpointer, GTestFixtureFunc,
           GTestFixtureFunc, GTestFixtureFunc)>();
+
+  late final ffi.Pointer<ffi.Pointer<GTestConfig>> _g_test_config_vars =
+      _lookup<ffi.Pointer<GTestConfig>>('g_test_config_vars');
+
+  ffi.Pointer<GTestConfig> get g_test_config_vars => _g_test_config_vars.value;
+
+  set g_test_config_vars(ffi.Pointer<GTestConfig> value) =>
+      _g_test_config_vars.value = value;
 
   ffi.Pointer<ffi.Char> g_test_log_type_name(
     int log_type,
@@ -28869,6 +28937,59 @@ class LibGLib {
   late final _g_uuid_string_random =
       _g_uuid_string_randomPtr.asFunction<ffi.Pointer<gchar> Function()>();
 
+  late final ffi.Pointer<guint> _glib_major_version =
+      _lookup<guint>('glib_major_version');
+
+  int get glib_major_version => _glib_major_version.value;
+
+  set glib_major_version(int value) => _glib_major_version.value = value;
+
+  late final ffi.Pointer<guint> _glib_minor_version =
+      _lookup<guint>('glib_minor_version');
+
+  int get glib_minor_version => _glib_minor_version.value;
+
+  set glib_minor_version(int value) => _glib_minor_version.value = value;
+
+  late final ffi.Pointer<guint> _glib_micro_version =
+      _lookup<guint>('glib_micro_version');
+
+  int get glib_micro_version => _glib_micro_version.value;
+
+  set glib_micro_version(int value) => _glib_micro_version.value = value;
+
+  late final ffi.Pointer<guint> _glib_interface_age =
+      _lookup<guint>('glib_interface_age');
+
+  int get glib_interface_age => _glib_interface_age.value;
+
+  set glib_interface_age(int value) => _glib_interface_age.value = value;
+
+  late final ffi.Pointer<guint> _glib_binary_age =
+      _lookup<guint>('glib_binary_age');
+
+  int get glib_binary_age => _glib_binary_age.value;
+
+  set glib_binary_age(int value) => _glib_binary_age.value = value;
+
+  ffi.Pointer<gchar> glib_check_version(
+    int required_major,
+    int required_minor,
+    int required_micro,
+  ) {
+    return _glib_check_version(
+      required_major,
+      required_minor,
+      required_micro,
+    );
+  }
+
+  late final _glib_check_versionPtr = _lookup<
+          ffi.NativeFunction<ffi.Pointer<gchar> Function(guint, guint, guint)>>(
+      'glib_check_version');
+  late final _glib_check_version = _glib_check_versionPtr
+      .asFunction<ffi.Pointer<gchar> Function(int, int, int)>();
+
   ffi.Pointer<GMemChunk> g_mem_chunk_new(
     ffi.Pointer<gchar> name,
     int atom_size,
@@ -29556,6 +29677,32 @@ class LibGLib {
   late final _g_tuples_index = _g_tuples_indexPtr
       .asFunction<gpointer Function(ffi.Pointer<GTuples>, int, int)>();
 
+  late final ffi.Pointer<GThreadFunctions> _g_thread_functions_for_glib_use =
+      _lookup<GThreadFunctions>('g_thread_functions_for_glib_use');
+
+  GThreadFunctions get g_thread_functions_for_glib_use =>
+      _g_thread_functions_for_glib_use.ref;
+
+  late final ffi.Pointer<gboolean> _g_thread_use_default_impl =
+      _lookup<gboolean>('g_thread_use_default_impl');
+
+  int get g_thread_use_default_impl => _g_thread_use_default_impl.value;
+
+  set g_thread_use_default_impl(int value) =>
+      _g_thread_use_default_impl.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<ffi.NativeFunction<guint64 Function()>>>
+      _g_thread_gettime =
+      _lookup<ffi.Pointer<ffi.NativeFunction<guint64 Function()>>>(
+          'g_thread_gettime');
+
+  ffi.Pointer<ffi.NativeFunction<guint64 Function()>> get g_thread_gettime =>
+      _g_thread_gettime.value;
+
+  set g_thread_gettime(
+          ffi.Pointer<ffi.NativeFunction<guint64 Function()>> value) =>
+      _g_thread_gettime.value = value;
+
   ffi.Pointer<GThread> g_thread_create(
     GThreadFunc func,
     gpointer data,
@@ -30032,6 +30179,14 @@ class LibGLib {
           'g_thread_get_initialized');
   late final _g_thread_get_initialized =
       _g_thread_get_initializedPtr.asFunction<int Function()>();
+
+  late final ffi.Pointer<gboolean> _g_threads_got_initialized =
+      _lookup<gboolean>('g_threads_got_initialized');
+
+  int get g_threads_got_initialized => _g_threads_got_initialized.value;
+
+  set g_threads_got_initialized(int value) =>
+      _g_threads_got_initialized.value = value;
 
   ffi.Pointer<GMutex> g_mutex_new() {
     return _g_mutex_new();
@@ -33279,6 +33434,26 @@ typedef GTestFixtureFunc = ffi
 
 class GTestSuite extends ffi.Opaque {}
 
+class GTestConfig extends ffi.Struct {
+  @gboolean()
+  external int test_initialized;
+
+  @gboolean()
+  external int test_quick;
+
+  @gboolean()
+  external int test_perf;
+
+  @gboolean()
+  external int test_verbose;
+
+  @gboolean()
+  external int test_quiet;
+
+  @gboolean()
+  external int test_undefined;
+}
+
 abstract class GTestResult {
   static const int G_TEST_RUN_SUCCESS = 0;
   static const int G_TEST_RUN_SKIPPED = 1;
@@ -33654,6 +33829,8 @@ class _GThreadFunctions extends ffi.Struct {
       thread_equal;
 }
 
+typedef GThreadFunctions = _GThreadFunctions;
+
 class GStaticMutex extends ffi.Struct {
   external ffi.Pointer<GMutex> mutex;
 
@@ -33803,6 +33980,14 @@ const String G_GINT64_FORMAT = 'li';
 
 const String G_GUINT64_FORMAT = 'lu';
 
+const int GLIB_SIZEOF_VOID_P = 8;
+
+const int GLIB_SIZEOF_LONG = 8;
+
+const int GLIB_SIZEOF_SIZE_T = 8;
+
+const int GLIB_SIZEOF_SSIZE_T = 8;
+
 const String G_GSIZE_MODIFIER = 'l';
 
 const String G_GSSIZE_MODIFIER = 'l';
@@ -33849,6 +34034,18 @@ const String G_MODULE_SUFFIX = 'so';
 
 const String G_PID_FORMAT = 'i';
 
+const int GLIB_SYSDEF_AF_UNIX = 1;
+
+const int GLIB_SYSDEF_AF_INET = 2;
+
+const int GLIB_SYSDEF_AF_INET6 = 10;
+
+const int GLIB_SYSDEF_MSG_OOB = 1;
+
+const int GLIB_SYSDEF_MSG_PEEK = 2;
+
+const int GLIB_SYSDEF_MSG_DONTROUTE = 4;
+
 const int G_DIR_SEPARATOR = 47;
 
 const String G_DIR_SEPARATOR_S = '/';
@@ -33856,6 +34053,64 @@ const String G_DIR_SEPARATOR_S = '/';
 const int G_SEARCHPATH_SEPARATOR = 58;
 
 const String G_SEARCHPATH_SEPARATOR_S = ':';
+
+const int GLIB_VERSION_2_26 = 137728;
+
+const int GLIB_VERSION_2_28 = 138240;
+
+const int GLIB_VERSION_2_30 = 138752;
+
+const int GLIB_VERSION_2_32 = 139264;
+
+const int GLIB_VERSION_2_34 = 139776;
+
+const int GLIB_VERSION_2_36 = 140288;
+
+const int GLIB_VERSION_2_38 = 140800;
+
+const int GLIB_VERSION_2_40 = 141312;
+
+const int GLIB_VERSION_2_42 = 141824;
+
+const int GLIB_VERSION_2_44 = 142336;
+
+const int GLIB_VERSION_2_46 = 142848;
+
+const int GLIB_VERSION_2_48 = 143360;
+
+const int GLIB_VERSION_2_50 = 143872;
+
+const int GLIB_VERSION_2_52 = 144384;
+
+const int GLIB_VERSION_2_54 = 144896;
+
+const int GLIB_VERSION_2_56 = 145408;
+
+const int GLIB_VERSION_2_58 = 145920;
+
+const int GLIB_VERSION_2_60 = 146432;
+
+const int GLIB_VERSION_2_62 = 146944;
+
+const int GLIB_VERSION_2_64 = 147456;
+
+const int GLIB_VERSION_2_66 = 147968;
+
+const int GLIB_VERSION_2_68 = 148480;
+
+const int GLIB_VERSION_2_70 = 148992;
+
+const int GLIB_VERSION_2_72 = 149504;
+
+const int GLIB_VERSION_2_74 = 150016;
+
+const int GLIB_VERSION_CUR_STABLE = 150016;
+
+const int GLIB_VERSION_PREV_STABLE = 149504;
+
+const int GLIB_VERSION_MIN_REQUIRED = 150016;
+
+const int GLIB_VERSION_MAX_ALLOWED = 150016;
 
 const int G_MININT8 = -128;
 
