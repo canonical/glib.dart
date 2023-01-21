@@ -10,38 +10,35 @@ on:
 jobs:
   analyze:
     runs-on: ubuntu-22.04
-    container:
-      image: dart:stable
     steps:
-    - uses: actions/checkout@v3
-    - run: dart pub get
-    - run: dart analyze --fatal-infos .
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - run: dart analyze --fatal-infos .
 
   compile:
     runs-on: ubuntu-22.04
-    container:
-      image: dart:stable
     steps:
-    - uses: actions/checkout@v3
-    - run: dart pub get
-    - run: dart compile exe example/utils.dart
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - run: dart compile exe example/utils.dart
 
   # coverage:
   #   runs-on: ubuntu-22.04
   #   steps:
-  #   - uses: actions/checkout@v3
-  #   - uses: subosito/flutter-action@v2
-  #   - run: flutter test --coverage
-  #   - uses: codecov/codecov-action@v3
-  #     with:
-  #       token: ${{secrets.CODECOV_TOKEN}}
+  #     - uses: actions/checkout@v3
+  #     - uses: subosito/flutter-action@v2
+  #     - run: flutter test --coverage
+  #     - uses: codecov/codecov-action@v3
+  #       with:
+  #         token: ${{secrets.CODECOV_TOKEN}}
 
   format:
     runs-on: ubuntu-22.04
-    container:
-      image: dart:stable
     steps:
       - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
       - run: dart pub get
       - run: dart format --set-exit-if-changed .
 
@@ -56,9 +53,9 @@ jobs:
   test:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v3
-    - uses: dart-lang/setup-dart@v1
-    - run: sudo apt update
-    - run: sudo apt install -y libglib2.0-0
-    - run: dart pub get
-    - run: dart test
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - run: sudo apt update
+      - run: sudo apt install -y libglib2.0-0
+      - run: dart pub get
+      - run: dart test
