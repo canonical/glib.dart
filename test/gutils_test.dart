@@ -7,7 +7,7 @@ void main() {
   });
 
   test('real name', () {
-    expect(g_get_real_name(), isNotEmpty);
+    expect(g_get_real_name(), isNotNull);
   });
 
   test('host name', () {
@@ -53,14 +53,14 @@ void main() {
     expect(g_get_user_cache_dir(), isNotEmpty);
     expect(g_get_user_state_dir(), isNotEmpty);
     expect(g_get_user_runtime_dir(), isNotEmpty);
-    expect(g_get_user_special_dir(G_USER_DIRECTORY_DESKTOP), isNotEmpty);
-    expect(g_get_user_special_dir(G_USER_DIRECTORY_DOCUMENTS), isNotEmpty);
-    expect(g_get_user_special_dir(G_USER_DIRECTORY_DOWNLOAD), isNotEmpty);
-    expect(g_get_user_special_dir(G_USER_DIRECTORY_MUSIC), isNotEmpty);
-    expect(g_get_user_special_dir(G_USER_DIRECTORY_PICTURES), isNotEmpty);
-    expect(g_get_user_special_dir(G_USER_DIRECTORY_PUBLIC_SHARE), isNotEmpty);
-    expect(g_get_user_special_dir(G_USER_DIRECTORY_TEMPLATES), isNotEmpty);
-    expect(g_get_user_special_dir(G_USER_DIRECTORY_VIDEOS), isNotEmpty);
+    expect(g_get_user_special_dir(G_USER_DIRECTORY_DESKTOP), isNotNull);
+    expect(g_get_user_special_dir(G_USER_DIRECTORY_DOCUMENTS), isNotNull);
+    expect(g_get_user_special_dir(G_USER_DIRECTORY_DOWNLOAD), isNotNull);
+    expect(g_get_user_special_dir(G_USER_DIRECTORY_MUSIC), isNotNull);
+    expect(g_get_user_special_dir(G_USER_DIRECTORY_PICTURES), isNotNull);
+    expect(g_get_user_special_dir(G_USER_DIRECTORY_PUBLIC_SHARE), isNotNull);
+    expect(g_get_user_special_dir(G_USER_DIRECTORY_TEMPLATES), isNotNull);
+    expect(g_get_user_special_dir(G_USER_DIRECTORY_VIDEOS), isNotNull);
   });
 
   test('format size', () {

@@ -54,11 +54,12 @@ jobs:
   #     - run: dart pub get
   #     - run: dart pub publish --dry-run
 
-  # test:
-  #   runs-on: ubuntu-22.04
-  #   container:
-  #     image: dart:stable
-  #   steps:
-  #   - uses: actions/checkout@v3
-  #   - run: dart pub get
-  #   - run: dart test
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+    - uses: dart-lang/setup-dart@v1
+    - run: sudo apt update
+    - run: sudo apt install -y libglib2.0-0
+    - run: dart pub get
+    - run: dart test
