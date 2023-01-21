@@ -79,3 +79,31 @@ jobs:
         env:
           # file system relative paths not allowed in hardened programs
           LIBGLIB_PATH: /usr/local/Cellar/glib/2.74.4/lib/libglib-2.0.dylib
+
+  windows:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v3
+      - run: python -m pip install meson ninja
+      - uses: ilammy/msvc-dev-cmd@v1
+      - name: Cache glib
+        id: cache-glib
+        uses: actions/cache@v3
+        with:
+          path: C:\glib
+          key: ${{runner.os}}-glib
+      - name: Build glib
+        if: steps.cache-glib.outputs.cache-hit != 'true'
+        run: |
+          git clone --depth 1 --branch 2.75.2 https://github.com/GNOME/glib.git
+          cd glib
+          mkdir _build
+          cd _build
+          meson .. --prefix=C:\glib
+          ninja
+          ninja install
+      - name: Add glib to PATH
+        run: echo "C:\glib\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - run: dart test
