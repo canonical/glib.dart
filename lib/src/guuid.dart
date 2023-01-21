@@ -5,6 +5,6 @@ gboolean g_uuid_string_is_valid(String str) => glib.g_uuid_string_is_valid(str);
 String g_uuid_string_random() => glib.g_uuid_string_random();
 
 mixin GUuidMixin {
-  gboolean g_uuid_string_is_valid(String str);
-  String g_uuid_string_random();
+  gboolean g_uuid_string_is_valid(String str) => throw UnimplementedError();
+  String g_uuid_string_random() => throw UnimplementedError();
 }

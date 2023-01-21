@@ -12,12 +12,13 @@ String? glib_check_version(
     glib.glib_check_version(required_major, required_minor, required_micro);
 
 mixin GVersionMixin {
-  guint get glib_major_version;
-  guint get glib_minor_version;
-  guint get glib_micro_version;
-  guint get glib_interface_age;
-  guint get glib_binary_age;
+  guint get glib_major_version => throw UnimplementedError();
+  guint get glib_minor_version => throw UnimplementedError();
+  guint get glib_micro_version => throw UnimplementedError();
+  guint get glib_interface_age => throw UnimplementedError();
+  guint get glib_binary_age => throw UnimplementedError();
 
   String? glib_check_version(
-      guint required_major, guint required_minor, guint required_micro);
+          guint required_major, guint required_minor, guint required_micro) =>
+      throw UnimplementedError();
 }
