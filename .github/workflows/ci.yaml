@@ -57,7 +57,7 @@ jobs:
       - run: dart pub get
       - run: dart pub publish --dry-run
 
-  test:
+  ubuntu:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
@@ -66,3 +66,16 @@ jobs:
       - run: sudo apt install -y libglib2.0-0
       - run: dart pub get
       - run: dart test
+
+  macos:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - run: brew install glib
+      - run: brew list glib
+      - run: dart pub get
+      - run: dart test
+        env:
+          # file system relative paths not allowed in hardened programs
+          LIBGLIB_PATH: /usr/local/Cellar/glib/2.74.4/lib/libglib-2.0.dylib
