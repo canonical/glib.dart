@@ -70,36 +70,39 @@ gint g_bit_nth_msf(gulong mask, gint nth_bit) =>
 guint g_bit_storage(gulong number) => glib.g_bit_storage(number);
 
 mixin GUtilsMixin {
-  String g_get_user_name();
-  String g_get_real_name();
-  String g_get_home_dir();
-  String g_get_tmp_dir();
-  String g_get_host_name();
+  String g_get_user_name() => throw UnimplementedError();
+  String g_get_real_name() => throw UnimplementedError();
+  String g_get_home_dir() => throw UnimplementedError();
+  String g_get_tmp_dir() => throw UnimplementedError();
+  String g_get_host_name() => throw UnimplementedError();
 
-  String? g_get_prg_name();
-  void g_set_prg_name(String prg_name);
+  String? g_get_prg_name() => throw UnimplementedError();
+  void g_set_prg_name(String prg_name) => throw UnimplementedError();
 
-  String? g_get_application_name();
-  void g_set_application_name(String application_name);
+  String? g_get_application_name() => throw UnimplementedError();
+  void g_set_application_name(String application_name) =>
+      throw UnimplementedError();
 
-  String? g_get_os_info(String key);
+  String? g_get_os_info(String key) => throw UnimplementedError();
 
-  void g_reload_user_special_dirs_cache();
-  String g_get_user_data_dir();
-  String g_get_user_config_dir();
-  String g_get_user_cache_dir();
-  String g_get_user_state_dir();
-  List<String> g_get_system_data_dirs();
-  List<String> g_get_system_config_dirs();
-  String g_get_user_runtime_dir();
-  String? g_get_user_special_dir(GUserDirectory directory);
+  void g_reload_user_special_dirs_cache() => throw UnimplementedError();
+  String g_get_user_data_dir() => throw UnimplementedError();
+  String g_get_user_config_dir() => throw UnimplementedError();
+  String g_get_user_cache_dir() => throw UnimplementedError();
+  String g_get_user_state_dir() => throw UnimplementedError();
+  List<String> g_get_system_data_dirs() => throw UnimplementedError();
+  List<String> g_get_system_config_dirs() => throw UnimplementedError();
+  String g_get_user_runtime_dir() => throw UnimplementedError();
+  String? g_get_user_special_dir(GUserDirectory directory) =>
+      throw UnimplementedError();
 
-  String g_format_size_full(guint64 size, GFormatSizeFlags flags);
-  String g_format_size(guint64 size);
+  String g_format_size_full(guint64 size, GFormatSizeFlags flags) =>
+      throw UnimplementedError();
+  String g_format_size(guint64 size) => throw UnimplementedError();
 
-  String? g_find_program_in_path(String program);
+  String? g_find_program_in_path(String program) => throw UnimplementedError();
 
-  gint g_bit_nth_lsf(gulong mask, gint nth_bit);
-  gint g_bit_nth_msf(gulong mask, gint nth_bit);
-  guint g_bit_storage(gulong number);
+  gint g_bit_nth_lsf(gulong mask, gint nth_bit) => throw UnimplementedError();
+  gint g_bit_nth_msf(gulong mask, gint nth_bit) => throw UnimplementedError();
+  guint g_bit_storage(gulong number) => throw UnimplementedError();
 }
