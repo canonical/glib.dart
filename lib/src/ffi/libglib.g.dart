@@ -39328,6 +39328,15 @@ class LibGLib {
   late final _g_value_set_string_take_ownership =
       _g_value_set_string_take_ownershipPtr
           .asFunction<void Function(ffi.Pointer<GValue>, ffi.Pointer<gchar>)>();
+
+  late final addresses = _SymbolAddresses(this);
+}
+
+class _SymbolAddresses {
+  final LibGLib _library;
+  _SymbolAddresses(this._library);
+  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<GTimeZone>)>>
+      get g_time_zone_unref => _library._g_time_zone_unrefPtr;
 }
 
 class _GTimeVal extends ffi.Struct {

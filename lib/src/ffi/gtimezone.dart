@@ -28,7 +28,7 @@ mixin GTimeZoneFfiMixin on GTimeZoneMixin {
 
 class GTimeZoneFfi extends GTimeZone implements ffi.Finalizable {
   GTimeZoneFfi(this._ptr) {
-    finalizer.attach(this, _ptr);
+    finalizer.attach(this, _ptr, lib.addresses.g_time_zone_unref);
   }
 
   final ffi.Pointer<g.GTimeZone> _ptr;
