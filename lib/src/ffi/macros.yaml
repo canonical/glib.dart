@@ -1,0 +1,16 @@
+output: '../gmacros.g.dart'
+preamble: |
+  // coverage:ignore-file
+  // ignore_for_file: non_constant_identifier_names
+headers:
+  entry-points:
+    - '/usr/include/glib-2.0/glib.h'
+    - '/usr/include/glib-2.0/glib-object.h'
+compiler-opts:
+  - '-I/usr/include/glib-2.0'
+  - '-I/usr/lib/x86_64-linux-gnu/glib-2.0/include'
+exclude-all-by-default: true
+macros:
+  include:
+    - 'G_.*'
+    - 'GLIB_.*'

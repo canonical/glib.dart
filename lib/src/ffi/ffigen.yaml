@@ -29,10 +29,6 @@ functions:
   symbol-address:
     include:
       - 'g_time_zone_unref'
-macros:
-  include:
-    - 'G_.*'
-    - 'GLIB_.*'
 structs:
   include:
     - '_G.*'
