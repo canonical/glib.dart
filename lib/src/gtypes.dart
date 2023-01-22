@@ -9,6 +9,8 @@ typedef gushort = int;
 typedef gulong = int;
 typedef guint = int;
 
+typedef gint32 = int;
+typedef guint32 = int;
 typedef gint64 = int;
 typedef guint64 = int; // :(
 
