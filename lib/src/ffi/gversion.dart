@@ -4,20 +4,20 @@ import 'libglib.dart';
 
 mixin GVersionFfiMixin on GVersionMixin {
   @override
-  int get glib_major_version => lib.glib_major_version;
+  int get glib_major_version => libglib.glib_major_version;
   @override
-  int get glib_minor_version => lib.glib_minor_version;
+  int get glib_minor_version => libglib.glib_minor_version;
   @override
-  int get glib_micro_version => lib.glib_micro_version;
+  int get glib_micro_version => libglib.glib_micro_version;
   @override
-  int get glib_interface_age => lib.glib_interface_age;
+  int get glib_interface_age => libglib.glib_interface_age;
   @override
-  int get glib_binary_age => lib.glib_binary_age;
+  int get glib_binary_age => libglib.glib_binary_age;
 
   @override
   String? glib_check_version(
       int required_major, int required_minor, int required_micro) {
-    return lib
+    return libglib
         .glib_check_version(required_major, required_minor, required_micro)
         .toDartString();
   }
