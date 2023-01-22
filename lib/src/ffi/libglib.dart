@@ -3,20 +3,11 @@ import 'dart:io' as io;
 
 import 'package:meta/meta.dart';
 
-import '../glib.dart';
-import 'gtimezone.dart';
-import 'gutils.dart';
-import 'guuid.dart';
-import 'gversion.dart';
 import 'libglib.g.dart';
 
-final glib = GLib();
-
-class GLib extends GLibInterface
-    with GTimeZoneFfiMixin, GUtilsFfiMixin, GUuidFfiMixin, GVersionFfiMixin {}
-
-LibGLib? _lib;
-LibGLib get lib => _lib ??= LibGLib(ffi.DynamicLibrary.open(_env ?? _platform));
+LibGLib? _libglib;
+LibGLib get libglib =>
+    _libglib ??= LibGLib(ffi.DynamicLibrary.open(_env ?? _platform));
 
 String? get _env => io.Platform.environment['LIBGLIB_PATH'];
 String get _platform {
@@ -26,4 +17,4 @@ String get _platform {
 }
 
 @visibleForTesting
-void overrideLibGLibForTesting(LibGLib lib) => _lib = lib;
+void overrideLibGLibForTesting(LibGLib lib) => _libglib = lib;

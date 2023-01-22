@@ -8,16 +8,16 @@ mixin GUuidFfiMixin on GUuidMixin {
   @override
   bool g_uuid_string_is_valid(String str) {
     return ffi.using((arena) {
-      return lib.g_uuid_string_is_valid(str.toCString(arena)) != 0;
+      return libglib.g_uuid_string_is_valid(str.toCString(arena)) != 0;
     });
   }
 
   @override
   String g_uuid_string_random() {
     return ffi.using((arena) {
-      final ptr = lib.g_uuid_string_random();
+      final ptr = libglib.g_uuid_string_random();
       final res = ptr.toDartString();
-      lib.g_free(ptr.cast());
+      libglib.g_free(ptr.cast());
       return res!;
     });
   }
