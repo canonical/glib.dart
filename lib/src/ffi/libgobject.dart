@@ -6,7 +6,7 @@ import 'package:meta/meta.dart';
 import 'libgobject.g.dart';
 
 LibGObject? _libgobject;
-LibGObject get libobject =>
+LibGObject get libgobject =>
     _libgobject ??= LibGObject(ffi.DynamicLibrary.open(_env ?? _platform));
 
 String? get _env => io.Platform.environment['LIBGOBJECT_PATH'];

@@ -28998,6 +28998,8 @@ class _SymbolAddresses {
   _SymbolAddresses(this._library);
   ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<GTimeZone>)>>
       get g_time_zone_unref => _library._g_time_zone_unrefPtr;
+  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(gpointer)>> get g_free =>
+      _library._g_freePtr;
 }
 
 class _GTimeVal extends ffi.Struct {

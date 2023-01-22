@@ -9098,6 +9098,15 @@ class LibGObject {
   late final _g_value_set_string_take_ownership =
       _g_value_set_string_take_ownershipPtr
           .asFunction<void Function(ffi.Pointer<GValue>, ffi.Pointer<gchar>)>();
+
+  late final addresses = _SymbolAddresses(this);
+}
+
+class _SymbolAddresses {
+  final LibGObject _library;
+  _SymbolAddresses(this._library);
+  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<GValue>)>>
+      get g_value_unset => _library._g_value_unsetPtr;
 }
 
 /// GValue:
