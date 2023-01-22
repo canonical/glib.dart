@@ -12,18 +12,6 @@ String? g_get_application_name() => glib.g_get_application_name();
 void g_set_application_name(String application_name) =>
     glib.g_set_application_name(application_name);
 
-const String G_OS_INFO_KEY_NAME = 'NAME';
-const String G_OS_INFO_KEY_PRETTY_NAME = 'PRETTY_NAME';
-const String G_OS_INFO_KEY_VERSION = 'VERSION';
-const String G_OS_INFO_KEY_VERSION_CODENAME = 'VERSION_CODENAME';
-const String G_OS_INFO_KEY_VERSION_ID = 'VERSION_ID';
-const String G_OS_INFO_KEY_ID = 'ID';
-const String G_OS_INFO_KEY_HOME_URL = 'HOME_URL';
-const String G_OS_INFO_KEY_DOCUMENTATION_URL = 'DOCUMENTATION_URL';
-const String G_OS_INFO_KEY_SUPPORT_URL = 'SUPPORT_URL';
-const String G_OS_INFO_KEY_BUG_REPORT_URL = 'BUG_REPORT_URL';
-const String G_OS_INFO_KEY_PRIVACY_POLICY_URL = 'PRIVACY_POLICY_URL';
-
 String? g_get_os_info(String key) => glib.g_get_os_info(key);
 
 void g_reload_user_special_dirs_cache() =>

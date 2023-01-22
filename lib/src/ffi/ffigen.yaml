@@ -1,6 +1,6 @@
 name: LibGLib
 description: GLib
-output: 'lib/src/ffi/libglib.g.dart'
+output: 'libglib.g.dart'
 preamble: |
   // coverage:ignore-file
   // ignore_for_file: library_private_types_in_public_api
@@ -29,10 +29,6 @@ functions:
   symbol-address:
     include:
       - 'g_time_zone_unref'
-macros:
-  include:
-    - 'G_.*'
-    - 'GLIB_.*'
 structs:
   include:
     - '_G.*'
