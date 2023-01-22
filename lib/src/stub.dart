@@ -2,4 +2,9 @@ import 'glib.dart';
 
 final glib = GLibStub();
 
-class GLibStub extends GLibInterface {}
+class GLibStub implements GLibInterface {
+  @override
+  dynamic noSuchMethod(Invocation invocation) {
+    throw UnimplementedError(invocation.memberName.toString().split('"')[1]);
+  }
+}
