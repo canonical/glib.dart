@@ -25,6 +25,9 @@ globals:
 functions:
   include:
     - 'g_.*'
+  symbol-address:
+    include:
+      - 'g_value_unset'
 structs:
   include:
     - '_G.*'

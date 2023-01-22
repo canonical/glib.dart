@@ -73,6 +73,7 @@ jobs:
         env:
           # file system relative paths not allowed in hardened programs
           LIBGLIB_PATH: /usr/local/Cellar/glib/2.74.4/lib/libglib-2.0.dylib
+          LIBGOBJECT_PATH: /usr/local/Cellar/glib/2.74.4/lib/libgobject-2.0.dylib
 
   windows:
     runs-on: windows-2022

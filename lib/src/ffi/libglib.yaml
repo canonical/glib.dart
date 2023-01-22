@@ -29,6 +29,7 @@ functions:
     - 'glib_.*'
   symbol-address:
     include:
+      - 'g_free'
       - 'g_time_zone_unref'
 structs:
   include:
