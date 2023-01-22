@@ -26,6 +26,9 @@ functions:
   include:
     - 'g_.*'
     - 'glib_.*'
+  symbol-address:
+    include:
+      - 'g_time_zone_unref'
 macros:
   include:
     - 'G_.*'

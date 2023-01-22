@@ -16,8 +16,7 @@ class GLib extends GLibInterface
     with GTimeZoneFfiMixin, GUtilsFfiMixin, GUuidFfiMixin, GVersionFfiMixin {}
 
 LibGLib? _lib;
-LibGLib get lib => _lib ??= LibGLib(dylib);
-final dylib = ffi.DynamicLibrary.open(_env ?? _platform);
+LibGLib get lib => _lib ??= LibGLib(ffi.DynamicLibrary.open(_env ?? _platform));
 
 String? get _env => io.Platform.environment['LIBGLIB_PATH'];
 String get _platform {

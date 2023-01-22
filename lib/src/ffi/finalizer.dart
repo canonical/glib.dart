@@ -2,9 +2,6 @@ import 'dart:ffi' as ffi;
 
 import 'package:meta/meta.dart';
 
-import 'libglib.dart';
-import 'libglib.g.dart' as g;
-
 GLibFinalizer? _finalizer;
 GLibFinalizer get finalizer => _finalizer ??= GLibFinalizer();
 
@@ -12,21 +9,19 @@ GLibFinalizer get finalizer => _finalizer ??= GLibFinalizer();
 void overrideFinalizerForTesting(GLibFinalizer? finalizer) =>
     _finalizer = finalizer;
 
-final _objects = <Object, ffi.NativeFinalizer>{};
-final _finalizers = {
-  g.GTimeZone: ffi.NativeFinalizer(dylib.lookup('g_time_zone_unref')),
-};
+final _finalizables = <Object, ffi.NativeFinalizer>{};
 
 class GLibFinalizer {
-  void attach<T extends ffi.NativeType>(
-    ffi.Finalizable object,
-    ffi.Pointer<T> ptr,
+  void attach(
+    ffi.Finalizable finalizable,
+    ffi.Pointer<ffi.NativeType> instance,
+    ffi.Pointer<ffi.NativeFunction> unref,
   ) {
-    _objects[object] = _finalizers[T]!
-      ..attach(object, ptr.cast(), detach: object);
+    _finalizables[finalizable] = ffi.NativeFinalizer(unref.cast())
+      ..attach(finalizable, instance.cast(), detach: finalizable);
   }
 
   void detach(ffi.Finalizable object) {
-    _objects.remove(object)!.detach(object);
+    _finalizables.remove(object)!.detach(object);
   }
 }
