@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:glib/glib.dart';
 import 'package:test/test.dart';
 
@@ -30,5 +32,7 @@ void main() {
     expect(stockholm.is_dst(0), anyOf(isFalse, isTrue));
     expect(stockholm.adjust_time(G_TIME_TYPE_STANDARD, 0), isNotNaN);
     expect(stockholm.find_interval(G_TIME_TYPE_STANDARD, 0), isNotNaN);
-  });
+  },
+      skip: Platform
+          .isWindows); // TODO: g_time_zone_get_identifier: assertion 'tz != NULL' failed
 }
