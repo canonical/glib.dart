@@ -16,21 +16,15 @@ compiler-opts:
   - '-I/usr/include/glib-2.0'
   - '-I/usr/lib/x86_64-linux-gnu/glib-2.0/include'
 exclude-all-by-default: true
-enums:
-  include:
-    - 'G.*'
-globals:
-  include:
-    - 'g_.*'
 functions:
   include:
-    - 'g_.*'
+    - 'g_value_.*'
   symbol-address:
     include:
       - 'g_value_unset'
 structs:
   include:
-    - '_G.*'
+    - '_GValue'
 typedefs:
   include:
-    - '[Gg].*'
+    - 'GValue'
