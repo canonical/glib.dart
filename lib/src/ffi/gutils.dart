@@ -23,34 +23,11 @@ mixin GUtilsFfiMixin on GUtilsMixin {
   String getHostName() => libglib.g_get_host_name().toDartString()!;
 
   @override
-  String? getPrgName() => libglib.g_get_prgname().toDartString();
-
-  @override
-  void setPrgName(String prg_name) {
-    ffi.using((arena) => libglib.g_set_prgname(prg_name.toCString(arena)));
-  }
-
-  @override
-  String? getApplicationName() =>
-      libglib.g_get_application_name().toDartString();
-
-  @override
-  void setApplicationName(String application_name) {
-    ffi.using((arena) {
-      libglib.g_set_application_name(application_name.toCString(arena));
-    });
-  }
-
-  @override
   String? getOsInfo(String key) {
     return ffi.using((arena) {
       return libglib.g_get_os_info(key.toCString(arena)).toDartString();
     });
   }
-
-  @override
-  void reloadUserSpecialDirsCache() =>
-      libglib.g_reload_user_special_dirs_cache();
 
   @override
   String getUserDataDir() => libglib.g_get_user_data_dir().toDartString()!;

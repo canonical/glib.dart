@@ -9,10 +9,6 @@ mixin GVersionFfiMixin on GVersionMixin {
   int get minorVersion => libglib.glib_minor_version;
   @override
   int get microVersion => libglib.glib_micro_version;
-  @override
-  int get interfaceAge => libglib.glib_interface_age;
-  @override
-  int get binaryAge => libglib.glib_binary_age;
 
   @override
   String? checkVersion(

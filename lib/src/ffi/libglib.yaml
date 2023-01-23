@@ -16,28 +16,17 @@ compiler-opts:
   - '-I/usr/include/glib-2.0'
   - '-I/usr/lib/x86_64-linux-gnu/glib-2.0/include'
 exclude-all-by-default: true
-enums:
-  include:
-    - 'G.*'
 globals:
   include:
-    - 'g_.*'
-    - 'glib_.*'
+    - 'glib_.*_version'
 functions:
   include:
     - 'g_find_program_in_path'
     - 'g_format_size_full'
     - 'g_free'
     - 'g_get_.*'
-    - 'g_reload_user_special_dirs_cache'
     - 'g_set_.*'
     - 'glib_.*'
   symbol-address:
     include:
       - 'g_free'
-structs:
-  include:
-    - '_G.*'
-typedefs:
-  include:
-    - '[Gg].*'

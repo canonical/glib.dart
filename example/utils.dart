@@ -5,8 +5,6 @@ void main() {
   print('- user name: ${glib.getUserName()}');
   print('- real name: ${glib.getRealName()}');
   print('- host name: ${glib.getHostName()}');
-  print('- prg name: ${glib.getPrgName()}');
-  print('- application name: ${glib.getApplicationName()}');
 
   void printOsInfo(String key) {
     print(

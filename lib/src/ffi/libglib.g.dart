@@ -25,10 +25,10 @@ class LibGLib {
       : _lookup = lookup;
 
   void g_set_error(
-    ffi.Pointer<ffi.Pointer<GError>> err,
+    ffi.Pointer<ffi.Pointer<_GError>> err,
     int domain,
     int code,
-    ffi.Pointer<gchar> format,
+    ffi.Pointer<ffi.Char> format,
   ) {
     return _g_set_error(
       err,
@@ -40,17 +40,17 @@ class LibGLib {
 
   late final _g_set_errorPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(ffi.Pointer<ffi.Pointer<GError>>, GQuark, gint,
-              ffi.Pointer<gchar>)>>('g_set_error');
+          ffi.Void Function(ffi.Pointer<ffi.Pointer<_GError>>, ffi.UnsignedInt,
+              ffi.Int, ffi.Pointer<ffi.Char>)>>('g_set_error');
   late final _g_set_error = _g_set_errorPtr.asFunction<
-      void Function(
-          ffi.Pointer<ffi.Pointer<GError>>, int, int, ffi.Pointer<gchar>)>();
+      void Function(ffi.Pointer<ffi.Pointer<_GError>>, int, int,
+          ffi.Pointer<ffi.Char>)>();
 
   void g_set_error_literal(
-    ffi.Pointer<ffi.Pointer<GError>> err,
+    ffi.Pointer<ffi.Pointer<_GError>> err,
     int domain,
     int code,
-    ffi.Pointer<gchar> message,
+    ffi.Pointer<ffi.Char> message,
   ) {
     return _g_set_error_literal(
       err,
@@ -62,74 +62,74 @@ class LibGLib {
 
   late final _g_set_error_literalPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Void Function(ffi.Pointer<ffi.Pointer<GError>>, GQuark, gint,
-              ffi.Pointer<gchar>)>>('g_set_error_literal');
+          ffi.Void Function(ffi.Pointer<ffi.Pointer<_GError>>, ffi.UnsignedInt,
+              ffi.Int, ffi.Pointer<ffi.Char>)>>('g_set_error_literal');
   late final _g_set_error_literal = _g_set_error_literalPtr.asFunction<
-      void Function(
-          ffi.Pointer<ffi.Pointer<GError>>, int, int, ffi.Pointer<gchar>)>();
+      void Function(ffi.Pointer<ffi.Pointer<_GError>>, int, int,
+          ffi.Pointer<ffi.Char>)>();
 
-  ffi.Pointer<gchar> g_get_user_name() {
+  ffi.Pointer<ffi.Char> g_get_user_name() {
     return _g_get_user_name();
   }
 
   late final _g_get_user_namePtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_user_name');
   late final _g_get_user_name =
-      _g_get_user_namePtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_user_namePtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
-  ffi.Pointer<gchar> g_get_real_name() {
+  ffi.Pointer<ffi.Char> g_get_real_name() {
     return _g_get_real_name();
   }
 
   late final _g_get_real_namePtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_real_name');
   late final _g_get_real_name =
-      _g_get_real_namePtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_real_namePtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
-  ffi.Pointer<gchar> g_get_home_dir() {
+  ffi.Pointer<ffi.Char> g_get_home_dir() {
     return _g_get_home_dir();
   }
 
   late final _g_get_home_dirPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_home_dir');
   late final _g_get_home_dir =
-      _g_get_home_dirPtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_home_dirPtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
-  ffi.Pointer<gchar> g_get_tmp_dir() {
+  ffi.Pointer<ffi.Char> g_get_tmp_dir() {
     return _g_get_tmp_dir();
   }
 
   late final _g_get_tmp_dirPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_tmp_dir');
   late final _g_get_tmp_dir =
-      _g_get_tmp_dirPtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_tmp_dirPtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
-  ffi.Pointer<gchar> g_get_host_name() {
+  ffi.Pointer<ffi.Char> g_get_host_name() {
     return _g_get_host_name();
   }
 
   late final _g_get_host_namePtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_host_name');
   late final _g_get_host_name =
-      _g_get_host_namePtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_host_namePtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
-  ffi.Pointer<gchar> g_get_prgname() {
+  ffi.Pointer<ffi.Char> g_get_prgname() {
     return _g_get_prgname();
   }
 
   late final _g_get_prgnamePtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_prgname');
   late final _g_get_prgname =
-      _g_get_prgnamePtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_prgnamePtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
   void g_set_prgname(
-    ffi.Pointer<gchar> prgname,
+    ffi.Pointer<ffi.Char> prgname,
   ) {
     return _g_set_prgname(
       prgname,
@@ -137,23 +137,23 @@ class LibGLib {
   }
 
   late final _g_set_prgnamePtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<gchar>)>>(
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
           'g_set_prgname');
   late final _g_set_prgname =
-      _g_set_prgnamePtr.asFunction<void Function(ffi.Pointer<gchar>)>();
+      _g_set_prgnamePtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
 
-  ffi.Pointer<gchar> g_get_application_name() {
+  ffi.Pointer<ffi.Char> g_get_application_name() {
     return _g_get_application_name();
   }
 
   late final _g_get_application_namePtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_application_name');
   late final _g_get_application_name =
-      _g_get_application_namePtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_application_namePtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
   void g_set_application_name(
-    ffi.Pointer<gchar> application_name,
+    ffi.Pointer<ffi.Char> application_name,
   ) {
     return _g_set_application_name(
       application_name,
@@ -161,13 +161,13 @@ class LibGLib {
   }
 
   late final _g_set_application_namePtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<gchar>)>>(
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
           'g_set_application_name');
   late final _g_set_application_name = _g_set_application_namePtr
-      .asFunction<void Function(ffi.Pointer<gchar>)>();
+      .asFunction<void Function(ffi.Pointer<ffi.Char>)>();
 
-  ffi.Pointer<gchar> g_get_os_info(
-    ffi.Pointer<gchar> key_name,
+  ffi.Pointer<ffi.Char> g_get_os_info(
+    ffi.Pointer<ffi.Char> key_name,
   ) {
     return _g_get_os_info(
       key_name,
@@ -175,92 +175,83 @@ class LibGLib {
   }
 
   late final _g_get_os_infoPtr = _lookup<
-          ffi.NativeFunction<ffi.Pointer<gchar> Function(ffi.Pointer<gchar>)>>(
-      'g_get_os_info');
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Char> Function(
+              ffi.Pointer<ffi.Char>)>>('g_get_os_info');
   late final _g_get_os_info = _g_get_os_infoPtr
-      .asFunction<ffi.Pointer<gchar> Function(ffi.Pointer<gchar>)>();
+      .asFunction<ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Char>)>();
 
-  void g_reload_user_special_dirs_cache() {
-    return _g_reload_user_special_dirs_cache();
-  }
-
-  late final _g_reload_user_special_dirs_cachePtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function()>>(
-          'g_reload_user_special_dirs_cache');
-  late final _g_reload_user_special_dirs_cache =
-      _g_reload_user_special_dirs_cachePtr.asFunction<void Function()>();
-
-  ffi.Pointer<gchar> g_get_user_data_dir() {
+  ffi.Pointer<ffi.Char> g_get_user_data_dir() {
     return _g_get_user_data_dir();
   }
 
   late final _g_get_user_data_dirPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_user_data_dir');
   late final _g_get_user_data_dir =
-      _g_get_user_data_dirPtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_user_data_dirPtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
-  ffi.Pointer<gchar> g_get_user_config_dir() {
+  ffi.Pointer<ffi.Char> g_get_user_config_dir() {
     return _g_get_user_config_dir();
   }
 
   late final _g_get_user_config_dirPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_user_config_dir');
   late final _g_get_user_config_dir =
-      _g_get_user_config_dirPtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_user_config_dirPtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
-  ffi.Pointer<gchar> g_get_user_cache_dir() {
+  ffi.Pointer<ffi.Char> g_get_user_cache_dir() {
     return _g_get_user_cache_dir();
   }
 
   late final _g_get_user_cache_dirPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_user_cache_dir');
   late final _g_get_user_cache_dir =
-      _g_get_user_cache_dirPtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_user_cache_dirPtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
-  ffi.Pointer<gchar> g_get_user_state_dir() {
+  ffi.Pointer<ffi.Char> g_get_user_state_dir() {
     return _g_get_user_state_dir();
   }
 
   late final _g_get_user_state_dirPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_user_state_dir');
   late final _g_get_user_state_dir =
-      _g_get_user_state_dirPtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_user_state_dirPtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
-  ffi.Pointer<ffi.Pointer<gchar>> g_get_system_data_dirs() {
+  ffi.Pointer<ffi.Pointer<ffi.Char>> g_get_system_data_dirs() {
     return _g_get_system_data_dirs();
   }
 
-  late final _g_get_system_data_dirsPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Pointer<gchar>> Function()>>(
-          'g_get_system_data_dirs');
+  late final _g_get_system_data_dirsPtr = _lookup<
+          ffi.NativeFunction<ffi.Pointer<ffi.Pointer<ffi.Char>> Function()>>(
+      'g_get_system_data_dirs');
   late final _g_get_system_data_dirs = _g_get_system_data_dirsPtr
-      .asFunction<ffi.Pointer<ffi.Pointer<gchar>> Function()>();
+      .asFunction<ffi.Pointer<ffi.Pointer<ffi.Char>> Function()>();
 
-  ffi.Pointer<ffi.Pointer<gchar>> g_get_system_config_dirs() {
+  ffi.Pointer<ffi.Pointer<ffi.Char>> g_get_system_config_dirs() {
     return _g_get_system_config_dirs();
   }
 
-  late final _g_get_system_config_dirsPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Pointer<gchar>> Function()>>(
-          'g_get_system_config_dirs');
+  late final _g_get_system_config_dirsPtr = _lookup<
+          ffi.NativeFunction<ffi.Pointer<ffi.Pointer<ffi.Char>> Function()>>(
+      'g_get_system_config_dirs');
   late final _g_get_system_config_dirs = _g_get_system_config_dirsPtr
-      .asFunction<ffi.Pointer<ffi.Pointer<gchar>> Function()>();
+      .asFunction<ffi.Pointer<ffi.Pointer<ffi.Char>> Function()>();
 
-  ffi.Pointer<gchar> g_get_user_runtime_dir() {
+  ffi.Pointer<ffi.Char> g_get_user_runtime_dir() {
     return _g_get_user_runtime_dir();
   }
 
   late final _g_get_user_runtime_dirPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_user_runtime_dir');
   late final _g_get_user_runtime_dir =
-      _g_get_user_runtime_dirPtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_user_runtime_dirPtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
-  ffi.Pointer<gchar> g_get_user_special_dir(
+  ffi.Pointer<ffi.Char> g_get_user_special_dir(
     int directory,
   ) {
     return _g_get_user_special_dir(
@@ -269,12 +260,12 @@ class LibGLib {
   }
 
   late final _g_get_user_special_dirPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function(ffi.Int32)>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function(ffi.Int32)>>(
           'g_get_user_special_dir');
-  late final _g_get_user_special_dir =
-      _g_get_user_special_dirPtr.asFunction<ffi.Pointer<gchar> Function(int)>();
+  late final _g_get_user_special_dir = _g_get_user_special_dirPtr
+      .asFunction<ffi.Pointer<ffi.Char> Function(int)>();
 
-  ffi.Pointer<gchar> g_format_size_full(
+  ffi.Pointer<ffi.Char> g_format_size_full(
     int size,
     int flags,
   ) {
@@ -285,13 +276,14 @@ class LibGLib {
   }
 
   late final _g_format_size_fullPtr = _lookup<
-          ffi.NativeFunction<ffi.Pointer<gchar> Function(guint64, ffi.Int32)>>(
-      'g_format_size_full');
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Char> Function(
+              ffi.UnsignedLong, ffi.Int32)>>('g_format_size_full');
   late final _g_format_size_full = _g_format_size_fullPtr
-      .asFunction<ffi.Pointer<gchar> Function(int, int)>();
+      .asFunction<ffi.Pointer<ffi.Char> Function(int, int)>();
 
-  ffi.Pointer<gchar> g_find_program_in_path(
-    ffi.Pointer<gchar> program,
+  ffi.Pointer<ffi.Char> g_find_program_in_path(
+    ffi.Pointer<ffi.Char> program,
   ) {
     return _g_find_program_in_path(
       program,
@@ -299,17 +291,19 @@ class LibGLib {
   }
 
   late final _g_find_program_in_pathPtr = _lookup<
-          ffi.NativeFunction<ffi.Pointer<gchar> Function(ffi.Pointer<gchar>)>>(
-      'g_find_program_in_path');
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Char> Function(
+              ffi.Pointer<ffi.Char>)>>('g_find_program_in_path');
   late final _g_find_program_in_path = _g_find_program_in_pathPtr
-      .asFunction<ffi.Pointer<gchar> Function(ffi.Pointer<gchar>)>();
+      .asFunction<ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Char>)>();
 
   int g_get_num_processors() {
     return _g_get_num_processors();
   }
 
   late final _g_get_num_processorsPtr =
-      _lookup<ffi.NativeFunction<guint Function()>>('g_get_num_processors');
+      _lookup<ffi.NativeFunction<ffi.UnsignedInt Function()>>(
+          'g_get_num_processors');
   late final _g_get_num_processors =
       _g_get_num_processorsPtr.asFunction<int Function()>();
 
@@ -323,20 +317,20 @@ class LibGLib {
 
   late final _g_get_charsetPtr = _lookup<
       ffi.NativeFunction<
-          gboolean Function(
+          ffi.Int Function(
               ffi.Pointer<ffi.Pointer<ffi.Char>>)>>('g_get_charset');
   late final _g_get_charset = _g_get_charsetPtr
       .asFunction<int Function(ffi.Pointer<ffi.Pointer<ffi.Char>>)>();
 
-  ffi.Pointer<gchar> g_get_codeset() {
+  ffi.Pointer<ffi.Char> g_get_codeset() {
     return _g_get_codeset();
   }
 
   late final _g_get_codesetPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_codeset');
   late final _g_get_codeset =
-      _g_get_codesetPtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_codesetPtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
   int g_get_console_charset(
     ffi.Pointer<ffi.Pointer<ffi.Char>> charset,
@@ -348,23 +342,23 @@ class LibGLib {
 
   late final _g_get_console_charsetPtr = _lookup<
       ffi.NativeFunction<
-          gboolean Function(
+          ffi.Int Function(
               ffi.Pointer<ffi.Pointer<ffi.Char>>)>>('g_get_console_charset');
   late final _g_get_console_charset = _g_get_console_charsetPtr
       .asFunction<int Function(ffi.Pointer<ffi.Pointer<ffi.Char>>)>();
 
-  ffi.Pointer<ffi.Pointer<gchar>> g_get_language_names() {
+  ffi.Pointer<ffi.Pointer<ffi.Char>> g_get_language_names() {
     return _g_get_language_names();
   }
 
-  late final _g_get_language_namesPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Pointer<gchar>> Function()>>(
-          'g_get_language_names');
+  late final _g_get_language_namesPtr = _lookup<
+          ffi.NativeFunction<ffi.Pointer<ffi.Pointer<ffi.Char>> Function()>>(
+      'g_get_language_names');
   late final _g_get_language_names = _g_get_language_namesPtr
-      .asFunction<ffi.Pointer<ffi.Pointer<gchar>> Function()>();
+      .asFunction<ffi.Pointer<ffi.Pointer<ffi.Char>> Function()>();
 
-  ffi.Pointer<ffi.Pointer<gchar>> g_get_language_names_with_category(
-    ffi.Pointer<gchar> category_name,
+  ffi.Pointer<ffi.Pointer<ffi.Char>> g_get_language_names_with_category(
+    ffi.Pointer<ffi.Char> category_name,
   ) {
     return _g_get_language_names_with_category(
       category_name,
@@ -373,14 +367,14 @@ class LibGLib {
 
   late final _g_get_language_names_with_categoryPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Pointer<ffi.Pointer<gchar>> Function(
-              ffi.Pointer<gchar>)>>('g_get_language_names_with_category');
+          ffi.Pointer<ffi.Pointer<ffi.Char>> Function(
+              ffi.Pointer<ffi.Char>)>>('g_get_language_names_with_category');
   late final _g_get_language_names_with_category =
       _g_get_language_names_with_categoryPtr.asFunction<
-          ffi.Pointer<ffi.Pointer<gchar>> Function(ffi.Pointer<gchar>)>();
+          ffi.Pointer<ffi.Pointer<ffi.Char>> Function(ffi.Pointer<ffi.Char>)>();
 
-  ffi.Pointer<ffi.Pointer<gchar>> g_get_locale_variants(
-    ffi.Pointer<gchar> locale,
+  ffi.Pointer<ffi.Pointer<ffi.Char>> g_get_locale_variants(
+    ffi.Pointer<ffi.Char> locale,
   ) {
     return _g_get_locale_variants(
       locale,
@@ -389,13 +383,13 @@ class LibGLib {
 
   late final _g_get_locale_variantsPtr = _lookup<
       ffi.NativeFunction<
-          ffi.Pointer<ffi.Pointer<gchar>> Function(
-              ffi.Pointer<gchar>)>>('g_get_locale_variants');
+          ffi.Pointer<ffi.Pointer<ffi.Char>> Function(
+              ffi.Pointer<ffi.Char>)>>('g_get_locale_variants');
   late final _g_get_locale_variants = _g_get_locale_variantsPtr.asFunction<
-      ffi.Pointer<ffi.Pointer<gchar>> Function(ffi.Pointer<gchar>)>();
+      ffi.Pointer<ffi.Pointer<ffi.Char>> Function(ffi.Pointer<ffi.Char>)>();
 
   int g_get_filename_charsets(
-    ffi.Pointer<ffi.Pointer<ffi.Pointer<gchar>>> filename_charsets,
+    ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> filename_charsets,
   ) {
     return _g_get_filename_charsets(
       filename_charsets,
@@ -404,33 +398,34 @@ class LibGLib {
 
   late final _g_get_filename_charsetsPtr = _lookup<
           ffi.NativeFunction<
-              gboolean Function(ffi.Pointer<ffi.Pointer<ffi.Pointer<gchar>>>)>>(
+              ffi.Int Function(
+                  ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>>)>>(
       'g_get_filename_charsets');
-  late final _g_get_filename_charsets = _g_get_filename_charsetsPtr
-      .asFunction<int Function(ffi.Pointer<ffi.Pointer<ffi.Pointer<gchar>>>)>();
+  late final _g_get_filename_charsets = _g_get_filename_charsetsPtr.asFunction<
+      int Function(ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>>)>();
 
-  ffi.Pointer<ffi.Pointer<gchar>> g_get_environ() {
+  ffi.Pointer<ffi.Pointer<ffi.Char>> g_get_environ() {
     return _g_get_environ();
   }
 
-  late final _g_get_environPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Pointer<gchar>> Function()>>(
-          'g_get_environ');
+  late final _g_get_environPtr = _lookup<
+          ffi.NativeFunction<ffi.Pointer<ffi.Pointer<ffi.Char>> Function()>>(
+      'g_get_environ');
   late final _g_get_environ = _g_get_environPtr
-      .asFunction<ffi.Pointer<ffi.Pointer<gchar>> Function()>();
+      .asFunction<ffi.Pointer<ffi.Pointer<ffi.Char>> Function()>();
 
-  ffi.Pointer<gchar> g_get_current_dir() {
+  ffi.Pointer<ffi.Char> g_get_current_dir() {
     return _g_get_current_dir();
   }
 
   late final _g_get_current_dirPtr =
-      _lookup<ffi.NativeFunction<ffi.Pointer<gchar> Function()>>(
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
           'g_get_current_dir');
   late final _g_get_current_dir =
-      _g_get_current_dirPtr.asFunction<ffi.Pointer<gchar> Function()>();
+      _g_get_current_dirPtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
   void g_free(
-    gpointer mem,
+    ffi.Pointer<ffi.Void> mem,
   ) {
     return _g_free(
       mem,
@@ -438,27 +433,13 @@ class LibGLib {
   }
 
   late final _g_freePtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(gpointer)>>('g_free');
-  late final _g_free = _g_freePtr.asFunction<void Function(gpointer)>();
-
-  late final ffi.Pointer<gboolean> _g_mem_gc_friendly =
-      _lookup<gboolean>('g_mem_gc_friendly');
-
-  int get g_mem_gc_friendly => _g_mem_gc_friendly.value;
-
-  set g_mem_gc_friendly(int value) => _g_mem_gc_friendly.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<GMemVTable>> _glib_mem_profiler_table =
-      _lookup<ffi.Pointer<GMemVTable>>('glib_mem_profiler_table');
-
-  ffi.Pointer<GMemVTable> get glib_mem_profiler_table =>
-      _glib_mem_profiler_table.value;
-
-  set glib_mem_profiler_table(ffi.Pointer<GMemVTable> value) =>
-      _glib_mem_profiler_table.value = value;
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+          'g_free');
+  late final _g_free =
+      _g_freePtr.asFunction<void Function(ffi.Pointer<ffi.Void>)>();
 
   void g_get_current_time(
-    ffi.Pointer<GTimeVal> result,
+    ffi.Pointer<_GTimeVal> result,
   ) {
     return _g_get_current_time(
       result,
@@ -466,17 +447,17 @@ class LibGLib {
   }
 
   late final _g_get_current_timePtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<GTimeVal>)>>(
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<_GTimeVal>)>>(
           'g_get_current_time');
-  late final _g_get_current_time =
-      _g_get_current_timePtr.asFunction<void Function(ffi.Pointer<GTimeVal>)>();
+  late final _g_get_current_time = _g_get_current_timePtr
+      .asFunction<void Function(ffi.Pointer<_GTimeVal>)>();
 
   int g_get_monotonic_time() {
     return _g_get_monotonic_time();
   }
 
   late final _g_get_monotonic_timePtr =
-      _lookup<ffi.NativeFunction<gint64 Function()>>('g_get_monotonic_time');
+      _lookup<ffi.NativeFunction<ffi.Long Function()>>('g_get_monotonic_time');
   late final _g_get_monotonic_time =
       _g_get_monotonic_timePtr.asFunction<int Function()>();
 
@@ -485,126 +466,76 @@ class LibGLib {
   }
 
   late final _g_get_real_timePtr =
-      _lookup<ffi.NativeFunction<gint64 Function()>>('g_get_real_time');
+      _lookup<ffi.NativeFunction<ffi.Long Function()>>('g_get_real_time');
   late final _g_get_real_time =
       _g_get_real_timePtr.asFunction<int Function()>();
 
-  late final ffi.Pointer<GSourceFuncs> _g_timeout_funcs =
-      _lookup<GSourceFuncs>('g_timeout_funcs');
-
-  GSourceFuncs get g_timeout_funcs => _g_timeout_funcs.ref;
-
-  late final ffi.Pointer<GSourceFuncs> _g_child_watch_funcs =
-      _lookup<GSourceFuncs>('g_child_watch_funcs');
-
-  GSourceFuncs get g_child_watch_funcs => _g_child_watch_funcs.ref;
-
-  late final ffi.Pointer<GSourceFuncs> _g_idle_funcs =
-      _lookup<GSourceFuncs>('g_idle_funcs');
-
-  GSourceFuncs get g_idle_funcs => _g_idle_funcs.ref;
-
-  late final ffi.Pointer<GSourceFuncs> _g_unix_signal_funcs =
-      _lookup<GSourceFuncs>('g_unix_signal_funcs');
-
-  GSourceFuncs get g_unix_signal_funcs => _g_unix_signal_funcs.ref;
-
-  late final ffi.Pointer<GSourceFuncs> _g_unix_fd_source_funcs =
-      _lookup<GSourceFuncs>('g_unix_fd_source_funcs');
-
-  GSourceFuncs get g_unix_fd_source_funcs => _g_unix_fd_source_funcs.ref;
-
-  late final ffi.Pointer<ffi.Pointer<gchar>> _g_utf8_skip =
-      _lookup<ffi.Pointer<gchar>>('g_utf8_skip');
-
-  ffi.Pointer<gchar> get g_utf8_skip => _g_utf8_skip.value;
-
-  set g_utf8_skip(ffi.Pointer<gchar> value) => _g_utf8_skip.value = value;
-
-  late final ffi.Pointer<GSourceFuncs> _g_io_watch_funcs =
-      _lookup<GSourceFuncs>('g_io_watch_funcs');
-
-  GSourceFuncs get g_io_watch_funcs => _g_io_watch_funcs.ref;
-
-  GPrintFunc g_set_print_handler(
-    GPrintFunc func,
+  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>
+      g_set_print_handler(
+    ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>
+        func,
   ) {
     return _g_set_print_handler(
       func,
     );
   }
 
-  late final _g_set_print_handlerPtr =
-      _lookup<ffi.NativeFunction<GPrintFunc Function(GPrintFunc)>>(
-          'g_set_print_handler');
-  late final _g_set_print_handler =
-      _g_set_print_handlerPtr.asFunction<GPrintFunc Function(GPrintFunc)>();
+  late final _g_set_print_handlerPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>> Function(
+              ffi.Pointer<
+                  ffi.NativeFunction<
+                      ffi.Void Function(
+                          ffi.Pointer<ffi.Char>)>>)>>('g_set_print_handler');
+  late final _g_set_print_handler = _g_set_print_handlerPtr.asFunction<
+      ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>> Function(
+          ffi.Pointer<
+              ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>)>();
 
-  GPrintFunc g_set_printerr_handler(
-    GPrintFunc func,
+  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>
+      g_set_printerr_handler(
+    ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>
+        func,
   ) {
     return _g_set_printerr_handler(
       func,
     );
   }
 
-  late final _g_set_printerr_handlerPtr =
-      _lookup<ffi.NativeFunction<GPrintFunc Function(GPrintFunc)>>(
-          'g_set_printerr_handler');
-  late final _g_set_printerr_handler =
-      _g_set_printerr_handlerPtr.asFunction<GPrintFunc Function(GPrintFunc)>();
+  late final _g_set_printerr_handlerPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>> Function(
+              ffi.Pointer<
+                  ffi.NativeFunction<
+                      ffi.Void Function(
+                          ffi.Pointer<ffi.Char>)>>)>>('g_set_printerr_handler');
+  late final _g_set_printerr_handler = _g_set_printerr_handlerPtr.asFunction<
+      ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>> Function(
+          ffi.Pointer<
+              ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>)>();
 
-  late final ffi.Pointer<ffi.Pointer<guint16>> _g_ascii_table =
-      _lookup<ffi.Pointer<guint16>>('g_ascii_table');
-
-  ffi.Pointer<guint16> get g_ascii_table => _g_ascii_table.value;
-
-  set g_ascii_table(ffi.Pointer<guint16> value) => _g_ascii_table.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<GTestConfig>> _g_test_config_vars =
-      _lookup<ffi.Pointer<GTestConfig>>('g_test_config_vars');
-
-  ffi.Pointer<GTestConfig> get g_test_config_vars => _g_test_config_vars.value;
-
-  set g_test_config_vars(ffi.Pointer<GTestConfig> value) =>
-      _g_test_config_vars.value = value;
-
-  late final ffi.Pointer<guint> _glib_major_version =
-      _lookup<guint>('glib_major_version');
+  late final ffi.Pointer<ffi.UnsignedInt> _glib_major_version =
+      _lookup<ffi.UnsignedInt>('glib_major_version');
 
   int get glib_major_version => _glib_major_version.value;
 
   set glib_major_version(int value) => _glib_major_version.value = value;
 
-  late final ffi.Pointer<guint> _glib_minor_version =
-      _lookup<guint>('glib_minor_version');
+  late final ffi.Pointer<ffi.UnsignedInt> _glib_minor_version =
+      _lookup<ffi.UnsignedInt>('glib_minor_version');
 
   int get glib_minor_version => _glib_minor_version.value;
 
   set glib_minor_version(int value) => _glib_minor_version.value = value;
 
-  late final ffi.Pointer<guint> _glib_micro_version =
-      _lookup<guint>('glib_micro_version');
+  late final ffi.Pointer<ffi.UnsignedInt> _glib_micro_version =
+      _lookup<ffi.UnsignedInt>('glib_micro_version');
 
   int get glib_micro_version => _glib_micro_version.value;
 
   set glib_micro_version(int value) => _glib_micro_version.value = value;
 
-  late final ffi.Pointer<guint> _glib_interface_age =
-      _lookup<guint>('glib_interface_age');
-
-  int get glib_interface_age => _glib_interface_age.value;
-
-  set glib_interface_age(int value) => _glib_interface_age.value = value;
-
-  late final ffi.Pointer<guint> _glib_binary_age =
-      _lookup<guint>('glib_binary_age');
-
-  int get glib_binary_age => _glib_binary_age.value;
-
-  set glib_binary_age(int value) => _glib_binary_age.value = value;
-
-  ffi.Pointer<gchar> glib_check_version(
+  ffi.Pointer<ffi.Char> glib_check_version(
     int required_major,
     int required_minor,
     int required_micro,
@@ -617,10 +548,11 @@ class LibGLib {
   }
 
   late final _glib_check_versionPtr = _lookup<
-          ffi.NativeFunction<ffi.Pointer<gchar> Function(guint, guint, guint)>>(
-      'glib_check_version');
+      ffi.NativeFunction<
+          ffi.Pointer<ffi.Char> Function(ffi.UnsignedInt, ffi.UnsignedInt,
+              ffi.UnsignedInt)>>('glib_check_version');
   late final _glib_check_version = _glib_check_versionPtr
-      .asFunction<ffi.Pointer<gchar> Function(int, int, int)>();
+      .asFunction<ffi.Pointer<ffi.Char> Function(int, int, int)>();
 
   late final addresses = _SymbolAddresses(this);
 }
@@ -628,72 +560,19 @@ class LibGLib {
 class _SymbolAddresses {
   final LibGLib _library;
   _SymbolAddresses(this._library);
-  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(gpointer)>> get g_free =>
-      _library._g_freePtr;
+  ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
+      get g_free => _library._g_freePtr;
 }
-
-class _GTimeVal extends ffi.Struct {
-  @glong()
-  external int tv_sec;
-
-  @glong()
-  external int tv_usec;
-}
-
-typedef glong = ffi.Long;
-
-class _GBytes extends ffi.Opaque {}
-
-class _GArray extends ffi.Struct {
-  external ffi.Pointer<gchar> data;
-
-  @guint()
-  external int len;
-}
-
-typedef gchar = ffi.Char;
-typedef guint = ffi.UnsignedInt;
-
-class _GByteArray extends ffi.Struct {
-  external ffi.Pointer<guint8> data;
-
-  @guint()
-  external int len;
-}
-
-typedef guint8 = ffi.UnsignedChar;
-
-class _GPtrArray extends ffi.Struct {
-  external ffi.Pointer<gpointer> pdata;
-
-  @guint()
-  external int len;
-}
-
-typedef gpointer = ffi.Pointer<ffi.Void>;
 
 class _GError extends ffi.Struct {
-  @GQuark()
+  @ffi.UnsignedInt()
   external int domain;
 
-  @gint()
+  @ffi.Int()
   external int code;
 
-  external ffi.Pointer<gchar> message;
+  external ffi.Pointer<ffi.Char> message;
 }
-
-typedef GQuark = guint32;
-typedef guint32 = ffi.UnsignedInt;
-typedef gint = ffi.Int;
-
-/// GError:
-/// @domain: error domain, e.g. %G_FILE_ERROR
-/// @code: error code, e.g. %G_FILE_ERROR_NOENT
-/// @message: human-readable informative error message
-///
-/// The `GError` structure contains information about
-/// an error that has occurred.
-typedef GError = _GError;
 
 /// GUserDirectory:
 /// @G_USER_DIRECTORY_DESKTOP: the user's Desktop directory
@@ -727,13 +606,6 @@ abstract class GUserDirectory {
   static const int G_USER_N_DIRECTORIES = 8;
 }
 
-class _GDebugKey extends ffi.Struct {
-  external ffi.Pointer<gchar> key;
-
-  @guint()
-  external int value;
-}
-
 abstract class GFormatSizeFlags {
   static const int G_FORMAT_SIZE_DEFAULT = 0;
   static const int G_FORMAT_SIZE_LONG_FORMAT = 1;
@@ -743,2684 +615,10 @@ abstract class GFormatSizeFlags {
   static const int G_FORMAT_SIZE_ONLY_UNIT = 16;
 }
 
-typedef guint64 = ffi.UnsignedLong;
-
-abstract class GThreadError {
-  static const int G_THREAD_ERROR_AGAIN = 0;
-}
-
-class _GThread extends ffi.Struct {
-  external GThreadFunc func;
-
-  external gpointer data;
-
-  @gboolean()
-  external int joinable;
-
-  @ffi.Int32()
-  external int priority;
-}
-
-typedef GThreadFunc
-    = ffi.Pointer<ffi.NativeFunction<gpointer Function(gpointer)>>;
-typedef gboolean = gint;
-
-abstract class GThreadPriority {
-  static const int G_THREAD_PRIORITY_LOW = 0;
-  static const int G_THREAD_PRIORITY_NORMAL = 1;
-  static const int G_THREAD_PRIORITY_HIGH = 2;
-  static const int G_THREAD_PRIORITY_URGENT = 3;
-}
-
-class _GRecMutex extends ffi.Struct {
-  external gpointer p;
-
-  @ffi.Array.multi([2])
-  external ffi.Array<guint> i;
-}
-
-class _GRWLock extends ffi.Struct {
-  external gpointer p;
-
-  @ffi.Array.multi([2])
-  external ffi.Array<guint> i;
-}
-
-class _GCond extends ffi.Struct {
-  external gpointer p;
-
-  @ffi.Array.multi([2])
-  external ffi.Array<guint> i;
-}
-
-class _GPrivate extends ffi.Struct {
-  external gpointer p;
-
-  external GDestroyNotify notify;
-
-  @ffi.Array.multi([2])
-  external ffi.Array<gpointer> future;
-}
-
-typedef GDestroyNotify
-    = ffi.Pointer<ffi.NativeFunction<ffi.Void Function(gpointer)>>;
-
-class _GOnce extends ffi.Struct {
-  @ffi.Int32()
-  external int status;
-
-  external gpointer retval;
-}
-
-abstract class GOnceStatus {
-  static const int G_ONCE_STATUS_NOTCALLED = 0;
-  static const int G_ONCE_STATUS_PROGRESS = 1;
-  static const int G_ONCE_STATUS_READY = 2;
-}
-
-class _GAsyncQueue extends ffi.Opaque {}
-
-class _GTimeZone extends ffi.Opaque {}
-
-/// GTimeType:
-/// @G_TIME_TYPE_STANDARD: the time is in local standard time
-/// @G_TIME_TYPE_DAYLIGHT: the time is in local daylight time
-/// @G_TIME_TYPE_UNIVERSAL: the time is in UTC
-///
-/// Disambiguates a given time in two ways.
-///
-/// First, specifies if the given time is in universal or local time.
-///
-/// Second, if the time is in local time, specifies if it is local
-/// standard time or local daylight time.  This is important for the case
-/// where the same local time occurs twice (during daylight savings time
-/// transitions, for example).
-abstract class GTimeType {
-  static const int G_TIME_TYPE_STANDARD = 0;
-  static const int G_TIME_TYPE_DAYLIGHT = 1;
-  static const int G_TIME_TYPE_UNIVERSAL = 2;
-}
-
-class _GDateTime extends ffi.Opaque {}
-
-/// GBookmarkFileError:
-/// @G_BOOKMARK_FILE_ERROR_INVALID_URI: URI was ill-formed
-/// @G_BOOKMARK_FILE_ERROR_INVALID_VALUE: a requested field was not found
-/// @G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED: a requested application did
-/// not register a bookmark
-/// @G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND: a requested URI was not found
-/// @G_BOOKMARK_FILE_ERROR_READ: document was ill formed
-/// @G_BOOKMARK_FILE_ERROR_UNKNOWN_ENCODING: the text being parsed was
-/// in an unknown encoding
-/// @G_BOOKMARK_FILE_ERROR_WRITE: an error occurred while writing
-/// @G_BOOKMARK_FILE_ERROR_FILE_NOT_FOUND: requested file was not found
-///
-/// Error codes returned by bookmark file parsing.
-abstract class GBookmarkFileError {
-  static const int G_BOOKMARK_FILE_ERROR_INVALID_URI = 0;
-  static const int G_BOOKMARK_FILE_ERROR_INVALID_VALUE = 1;
-  static const int G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED = 2;
-  static const int G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND = 3;
-  static const int G_BOOKMARK_FILE_ERROR_READ = 4;
-  static const int G_BOOKMARK_FILE_ERROR_UNKNOWN_ENCODING = 5;
-  static const int G_BOOKMARK_FILE_ERROR_WRITE = 6;
-  static const int G_BOOKMARK_FILE_ERROR_FILE_NOT_FOUND = 7;
-}
-
-class _GBookmarkFile extends ffi.Opaque {}
-
-/// GChecksumType:
-/// @G_CHECKSUM_MD5: Use the MD5 hashing algorithm
-/// @G_CHECKSUM_SHA1: Use the SHA-1 hashing algorithm
-/// @G_CHECKSUM_SHA256: Use the SHA-256 hashing algorithm
-/// @G_CHECKSUM_SHA384: Use the SHA-384 hashing algorithm (Since: 2.51)
-/// @G_CHECKSUM_SHA512: Use the SHA-512 hashing algorithm (Since: 2.36)
-///
-/// The hashing algorithm to be used by #GChecksum when performing the
-/// digest of some data.
-///
-/// Note that the #GChecksumType enumeration may be extended at a later
-/// date to include new hashing algorithm types.
-///
-/// Since: 2.16
-abstract class GChecksumType {
-  static const int G_CHECKSUM_MD5 = 0;
-  static const int G_CHECKSUM_SHA1 = 1;
-  static const int G_CHECKSUM_SHA256 = 2;
-  static const int G_CHECKSUM_SHA512 = 3;
-  static const int G_CHECKSUM_SHA384 = 4;
-}
-
-class _GChecksum extends ffi.Opaque {}
-
-/// GConvertError:
-/// @G_CONVERT_ERROR_NO_CONVERSION: Conversion between the requested character
-/// sets is not supported.
-/// @G_CONVERT_ERROR_ILLEGAL_SEQUENCE: Invalid byte sequence in conversion input;
-/// or the character sequence could not be represented in the target
-/// character set.
-/// @G_CONVERT_ERROR_FAILED: Conversion failed for some reason.
-/// @G_CONVERT_ERROR_PARTIAL_INPUT: Partial character sequence at end of input.
-/// @G_CONVERT_ERROR_BAD_URI: URI is invalid.
-/// @G_CONVERT_ERROR_NOT_ABSOLUTE_PATH: Pathname is not an absolute path.
-/// @G_CONVERT_ERROR_NO_MEMORY: No memory available. Since: 2.40
-/// @G_CONVERT_ERROR_EMBEDDED_NUL: An embedded NUL character is present in
-/// conversion output where a NUL-terminated string is expected.
-/// Since: 2.56
-///
-/// Error codes returned by character set conversion routines.
-abstract class GConvertError {
-  static const int G_CONVERT_ERROR_NO_CONVERSION = 0;
-  static const int G_CONVERT_ERROR_ILLEGAL_SEQUENCE = 1;
-  static const int G_CONVERT_ERROR_FAILED = 2;
-  static const int G_CONVERT_ERROR_PARTIAL_INPUT = 3;
-  static const int G_CONVERT_ERROR_BAD_URI = 4;
-  static const int G_CONVERT_ERROR_NOT_ABSOLUTE_PATH = 5;
-  static const int G_CONVERT_ERROR_NO_MEMORY = 6;
-  static const int G_CONVERT_ERROR_EMBEDDED_NUL = 7;
-}
-
-class _GIConv extends ffi.Opaque {}
-
-class _GData extends ffi.Opaque {}
-
-class _GDate extends ffi.Opaque {}
-
-abstract class GDateDMY {
-  static const int G_DATE_DAY = 0;
-  static const int G_DATE_MONTH = 1;
-  static const int G_DATE_YEAR = 2;
-}
-
-abstract class GDateWeekday {
-  static const int G_DATE_BAD_WEEKDAY = 0;
-  static const int G_DATE_MONDAY = 1;
-  static const int G_DATE_TUESDAY = 2;
-  static const int G_DATE_WEDNESDAY = 3;
-  static const int G_DATE_THURSDAY = 4;
-  static const int G_DATE_FRIDAY = 5;
-  static const int G_DATE_SATURDAY = 6;
-  static const int G_DATE_SUNDAY = 7;
-}
-
-abstract class GDateMonth {
-  static const int G_DATE_BAD_MONTH = 0;
-  static const int G_DATE_JANUARY = 1;
-  static const int G_DATE_FEBRUARY = 2;
-  static const int G_DATE_MARCH = 3;
-  static const int G_DATE_APRIL = 4;
-  static const int G_DATE_MAY = 5;
-  static const int G_DATE_JUNE = 6;
-  static const int G_DATE_JULY = 7;
-  static const int G_DATE_AUGUST = 8;
-  static const int G_DATE_SEPTEMBER = 9;
-  static const int G_DATE_OCTOBER = 10;
-  static const int G_DATE_NOVEMBER = 11;
-  static const int G_DATE_DECEMBER = 12;
-}
-
-class _GDir extends ffi.Opaque {}
-
-abstract class GFileError {
-  static const int G_FILE_ERROR_EXIST = 0;
-  static const int G_FILE_ERROR_ISDIR = 1;
-  static const int G_FILE_ERROR_ACCES = 2;
-  static const int G_FILE_ERROR_NAMETOOLONG = 3;
-  static const int G_FILE_ERROR_NOENT = 4;
-  static const int G_FILE_ERROR_NOTDIR = 5;
-  static const int G_FILE_ERROR_NXIO = 6;
-  static const int G_FILE_ERROR_NODEV = 7;
-  static const int G_FILE_ERROR_ROFS = 8;
-  static const int G_FILE_ERROR_TXTBSY = 9;
-  static const int G_FILE_ERROR_FAULT = 10;
-  static const int G_FILE_ERROR_LOOP = 11;
-  static const int G_FILE_ERROR_NOSPC = 12;
-  static const int G_FILE_ERROR_NOMEM = 13;
-  static const int G_FILE_ERROR_MFILE = 14;
-  static const int G_FILE_ERROR_NFILE = 15;
-  static const int G_FILE_ERROR_BADF = 16;
-  static const int G_FILE_ERROR_INVAL = 17;
-  static const int G_FILE_ERROR_PIPE = 18;
-  static const int G_FILE_ERROR_AGAIN = 19;
-  static const int G_FILE_ERROR_INTR = 20;
-  static const int G_FILE_ERROR_IO = 21;
-  static const int G_FILE_ERROR_PERM = 22;
-  static const int G_FILE_ERROR_NOSYS = 23;
-  static const int G_FILE_ERROR_FAILED = 24;
-}
-
-abstract class GFileTest {
-  static const int G_FILE_TEST_IS_REGULAR = 1;
-  static const int G_FILE_TEST_IS_SYMLINK = 2;
-  static const int G_FILE_TEST_IS_DIR = 4;
-  static const int G_FILE_TEST_IS_EXECUTABLE = 8;
-  static const int G_FILE_TEST_EXISTS = 16;
-}
-
-/// GFileSetContentsFlags:
-/// @G_FILE_SET_CONTENTS_NONE: No guarantees about file consistency or durability.
-/// The most dangerous setting, which is slightly faster than other settings.
-/// @G_FILE_SET_CONTENTS_CONSISTENT: Guarantee file consistency: after a crash,
-/// either the old version of the file or the new version of the file will be
-/// available, but not a mixture. On Unix systems this equates to an `fsync()`
-/// on the file and use of an atomic `rename()` of the new version of the file
-/// over the old.
-/// @G_FILE_SET_CONTENTS_DURABLE: Guarantee file durability: after a crash, the
-/// new version of the file will be available. On Unix systems this equates to
-/// an `fsync()` on the file (if %G_FILE_SET_CONTENTS_CONSISTENT is unset), or
-/// the effects of %G_FILE_SET_CONTENTS_CONSISTENT plus an `fsync()` on the
-/// directory containing the file after calling `rename()`.
-/// @G_FILE_SET_CONTENTS_ONLY_EXISTING: Only apply consistency and durability
-/// guarantees if the file already exists. This may speed up file operations
-/// if the file doesn’t currently exist, but may result in a corrupted version
-/// of the new file if the system crashes while writing it.
-///
-/// Flags to pass to g_file_set_contents_full() to affect its safety and
-/// performance.
-///
-/// Since: 2.66
-abstract class GFileSetContentsFlags {
-  static const int G_FILE_SET_CONTENTS_NONE = 0;
-  static const int G_FILE_SET_CONTENTS_CONSISTENT = 1;
-  static const int G_FILE_SET_CONTENTS_DURABLE = 2;
-  static const int G_FILE_SET_CONTENTS_ONLY_EXISTING = 4;
-}
-
-class _GMemVTable extends ffi.Struct {
-  external ffi.Pointer<ffi.NativeFunction<gpointer Function(gsize)>> malloc;
-
-  external ffi.Pointer<ffi.NativeFunction<gpointer Function(gpointer, gsize)>>
-      realloc;
-
-  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(gpointer)>> free;
-
-  external ffi.Pointer<ffi.NativeFunction<gpointer Function(gsize, gsize)>>
-      calloc;
-
-  external ffi.Pointer<ffi.NativeFunction<gpointer Function(gsize)>> try_malloc;
-
-  external ffi.Pointer<ffi.NativeFunction<gpointer Function(gpointer, gsize)>>
-      try_realloc;
-}
-
-typedef gsize = ffi.UnsignedLong;
-
-/// GMemVTable:
-/// @malloc: function to use for allocating memory.
-/// @realloc: function to use for reallocating memory.
-/// @free: function to use to free memory.
-/// @calloc: function to use for allocating zero-filled memory.
-/// @try_malloc: function to use for allocating memory without a default error handler.
-/// @try_realloc: function to use for reallocating memory without a default error handler.
-///
-/// A set of functions used to perform memory allocation. The same #GMemVTable must
-/// be used for all allocations in the same program; a call to g_mem_set_vtable(),
-/// if it exists, should be prior to any use of GLib.
-///
-/// This functions related to this has been deprecated in 2.46, and no longer work.
-typedef GMemVTable = _GMemVTable;
-
-class _GNode extends ffi.Struct {
-  external gpointer data;
-
-  external ffi.Pointer<GNode> next;
-
-  external ffi.Pointer<GNode> prev;
-
-  external ffi.Pointer<GNode> parent;
-
-  external ffi.Pointer<GNode> children;
-}
-
-typedef GNode = _GNode;
-
-abstract class GTraverseFlags {
-  static const int G_TRAVERSE_LEAVES = 1;
-  static const int G_TRAVERSE_NON_LEAVES = 2;
-  static const int G_TRAVERSE_ALL = 3;
-  static const int G_TRAVERSE_MASK = 3;
-  static const int G_TRAVERSE_LEAFS = 1;
-  static const int G_TRAVERSE_NON_LEAFS = 2;
-}
-
-abstract class GTraverseType {
-  static const int G_IN_ORDER = 0;
-  static const int G_PRE_ORDER = 1;
-  static const int G_POST_ORDER = 2;
-  static const int G_LEVEL_ORDER = 3;
-}
-
-class _GList extends ffi.Struct {
-  external gpointer data;
-
-  external ffi.Pointer<GList> next;
-
-  external ffi.Pointer<GList> prev;
-}
-
-typedef GList = _GList;
-
-class _GHashTable extends ffi.Opaque {}
-
-class _GHashTableIter extends ffi.Struct {
-  external gpointer dummy1;
-
-  external gpointer dummy2;
-
-  external gpointer dummy3;
-
-  @ffi.Int()
-  external int dummy4;
-
-  @gboolean()
-  external int dummy5;
-
-  external gpointer dummy6;
-}
-
-class _GHmac extends ffi.Opaque {}
-
-class _GHook extends ffi.Struct {
-  external gpointer data;
-
-  external ffi.Pointer<GHook> next;
-
-  external ffi.Pointer<GHook> prev;
-
-  @guint()
-  external int ref_count;
-
-  @gulong()
-  external int hook_id;
-
-  @guint()
-  external int flags;
-
-  external gpointer func;
-
-  external GDestroyNotify destroy;
-}
-
-typedef GHook = _GHook;
-typedef gulong = ffi.UnsignedLong;
-
-class _GHookList extends ffi.Opaque {}
-
-abstract class GHookFlagMask {
-  static const int G_HOOK_FLAG_ACTIVE = 1;
-  static const int G_HOOK_FLAG_IN_CALL = 2;
-  static const int G_HOOK_FLAG_MASK = 15;
-}
-
-/// GPollFD:
-/// @fd: the file descriptor to poll (or a HANDLE on Win32)
-/// @events: a bitwise combination from #GIOCondition, specifying which
-/// events should be polled for. Typically for reading from a file
-/// descriptor you would use %G_IO_IN | %G_IO_HUP | %G_IO_ERR, and
-/// for writing you would use %G_IO_OUT | %G_IO_ERR.
-/// @revents: a bitwise combination of flags from #GIOCondition, returned
-/// from the poll() function to indicate which events occurred.
-///
-/// Represents a file descriptor, which events to poll for, and which events
-/// occurred.
-class _GPollFD extends ffi.Struct {
-  @gint()
-  external int fd;
-
-  @gushort()
-  external int events;
-
-  @gushort()
-  external int revents;
-}
-
-typedef gushort = ffi.UnsignedShort;
-
-class _GSList extends ffi.Struct {
-  external gpointer data;
-
-  external ffi.Pointer<GSList> next;
-}
-
-typedef GSList = _GSList;
-
-abstract class GIOCondition {
-  static const int G_IO_IN = 1;
-  static const int G_IO_OUT = 4;
-  static const int G_IO_PRI = 2;
-  static const int G_IO_ERR = 8;
-  static const int G_IO_HUP = 16;
-  static const int G_IO_NVAL = 32;
-}
-
-/// GMainContextFlags:
-/// @G_MAIN_CONTEXT_FLAGS_NONE: Default behaviour.
-/// @G_MAIN_CONTEXT_FLAGS_OWNERLESS_POLLING: Assume that polling for events will
-/// free the thread to process other jobs. That's useful if you're using
-/// `g_main_context_{prepare,query,check,dispatch}` to integrate GMainContext in
-/// other event loops.
-///
-/// Flags to pass to g_main_context_new_with_flags() which affect the behaviour
-/// of a #GMainContext.
-///
-/// Since: 2.72
-abstract class GMainContextFlags {
-  static const int G_MAIN_CONTEXT_FLAGS_NONE = 0;
-  static const int G_MAIN_CONTEXT_FLAGS_OWNERLESS_POLLING = 1;
-}
-
-class _GMainContext extends ffi.Opaque {}
-
-class _GMainLoop extends ffi.Opaque {}
-
-class _GSource extends ffi.Struct {
-  external gpointer callback_data;
-
-  external ffi.Pointer<GSourceCallbackFuncs> callback_funcs;
-
-  external ffi.Pointer<GSourceFuncs> source_funcs;
-
-  @guint()
-  external int ref_count;
-
-  external ffi.Pointer<GMainContext> context;
-
-  @gint()
-  external int priority;
-
-  @guint()
-  external int flags;
-
-  @guint()
-  external int source_id;
-
-  external ffi.Pointer<GSList> poll_fds;
-
-  external ffi.Pointer<GSource> prev;
-
-  external ffi.Pointer<GSource> next;
-
-  external ffi.Pointer<ffi.Char> name;
-
-  external ffi.Pointer<GSourcePrivate> priv;
-}
-
-/// GSourceCallbackFuncs:
-/// @ref: Called when a reference is added to the callback object
-/// @unref: Called when a reference to the callback object is dropped
-/// @get: Called to extract the callback function and data from the
-/// callback object.
-///
-/// The `GSourceCallbackFuncs` struct contains
-/// functions for managing callback objects.
-typedef GSourceCallbackFuncs = _GSourceCallbackFuncs;
-
-class _GSourceCallbackFuncs extends ffi.Struct {
-  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(gpointer)>> ref;
-
-  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(gpointer)>> unref;
-
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Void Function(gpointer, ffi.Pointer<GSource>,
-              ffi.Pointer<GSourceFunc>, ffi.Pointer<gpointer>)>> get1;
-}
-
-/// GSource:
-///
-/// The `GSource` struct is an opaque data type
-/// representing an event source.
-typedef GSource = _GSource;
-
-/// GSourceFunc:
-/// @user_data: data passed to the function, set when the source was
-/// created with one of the above functions
-///
-/// Specifies the type of function passed to g_timeout_add(),
-/// g_timeout_add_full(), g_idle_add(), and g_idle_add_full().
-///
-/// When calling g_source_set_callback(), you may need to cast a function of a
-/// different type to this type. Use G_SOURCE_FUNC() to avoid warnings about
-/// incompatible function types.
-///
-/// Returns: %FALSE if the source should be removed. %G_SOURCE_CONTINUE and
-/// %G_SOURCE_REMOVE are more memorable names for the return value.
-typedef GSourceFunc
-    = ffi.Pointer<ffi.NativeFunction<gboolean Function(gpointer)>>;
-
-/// GSourceFuncs:
-/// @prepare: Called before all the file descriptors are polled. If the
-/// source can determine that it is ready here (without waiting for the
-/// results of the poll() call) it should return %TRUE. It can also return
-/// a @timeout_ value which should be the maximum timeout (in milliseconds)
-/// which should be passed to the poll() call. The actual timeout used will
-/// be -1 if all sources returned -1, or it will be the minimum of all
-/// the @timeout_ values returned which were >= 0.  Since 2.36 this may
-/// be %NULL, in which case the effect is as if the function always returns
-/// %FALSE with a timeout of -1.  If @prepare returns a
-/// timeout and the source also has a ready time set, then the
-/// lower of the two will be used.
-/// @check: Called after all the file descriptors are polled. The source
-/// should return %TRUE if it is ready to be dispatched. Note that some
-/// time may have passed since the previous prepare function was called,
-/// so the source should be checked again here.  Since 2.36 this may
-/// be %NULL, in which case the effect is as if the function always returns
-/// %FALSE.
-/// @dispatch: Called to dispatch the event source, after it has returned
-/// %TRUE in either its @prepare or its @check function, or if a ready time
-/// has been reached. The @dispatch function receives a callback function and
-/// user data. The callback function may be %NULL if the source was never
-/// connected to a callback using g_source_set_callback(). The @dispatch
-/// function should call the callback function with @user_data and whatever
-/// additional parameters are needed for this type of event source. The
-/// return value of the @dispatch function should be %G_SOURCE_REMOVE if the
-/// source should be removed or %G_SOURCE_CONTINUE to keep it.
-/// @finalize: Called when the source is finalized. At this point, the source
-/// will have been destroyed, had its callback cleared, and have been removed
-/// from its #GMainContext, but it will still have its final reference count,
-/// so methods can be called on it from within this function.
-///
-/// The `GSourceFuncs` struct contains a table of
-/// functions used to handle event sources in a generic manner.
-///
-/// For idle sources, the prepare and check functions always return %TRUE
-/// to indicate that the source is always ready to be processed. The prepare
-/// function also returns a timeout value of 0 to ensure that the poll() call
-/// doesn't block (since that would be time wasted which could have been spent
-/// running the idle function).
-///
-/// For timeout sources, the prepare and check functions both return %TRUE
-/// if the timeout interval has expired. The prepare function also returns
-/// a timeout value to ensure that the poll() call doesn't block too long
-/// and miss the next timeout.
-///
-/// For file descriptor sources, the prepare function typically returns %FALSE,
-/// since it must wait until poll() has been called before it knows whether
-/// any events need to be processed. It sets the returned timeout to -1 to
-/// indicate that it doesn't mind how long the poll() call blocks. In the
-/// check function, it tests the results of the poll() call to see if the
-/// required condition has been met, and returns %TRUE if so.
-typedef GSourceFuncs = _GSourceFuncs;
-
-class _GSourceFuncs extends ffi.Struct {
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          gboolean Function(ffi.Pointer<GSource>, ffi.Pointer<gint>)>> prepare;
-
-  external ffi
-          .Pointer<ffi.NativeFunction<gboolean Function(ffi.Pointer<GSource>)>>
-      check;
-
-  external ffi.Pointer<
-          ffi.NativeFunction<
-              gboolean Function(ffi.Pointer<GSource>, GSourceFunc, gpointer)>>
-      dispatch;
-
-  external ffi
-          .Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<GSource>)>>
-      finalize;
-
-  external GSourceFunc closure_callback;
-
-  external GSourceDummyMarshal closure_marshal;
-}
-
-/// GSourceDummyMarshal:
-///
-/// This is just a placeholder for #GClosureMarshal,
-/// which cannot be used here for dependency reasons.
-typedef GSourceDummyMarshal
-    = ffi.Pointer<ffi.NativeFunction<ffi.Void Function()>>;
-
-/// GMainContext:
-///
-/// The `GMainContext` struct is an opaque data
-/// type representing a set of sources to be handled in a main loop.
-typedef GMainContext = _GMainContext;
-typedef GSourcePrivate = _GSourcePrivate;
-
-class _GSourcePrivate extends ffi.Opaque {}
-
-typedef GTimeVal = _GTimeVal;
-typedef gint64 = ffi.Long;
-
-/// GUnicodeType:
-/// @G_UNICODE_CONTROL: General category "Other, Control" (Cc)
-/// @G_UNICODE_FORMAT: General category "Other, Format" (Cf)
-/// @G_UNICODE_UNASSIGNED: General category "Other, Not Assigned" (Cn)
-/// @G_UNICODE_PRIVATE_USE: General category "Other, Private Use" (Co)
-/// @G_UNICODE_SURROGATE: General category "Other, Surrogate" (Cs)
-/// @G_UNICODE_LOWERCASE_LETTER: General category "Letter, Lowercase" (Ll)
-/// @G_UNICODE_MODIFIER_LETTER: General category "Letter, Modifier" (Lm)
-/// @G_UNICODE_OTHER_LETTER: General category "Letter, Other" (Lo)
-/// @G_UNICODE_TITLECASE_LETTER: General category "Letter, Titlecase" (Lt)
-/// @G_UNICODE_UPPERCASE_LETTER: General category "Letter, Uppercase" (Lu)
-/// @G_UNICODE_SPACING_MARK: General category "Mark, Spacing" (Mc)
-/// @G_UNICODE_ENCLOSING_MARK: General category "Mark, Enclosing" (Me)
-/// @G_UNICODE_NON_SPACING_MARK: General category "Mark, Nonspacing" (Mn)
-/// @G_UNICODE_DECIMAL_NUMBER: General category "Number, Decimal Digit" (Nd)
-/// @G_UNICODE_LETTER_NUMBER: General category "Number, Letter" (Nl)
-/// @G_UNICODE_OTHER_NUMBER: General category "Number, Other" (No)
-/// @G_UNICODE_CONNECT_PUNCTUATION: General category "Punctuation, Connector" (Pc)
-/// @G_UNICODE_DASH_PUNCTUATION: General category "Punctuation, Dash" (Pd)
-/// @G_UNICODE_CLOSE_PUNCTUATION: General category "Punctuation, Close" (Pe)
-/// @G_UNICODE_FINAL_PUNCTUATION: General category "Punctuation, Final quote" (Pf)
-/// @G_UNICODE_INITIAL_PUNCTUATION: General category "Punctuation, Initial quote" (Pi)
-/// @G_UNICODE_OTHER_PUNCTUATION: General category "Punctuation, Other" (Po)
-/// @G_UNICODE_OPEN_PUNCTUATION: General category "Punctuation, Open" (Ps)
-/// @G_UNICODE_CURRENCY_SYMBOL: General category "Symbol, Currency" (Sc)
-/// @G_UNICODE_MODIFIER_SYMBOL: General category "Symbol, Modifier" (Sk)
-/// @G_UNICODE_MATH_SYMBOL: General category "Symbol, Math" (Sm)
-/// @G_UNICODE_OTHER_SYMBOL: General category "Symbol, Other" (So)
-/// @G_UNICODE_LINE_SEPARATOR: General category "Separator, Line" (Zl)
-/// @G_UNICODE_PARAGRAPH_SEPARATOR: General category "Separator, Paragraph" (Zp)
-/// @G_UNICODE_SPACE_SEPARATOR: General category "Separator, Space" (Zs)
-///
-/// These are the possible character classifications from the
-/// Unicode specification.
-/// See [Unicode Character Database](http://www.unicode.org/reports/tr44/#General_Category_Values).
-abstract class GUnicodeType {
-  static const int G_UNICODE_CONTROL = 0;
-  static const int G_UNICODE_FORMAT = 1;
-  static const int G_UNICODE_UNASSIGNED = 2;
-  static const int G_UNICODE_PRIVATE_USE = 3;
-  static const int G_UNICODE_SURROGATE = 4;
-  static const int G_UNICODE_LOWERCASE_LETTER = 5;
-  static const int G_UNICODE_MODIFIER_LETTER = 6;
-  static const int G_UNICODE_OTHER_LETTER = 7;
-  static const int G_UNICODE_TITLECASE_LETTER = 8;
-  static const int G_UNICODE_UPPERCASE_LETTER = 9;
-  static const int G_UNICODE_SPACING_MARK = 10;
-  static const int G_UNICODE_ENCLOSING_MARK = 11;
-  static const int G_UNICODE_NON_SPACING_MARK = 12;
-  static const int G_UNICODE_DECIMAL_NUMBER = 13;
-  static const int G_UNICODE_LETTER_NUMBER = 14;
-  static const int G_UNICODE_OTHER_NUMBER = 15;
-  static const int G_UNICODE_CONNECT_PUNCTUATION = 16;
-  static const int G_UNICODE_DASH_PUNCTUATION = 17;
-  static const int G_UNICODE_CLOSE_PUNCTUATION = 18;
-  static const int G_UNICODE_FINAL_PUNCTUATION = 19;
-  static const int G_UNICODE_INITIAL_PUNCTUATION = 20;
-  static const int G_UNICODE_OTHER_PUNCTUATION = 21;
-  static const int G_UNICODE_OPEN_PUNCTUATION = 22;
-  static const int G_UNICODE_CURRENCY_SYMBOL = 23;
-  static const int G_UNICODE_MODIFIER_SYMBOL = 24;
-  static const int G_UNICODE_MATH_SYMBOL = 25;
-  static const int G_UNICODE_OTHER_SYMBOL = 26;
-  static const int G_UNICODE_LINE_SEPARATOR = 27;
-  static const int G_UNICODE_PARAGRAPH_SEPARATOR = 28;
-  static const int G_UNICODE_SPACE_SEPARATOR = 29;
-}
-
-/// GUnicodeBreakType:
-/// @G_UNICODE_BREAK_MANDATORY: Mandatory Break (BK)
-/// @G_UNICODE_BREAK_CARRIAGE_RETURN: Carriage Return (CR)
-/// @G_UNICODE_BREAK_LINE_FEED: Line Feed (LF)
-/// @G_UNICODE_BREAK_COMBINING_MARK: Attached Characters and Combining Marks (CM)
-/// @G_UNICODE_BREAK_SURROGATE: Surrogates (SG)
-/// @G_UNICODE_BREAK_ZERO_WIDTH_SPACE: Zero Width Space (ZW)
-/// @G_UNICODE_BREAK_INSEPARABLE: Inseparable (IN)
-/// @G_UNICODE_BREAK_NON_BREAKING_GLUE: Non-breaking ("Glue") (GL)
-/// @G_UNICODE_BREAK_CONTINGENT: Contingent Break Opportunity (CB)
-/// @G_UNICODE_BREAK_SPACE: Space (SP)
-/// @G_UNICODE_BREAK_AFTER: Break Opportunity After (BA)
-/// @G_UNICODE_BREAK_BEFORE: Break Opportunity Before (BB)
-/// @G_UNICODE_BREAK_BEFORE_AND_AFTER: Break Opportunity Before and After (B2)
-/// @G_UNICODE_BREAK_HYPHEN: Hyphen (HY)
-/// @G_UNICODE_BREAK_NON_STARTER: Nonstarter (NS)
-/// @G_UNICODE_BREAK_OPEN_PUNCTUATION: Opening Punctuation (OP)
-/// @G_UNICODE_BREAK_CLOSE_PUNCTUATION: Closing Punctuation (CL)
-/// @G_UNICODE_BREAK_QUOTATION: Ambiguous Quotation (QU)
-/// @G_UNICODE_BREAK_EXCLAMATION: Exclamation/Interrogation (EX)
-/// @G_UNICODE_BREAK_IDEOGRAPHIC: Ideographic (ID)
-/// @G_UNICODE_BREAK_NUMERIC: Numeric (NU)
-/// @G_UNICODE_BREAK_INFIX_SEPARATOR: Infix Separator (Numeric) (IS)
-/// @G_UNICODE_BREAK_SYMBOL: Symbols Allowing Break After (SY)
-/// @G_UNICODE_BREAK_ALPHABETIC: Ordinary Alphabetic and Symbol Characters (AL)
-/// @G_UNICODE_BREAK_PREFIX: Prefix (Numeric) (PR)
-/// @G_UNICODE_BREAK_POSTFIX: Postfix (Numeric) (PO)
-/// @G_UNICODE_BREAK_COMPLEX_CONTEXT: Complex Content Dependent (South East Asian) (SA)
-/// @G_UNICODE_BREAK_AMBIGUOUS: Ambiguous (Alphabetic or Ideographic) (AI)
-/// @G_UNICODE_BREAK_UNKNOWN: Unknown (XX)
-/// @G_UNICODE_BREAK_NEXT_LINE: Next Line (NL)
-/// @G_UNICODE_BREAK_WORD_JOINER: Word Joiner (WJ)
-/// @G_UNICODE_BREAK_HANGUL_L_JAMO: Hangul L Jamo (JL)
-/// @G_UNICODE_BREAK_HANGUL_V_JAMO: Hangul V Jamo (JV)
-/// @G_UNICODE_BREAK_HANGUL_T_JAMO: Hangul T Jamo (JT)
-/// @G_UNICODE_BREAK_HANGUL_LV_SYLLABLE: Hangul LV Syllable (H2)
-/// @G_UNICODE_BREAK_HANGUL_LVT_SYLLABLE: Hangul LVT Syllable (H3)
-/// @G_UNICODE_BREAK_CLOSE_PARANTHESIS: Closing Parenthesis (CP). Since 2.28. Deprecated: 2.70: Use %G_UNICODE_BREAK_CLOSE_PARENTHESIS instead.
-/// @G_UNICODE_BREAK_CLOSE_PARENTHESIS: Closing Parenthesis (CP). Since 2.70
-/// @G_UNICODE_BREAK_CONDITIONAL_JAPANESE_STARTER: Conditional Japanese Starter (CJ). Since: 2.32
-/// @G_UNICODE_BREAK_HEBREW_LETTER: Hebrew Letter (HL). Since: 2.32
-/// @G_UNICODE_BREAK_REGIONAL_INDICATOR: Regional Indicator (RI). Since: 2.36
-/// @G_UNICODE_BREAK_EMOJI_BASE: Emoji Base (EB). Since: 2.50
-/// @G_UNICODE_BREAK_EMOJI_MODIFIER: Emoji Modifier (EM). Since: 2.50
-/// @G_UNICODE_BREAK_ZERO_WIDTH_JOINER: Zero Width Joiner (ZWJ). Since: 2.50
-///
-/// These are the possible line break classifications.
-///
-/// Since new unicode versions may add new types here, applications should be ready
-/// to handle unknown values. They may be regarded as %G_UNICODE_BREAK_UNKNOWN.
-///
-/// See [Unicode Line Breaking Algorithm](http://www.unicode.org/unicode/reports/tr14/).
-abstract class GUnicodeBreakType {
-  static const int G_UNICODE_BREAK_MANDATORY = 0;
-  static const int G_UNICODE_BREAK_CARRIAGE_RETURN = 1;
-  static const int G_UNICODE_BREAK_LINE_FEED = 2;
-  static const int G_UNICODE_BREAK_COMBINING_MARK = 3;
-  static const int G_UNICODE_BREAK_SURROGATE = 4;
-  static const int G_UNICODE_BREAK_ZERO_WIDTH_SPACE = 5;
-  static const int G_UNICODE_BREAK_INSEPARABLE = 6;
-  static const int G_UNICODE_BREAK_NON_BREAKING_GLUE = 7;
-  static const int G_UNICODE_BREAK_CONTINGENT = 8;
-  static const int G_UNICODE_BREAK_SPACE = 9;
-  static const int G_UNICODE_BREAK_AFTER = 10;
-  static const int G_UNICODE_BREAK_BEFORE = 11;
-  static const int G_UNICODE_BREAK_BEFORE_AND_AFTER = 12;
-  static const int G_UNICODE_BREAK_HYPHEN = 13;
-  static const int G_UNICODE_BREAK_NON_STARTER = 14;
-  static const int G_UNICODE_BREAK_OPEN_PUNCTUATION = 15;
-  static const int G_UNICODE_BREAK_CLOSE_PUNCTUATION = 16;
-  static const int G_UNICODE_BREAK_QUOTATION = 17;
-  static const int G_UNICODE_BREAK_EXCLAMATION = 18;
-  static const int G_UNICODE_BREAK_IDEOGRAPHIC = 19;
-  static const int G_UNICODE_BREAK_NUMERIC = 20;
-  static const int G_UNICODE_BREAK_INFIX_SEPARATOR = 21;
-  static const int G_UNICODE_BREAK_SYMBOL = 22;
-  static const int G_UNICODE_BREAK_ALPHABETIC = 23;
-  static const int G_UNICODE_BREAK_PREFIX = 24;
-  static const int G_UNICODE_BREAK_POSTFIX = 25;
-  static const int G_UNICODE_BREAK_COMPLEX_CONTEXT = 26;
-  static const int G_UNICODE_BREAK_AMBIGUOUS = 27;
-  static const int G_UNICODE_BREAK_UNKNOWN = 28;
-  static const int G_UNICODE_BREAK_NEXT_LINE = 29;
-  static const int G_UNICODE_BREAK_WORD_JOINER = 30;
-  static const int G_UNICODE_BREAK_HANGUL_L_JAMO = 31;
-  static const int G_UNICODE_BREAK_HANGUL_V_JAMO = 32;
-  static const int G_UNICODE_BREAK_HANGUL_T_JAMO = 33;
-  static const int G_UNICODE_BREAK_HANGUL_LV_SYLLABLE = 34;
-  static const int G_UNICODE_BREAK_HANGUL_LVT_SYLLABLE = 35;
-  static const int G_UNICODE_BREAK_CLOSE_PARANTHESIS = 36;
-  static const int G_UNICODE_BREAK_CLOSE_PARENTHESIS = 36;
-  static const int G_UNICODE_BREAK_CONDITIONAL_JAPANESE_STARTER = 37;
-  static const int G_UNICODE_BREAK_HEBREW_LETTER = 38;
-  static const int G_UNICODE_BREAK_REGIONAL_INDICATOR = 39;
-  static const int G_UNICODE_BREAK_EMOJI_BASE = 40;
-  static const int G_UNICODE_BREAK_EMOJI_MODIFIER = 41;
-  static const int G_UNICODE_BREAK_ZERO_WIDTH_JOINER = 42;
-}
-
-/// GUnicodeScript:
-/// @G_UNICODE_SCRIPT_INVALID_CODE:
-/// a value never returned from g_unichar_get_script()
-/// @G_UNICODE_SCRIPT_COMMON:     a character used by multiple different scripts
-/// @G_UNICODE_SCRIPT_INHERITED:  a mark glyph that takes its script from the
-/// base glyph to which it is attached
-/// @G_UNICODE_SCRIPT_ARABIC:     Arabic
-/// @G_UNICODE_SCRIPT_ARMENIAN:   Armenian
-/// @G_UNICODE_SCRIPT_BENGALI:    Bengali
-/// @G_UNICODE_SCRIPT_BOPOMOFO:   Bopomofo
-/// @G_UNICODE_SCRIPT_CHEROKEE:   Cherokee
-/// @G_UNICODE_SCRIPT_COPTIC:     Coptic
-/// @G_UNICODE_SCRIPT_CYRILLIC:   Cyrillic
-/// @G_UNICODE_SCRIPT_DESERET:    Deseret
-/// @G_UNICODE_SCRIPT_DEVANAGARI: Devanagari
-/// @G_UNICODE_SCRIPT_ETHIOPIC:   Ethiopic
-/// @G_UNICODE_SCRIPT_GEORGIAN:   Georgian
-/// @G_UNICODE_SCRIPT_GOTHIC:     Gothic
-/// @G_UNICODE_SCRIPT_GREEK:      Greek
-/// @G_UNICODE_SCRIPT_GUJARATI:   Gujarati
-/// @G_UNICODE_SCRIPT_GURMUKHI:   Gurmukhi
-/// @G_UNICODE_SCRIPT_HAN:        Han
-/// @G_UNICODE_SCRIPT_HANGUL:     Hangul
-/// @G_UNICODE_SCRIPT_HEBREW:     Hebrew
-/// @G_UNICODE_SCRIPT_HIRAGANA:   Hiragana
-/// @G_UNICODE_SCRIPT_KANNADA:    Kannada
-/// @G_UNICODE_SCRIPT_KATAKANA:   Katakana
-/// @G_UNICODE_SCRIPT_KHMER:      Khmer
-/// @G_UNICODE_SCRIPT_LAO:        Lao
-/// @G_UNICODE_SCRIPT_LATIN:      Latin
-/// @G_UNICODE_SCRIPT_MALAYALAM:  Malayalam
-/// @G_UNICODE_SCRIPT_MONGOLIAN:  Mongolian
-/// @G_UNICODE_SCRIPT_MYANMAR:    Myanmar
-/// @G_UNICODE_SCRIPT_OGHAM:      Ogham
-/// @G_UNICODE_SCRIPT_OLD_ITALIC: Old Italic
-/// @G_UNICODE_SCRIPT_ORIYA:      Oriya
-/// @G_UNICODE_SCRIPT_RUNIC:      Runic
-/// @G_UNICODE_SCRIPT_SINHALA:    Sinhala
-/// @G_UNICODE_SCRIPT_SYRIAC:     Syriac
-/// @G_UNICODE_SCRIPT_TAMIL:      Tamil
-/// @G_UNICODE_SCRIPT_TELUGU:     Telugu
-/// @G_UNICODE_SCRIPT_THAANA:     Thaana
-/// @G_UNICODE_SCRIPT_THAI:       Thai
-/// @G_UNICODE_SCRIPT_TIBETAN:    Tibetan
-/// @G_UNICODE_SCRIPT_CANADIAN_ABORIGINAL:
-/// Canadian Aboriginal
-/// @G_UNICODE_SCRIPT_YI:         Yi
-/// @G_UNICODE_SCRIPT_TAGALOG:    Tagalog
-/// @G_UNICODE_SCRIPT_HANUNOO:    Hanunoo
-/// @G_UNICODE_SCRIPT_BUHID:      Buhid
-/// @G_UNICODE_SCRIPT_TAGBANWA:   Tagbanwa
-/// @G_UNICODE_SCRIPT_BRAILLE:    Braille
-/// @G_UNICODE_SCRIPT_CYPRIOT:    Cypriot
-/// @G_UNICODE_SCRIPT_LIMBU:      Limbu
-/// @G_UNICODE_SCRIPT_OSMANYA:    Osmanya
-/// @G_UNICODE_SCRIPT_SHAVIAN:    Shavian
-/// @G_UNICODE_SCRIPT_LINEAR_B:   Linear B
-/// @G_UNICODE_SCRIPT_TAI_LE:     Tai Le
-/// @G_UNICODE_SCRIPT_UGARITIC:   Ugaritic
-/// @G_UNICODE_SCRIPT_NEW_TAI_LUE:
-/// New Tai Lue
-/// @G_UNICODE_SCRIPT_BUGINESE:   Buginese
-/// @G_UNICODE_SCRIPT_GLAGOLITIC: Glagolitic
-/// @G_UNICODE_SCRIPT_TIFINAGH:   Tifinagh
-/// @G_UNICODE_SCRIPT_SYLOTI_NAGRI:
-/// Syloti Nagri
-/// @G_UNICODE_SCRIPT_OLD_PERSIAN:
-/// Old Persian
-/// @G_UNICODE_SCRIPT_KHAROSHTHI: Kharoshthi
-/// @G_UNICODE_SCRIPT_UNKNOWN:    an unassigned code point
-/// @G_UNICODE_SCRIPT_BALINESE:   Balinese
-/// @G_UNICODE_SCRIPT_CUNEIFORM:  Cuneiform
-/// @G_UNICODE_SCRIPT_PHOENICIAN: Phoenician
-/// @G_UNICODE_SCRIPT_PHAGS_PA:   Phags-pa
-/// @G_UNICODE_SCRIPT_NKO:        N'Ko
-/// @G_UNICODE_SCRIPT_KAYAH_LI:   Kayah Li. Since 2.16.3
-/// @G_UNICODE_SCRIPT_LEPCHA:     Lepcha. Since 2.16.3
-/// @G_UNICODE_SCRIPT_REJANG:     Rejang. Since 2.16.3
-/// @G_UNICODE_SCRIPT_SUNDANESE:  Sundanese. Since 2.16.3
-/// @G_UNICODE_SCRIPT_SAURASHTRA: Saurashtra. Since 2.16.3
-/// @G_UNICODE_SCRIPT_CHAM:       Cham. Since 2.16.3
-/// @G_UNICODE_SCRIPT_OL_CHIKI:   Ol Chiki. Since 2.16.3
-/// @G_UNICODE_SCRIPT_VAI:        Vai. Since 2.16.3
-/// @G_UNICODE_SCRIPT_CARIAN:     Carian. Since 2.16.3
-/// @G_UNICODE_SCRIPT_LYCIAN:     Lycian. Since 2.16.3
-/// @G_UNICODE_SCRIPT_LYDIAN:     Lydian. Since 2.16.3
-/// @G_UNICODE_SCRIPT_AVESTAN:    Avestan. Since 2.26
-/// @G_UNICODE_SCRIPT_BAMUM:      Bamum. Since 2.26
-/// @G_UNICODE_SCRIPT_EGYPTIAN_HIEROGLYPHS:
-/// Egyptian Hieroglpyhs. Since 2.26
-/// @G_UNICODE_SCRIPT_IMPERIAL_ARAMAIC:
-/// Imperial Aramaic. Since 2.26
-/// @G_UNICODE_SCRIPT_INSCRIPTIONAL_PAHLAVI:
-/// Inscriptional Pahlavi. Since 2.26
-/// @G_UNICODE_SCRIPT_INSCRIPTIONAL_PARTHIAN:
-/// Inscriptional Parthian. Since 2.26
-/// @G_UNICODE_SCRIPT_JAVANESE:   Javanese. Since 2.26
-/// @G_UNICODE_SCRIPT_KAITHI:     Kaithi. Since 2.26
-/// @G_UNICODE_SCRIPT_LISU:       Lisu. Since 2.26
-/// @G_UNICODE_SCRIPT_MEETEI_MAYEK:
-/// Meetei Mayek. Since 2.26
-/// @G_UNICODE_SCRIPT_OLD_SOUTH_ARABIAN:
-/// Old South Arabian. Since 2.26
-/// @G_UNICODE_SCRIPT_OLD_TURKIC: Old Turkic. Since 2.28
-/// @G_UNICODE_SCRIPT_SAMARITAN:  Samaritan. Since 2.26
-/// @G_UNICODE_SCRIPT_TAI_THAM:   Tai Tham. Since 2.26
-/// @G_UNICODE_SCRIPT_TAI_VIET:   Tai Viet. Since 2.26
-/// @G_UNICODE_SCRIPT_BATAK:      Batak. Since 2.28
-/// @G_UNICODE_SCRIPT_BRAHMI:     Brahmi. Since 2.28
-/// @G_UNICODE_SCRIPT_MANDAIC:    Mandaic. Since 2.28
-/// @G_UNICODE_SCRIPT_CHAKMA:               Chakma. Since: 2.32
-/// @G_UNICODE_SCRIPT_MEROITIC_CURSIVE:     Meroitic Cursive. Since: 2.32
-/// @G_UNICODE_SCRIPT_MEROITIC_HIEROGLYPHS: Meroitic Hieroglyphs. Since: 2.32
-/// @G_UNICODE_SCRIPT_MIAO:                 Miao. Since: 2.32
-/// @G_UNICODE_SCRIPT_SHARADA:              Sharada. Since: 2.32
-/// @G_UNICODE_SCRIPT_SORA_SOMPENG:         Sora Sompeng. Since: 2.32
-/// @G_UNICODE_SCRIPT_TAKRI:                Takri. Since: 2.32
-/// @G_UNICODE_SCRIPT_BASSA_VAH:            Bassa. Since: 2.42
-/// @G_UNICODE_SCRIPT_CAUCASIAN_ALBANIAN:   Caucasian Albanian. Since: 2.42
-/// @G_UNICODE_SCRIPT_DUPLOYAN:             Duployan. Since: 2.42
-/// @G_UNICODE_SCRIPT_ELBASAN:              Elbasan. Since: 2.42
-/// @G_UNICODE_SCRIPT_GRANTHA:              Grantha. Since: 2.42
-/// @G_UNICODE_SCRIPT_KHOJKI:               Kjohki. Since: 2.42
-/// @G_UNICODE_SCRIPT_KHUDAWADI:            Khudawadi, Sindhi. Since: 2.42
-/// @G_UNICODE_SCRIPT_LINEAR_A:             Linear A. Since: 2.42
-/// @G_UNICODE_SCRIPT_MAHAJANI:             Mahajani. Since: 2.42
-/// @G_UNICODE_SCRIPT_MANICHAEAN:           Manichaean. Since: 2.42
-/// @G_UNICODE_SCRIPT_MENDE_KIKAKUI:        Mende Kikakui. Since: 2.42
-/// @G_UNICODE_SCRIPT_MODI:                 Modi. Since: 2.42
-/// @G_UNICODE_SCRIPT_MRO:                  Mro. Since: 2.42
-/// @G_UNICODE_SCRIPT_NABATAEAN:            Nabataean. Since: 2.42
-/// @G_UNICODE_SCRIPT_OLD_NORTH_ARABIAN:    Old North Arabian. Since: 2.42
-/// @G_UNICODE_SCRIPT_OLD_PERMIC:           Old Permic. Since: 2.42
-/// @G_UNICODE_SCRIPT_PAHAWH_HMONG:         Pahawh Hmong. Since: 2.42
-/// @G_UNICODE_SCRIPT_PALMYRENE:            Palmyrene. Since: 2.42
-/// @G_UNICODE_SCRIPT_PAU_CIN_HAU:          Pau Cin Hau. Since: 2.42
-/// @G_UNICODE_SCRIPT_PSALTER_PAHLAVI:      Psalter Pahlavi. Since: 2.42
-/// @G_UNICODE_SCRIPT_SIDDHAM:              Siddham. Since: 2.42
-/// @G_UNICODE_SCRIPT_TIRHUTA:              Tirhuta. Since: 2.42
-/// @G_UNICODE_SCRIPT_WARANG_CITI:          Warang Citi. Since: 2.42
-/// @G_UNICODE_SCRIPT_AHOM:                 Ahom. Since: 2.48
-/// @G_UNICODE_SCRIPT_ANATOLIAN_HIEROGLYPHS: Anatolian Hieroglyphs. Since: 2.48
-/// @G_UNICODE_SCRIPT_HATRAN:               Hatran. Since: 2.48
-/// @G_UNICODE_SCRIPT_MULTANI:              Multani. Since: 2.48
-/// @G_UNICODE_SCRIPT_OLD_HUNGARIAN:        Old Hungarian. Since: 2.48
-/// @G_UNICODE_SCRIPT_SIGNWRITING:          Signwriting. Since: 2.48
-/// @G_UNICODE_SCRIPT_ADLAM:                Adlam. Since: 2.50
-/// @G_UNICODE_SCRIPT_BHAIKSUKI:            Bhaiksuki. Since: 2.50
-/// @G_UNICODE_SCRIPT_MARCHEN:              Marchen. Since: 2.50
-/// @G_UNICODE_SCRIPT_NEWA:                 Newa. Since: 2.50
-/// @G_UNICODE_SCRIPT_OSAGE:                Osage. Since: 2.50
-/// @G_UNICODE_SCRIPT_TANGUT:               Tangut. Since: 2.50
-/// @G_UNICODE_SCRIPT_MASARAM_GONDI:        Masaram Gondi. Since: 2.54
-/// @G_UNICODE_SCRIPT_NUSHU:                Nushu. Since: 2.54
-/// @G_UNICODE_SCRIPT_SOYOMBO:              Soyombo. Since: 2.54
-/// @G_UNICODE_SCRIPT_ZANABAZAR_SQUARE:     Zanabazar Square. Since: 2.54
-/// @G_UNICODE_SCRIPT_DOGRA:                Dogra. Since: 2.58
-/// @G_UNICODE_SCRIPT_GUNJALA_GONDI:        Gunjala Gondi. Since: 2.58
-/// @G_UNICODE_SCRIPT_HANIFI_ROHINGYA:      Hanifi Rohingya. Since: 2.58
-/// @G_UNICODE_SCRIPT_MAKASAR:              Makasar. Since: 2.58
-/// @G_UNICODE_SCRIPT_MEDEFAIDRIN:          Medefaidrin. Since: 2.58
-/// @G_UNICODE_SCRIPT_OLD_SOGDIAN:          Old Sogdian. Since: 2.58
-/// @G_UNICODE_SCRIPT_SOGDIAN:              Sogdian. Since: 2.58
-/// @G_UNICODE_SCRIPT_ELYMAIC:              Elym. Since: 2.62
-/// @G_UNICODE_SCRIPT_NANDINAGARI:          Nand. Since: 2.62
-/// @G_UNICODE_SCRIPT_NYIAKENG_PUACHUE_HMONG: Rohg. Since: 2.62
-/// @G_UNICODE_SCRIPT_WANCHO:               Wcho. Since: 2.62
-/// @G_UNICODE_SCRIPT_CHORASMIAN:           Chorasmian. Since: 2.66
-/// @G_UNICODE_SCRIPT_DIVES_AKURU:          Dives Akuru. Since: 2.66
-/// @G_UNICODE_SCRIPT_KHITAN_SMALL_SCRIPT:  Khitan small script. Since: 2.66
-/// @G_UNICODE_SCRIPT_YEZIDI:               Yezidi. Since: 2.66
-/// @G_UNICODE_SCRIPT_CYPRO_MINOAN:         Cypro-Minoan. Since: 2.72
-/// @G_UNICODE_SCRIPT_OLD_UYGHUR:           Old Uyghur. Since: 2.72
-/// @G_UNICODE_SCRIPT_TANGSA:               Tangsa. Since: 2.72
-/// @G_UNICODE_SCRIPT_TOTO:                 Toto. Since: 2.72
-/// @G_UNICODE_SCRIPT_VITHKUQI:             Vithkuqi. Since: 2.72
-/// @G_UNICODE_SCRIPT_MATH:                 Mathematical notation. Since: 2.72
-///
-/// The #GUnicodeScript enumeration identifies different writing
-/// systems. The values correspond to the names as defined in the
-/// Unicode standard. The enumeration has been added in GLib 2.14,
-/// and is interchangeable with #PangoScript.
-///
-/// Note that new types may be added in the future. Applications
-/// should be ready to handle unknown values.
-/// See [Unicode Standard Annex #24: Script names](http://www.unicode.org/reports/tr24/).
-abstract class GUnicodeScript {
-  static const int G_UNICODE_SCRIPT_INVALID_CODE = -1;
-  static const int G_UNICODE_SCRIPT_COMMON = 0;
-  static const int G_UNICODE_SCRIPT_INHERITED = 1;
-  static const int G_UNICODE_SCRIPT_ARABIC = 2;
-  static const int G_UNICODE_SCRIPT_ARMENIAN = 3;
-  static const int G_UNICODE_SCRIPT_BENGALI = 4;
-  static const int G_UNICODE_SCRIPT_BOPOMOFO = 5;
-  static const int G_UNICODE_SCRIPT_CHEROKEE = 6;
-  static const int G_UNICODE_SCRIPT_COPTIC = 7;
-  static const int G_UNICODE_SCRIPT_CYRILLIC = 8;
-  static const int G_UNICODE_SCRIPT_DESERET = 9;
-  static const int G_UNICODE_SCRIPT_DEVANAGARI = 10;
-  static const int G_UNICODE_SCRIPT_ETHIOPIC = 11;
-  static const int G_UNICODE_SCRIPT_GEORGIAN = 12;
-  static const int G_UNICODE_SCRIPT_GOTHIC = 13;
-  static const int G_UNICODE_SCRIPT_GREEK = 14;
-  static const int G_UNICODE_SCRIPT_GUJARATI = 15;
-  static const int G_UNICODE_SCRIPT_GURMUKHI = 16;
-  static const int G_UNICODE_SCRIPT_HAN = 17;
-  static const int G_UNICODE_SCRIPT_HANGUL = 18;
-  static const int G_UNICODE_SCRIPT_HEBREW = 19;
-  static const int G_UNICODE_SCRIPT_HIRAGANA = 20;
-  static const int G_UNICODE_SCRIPT_KANNADA = 21;
-  static const int G_UNICODE_SCRIPT_KATAKANA = 22;
-  static const int G_UNICODE_SCRIPT_KHMER = 23;
-  static const int G_UNICODE_SCRIPT_LAO = 24;
-  static const int G_UNICODE_SCRIPT_LATIN = 25;
-  static const int G_UNICODE_SCRIPT_MALAYALAM = 26;
-  static const int G_UNICODE_SCRIPT_MONGOLIAN = 27;
-  static const int G_UNICODE_SCRIPT_MYANMAR = 28;
-  static const int G_UNICODE_SCRIPT_OGHAM = 29;
-  static const int G_UNICODE_SCRIPT_OLD_ITALIC = 30;
-  static const int G_UNICODE_SCRIPT_ORIYA = 31;
-  static const int G_UNICODE_SCRIPT_RUNIC = 32;
-  static const int G_UNICODE_SCRIPT_SINHALA = 33;
-  static const int G_UNICODE_SCRIPT_SYRIAC = 34;
-  static const int G_UNICODE_SCRIPT_TAMIL = 35;
-  static const int G_UNICODE_SCRIPT_TELUGU = 36;
-  static const int G_UNICODE_SCRIPT_THAANA = 37;
-  static const int G_UNICODE_SCRIPT_THAI = 38;
-  static const int G_UNICODE_SCRIPT_TIBETAN = 39;
-  static const int G_UNICODE_SCRIPT_CANADIAN_ABORIGINAL = 40;
-  static const int G_UNICODE_SCRIPT_YI = 41;
-  static const int G_UNICODE_SCRIPT_TAGALOG = 42;
-  static const int G_UNICODE_SCRIPT_HANUNOO = 43;
-  static const int G_UNICODE_SCRIPT_BUHID = 44;
-  static const int G_UNICODE_SCRIPT_TAGBANWA = 45;
-  static const int G_UNICODE_SCRIPT_BRAILLE = 46;
-  static const int G_UNICODE_SCRIPT_CYPRIOT = 47;
-  static const int G_UNICODE_SCRIPT_LIMBU = 48;
-  static const int G_UNICODE_SCRIPT_OSMANYA = 49;
-  static const int G_UNICODE_SCRIPT_SHAVIAN = 50;
-  static const int G_UNICODE_SCRIPT_LINEAR_B = 51;
-  static const int G_UNICODE_SCRIPT_TAI_LE = 52;
-  static const int G_UNICODE_SCRIPT_UGARITIC = 53;
-  static const int G_UNICODE_SCRIPT_NEW_TAI_LUE = 54;
-  static const int G_UNICODE_SCRIPT_BUGINESE = 55;
-  static const int G_UNICODE_SCRIPT_GLAGOLITIC = 56;
-  static const int G_UNICODE_SCRIPT_TIFINAGH = 57;
-  static const int G_UNICODE_SCRIPT_SYLOTI_NAGRI = 58;
-  static const int G_UNICODE_SCRIPT_OLD_PERSIAN = 59;
-  static const int G_UNICODE_SCRIPT_KHAROSHTHI = 60;
-  static const int G_UNICODE_SCRIPT_UNKNOWN = 61;
-  static const int G_UNICODE_SCRIPT_BALINESE = 62;
-  static const int G_UNICODE_SCRIPT_CUNEIFORM = 63;
-  static const int G_UNICODE_SCRIPT_PHOENICIAN = 64;
-  static const int G_UNICODE_SCRIPT_PHAGS_PA = 65;
-  static const int G_UNICODE_SCRIPT_NKO = 66;
-  static const int G_UNICODE_SCRIPT_KAYAH_LI = 67;
-  static const int G_UNICODE_SCRIPT_LEPCHA = 68;
-  static const int G_UNICODE_SCRIPT_REJANG = 69;
-  static const int G_UNICODE_SCRIPT_SUNDANESE = 70;
-  static const int G_UNICODE_SCRIPT_SAURASHTRA = 71;
-  static const int G_UNICODE_SCRIPT_CHAM = 72;
-  static const int G_UNICODE_SCRIPT_OL_CHIKI = 73;
-  static const int G_UNICODE_SCRIPT_VAI = 74;
-  static const int G_UNICODE_SCRIPT_CARIAN = 75;
-  static const int G_UNICODE_SCRIPT_LYCIAN = 76;
-  static const int G_UNICODE_SCRIPT_LYDIAN = 77;
-  static const int G_UNICODE_SCRIPT_AVESTAN = 78;
-  static const int G_UNICODE_SCRIPT_BAMUM = 79;
-  static const int G_UNICODE_SCRIPT_EGYPTIAN_HIEROGLYPHS = 80;
-  static const int G_UNICODE_SCRIPT_IMPERIAL_ARAMAIC = 81;
-  static const int G_UNICODE_SCRIPT_INSCRIPTIONAL_PAHLAVI = 82;
-  static const int G_UNICODE_SCRIPT_INSCRIPTIONAL_PARTHIAN = 83;
-  static const int G_UNICODE_SCRIPT_JAVANESE = 84;
-  static const int G_UNICODE_SCRIPT_KAITHI = 85;
-  static const int G_UNICODE_SCRIPT_LISU = 86;
-  static const int G_UNICODE_SCRIPT_MEETEI_MAYEK = 87;
-  static const int G_UNICODE_SCRIPT_OLD_SOUTH_ARABIAN = 88;
-  static const int G_UNICODE_SCRIPT_OLD_TURKIC = 89;
-  static const int G_UNICODE_SCRIPT_SAMARITAN = 90;
-  static const int G_UNICODE_SCRIPT_TAI_THAM = 91;
-  static const int G_UNICODE_SCRIPT_TAI_VIET = 92;
-  static const int G_UNICODE_SCRIPT_BATAK = 93;
-  static const int G_UNICODE_SCRIPT_BRAHMI = 94;
-  static const int G_UNICODE_SCRIPT_MANDAIC = 95;
-  static const int G_UNICODE_SCRIPT_CHAKMA = 96;
-  static const int G_UNICODE_SCRIPT_MEROITIC_CURSIVE = 97;
-  static const int G_UNICODE_SCRIPT_MEROITIC_HIEROGLYPHS = 98;
-  static const int G_UNICODE_SCRIPT_MIAO = 99;
-  static const int G_UNICODE_SCRIPT_SHARADA = 100;
-  static const int G_UNICODE_SCRIPT_SORA_SOMPENG = 101;
-  static const int G_UNICODE_SCRIPT_TAKRI = 102;
-  static const int G_UNICODE_SCRIPT_BASSA_VAH = 103;
-  static const int G_UNICODE_SCRIPT_CAUCASIAN_ALBANIAN = 104;
-  static const int G_UNICODE_SCRIPT_DUPLOYAN = 105;
-  static const int G_UNICODE_SCRIPT_ELBASAN = 106;
-  static const int G_UNICODE_SCRIPT_GRANTHA = 107;
-  static const int G_UNICODE_SCRIPT_KHOJKI = 108;
-  static const int G_UNICODE_SCRIPT_KHUDAWADI = 109;
-  static const int G_UNICODE_SCRIPT_LINEAR_A = 110;
-  static const int G_UNICODE_SCRIPT_MAHAJANI = 111;
-  static const int G_UNICODE_SCRIPT_MANICHAEAN = 112;
-  static const int G_UNICODE_SCRIPT_MENDE_KIKAKUI = 113;
-  static const int G_UNICODE_SCRIPT_MODI = 114;
-  static const int G_UNICODE_SCRIPT_MRO = 115;
-  static const int G_UNICODE_SCRIPT_NABATAEAN = 116;
-  static const int G_UNICODE_SCRIPT_OLD_NORTH_ARABIAN = 117;
-  static const int G_UNICODE_SCRIPT_OLD_PERMIC = 118;
-  static const int G_UNICODE_SCRIPT_PAHAWH_HMONG = 119;
-  static const int G_UNICODE_SCRIPT_PALMYRENE = 120;
-  static const int G_UNICODE_SCRIPT_PAU_CIN_HAU = 121;
-  static const int G_UNICODE_SCRIPT_PSALTER_PAHLAVI = 122;
-  static const int G_UNICODE_SCRIPT_SIDDHAM = 123;
-  static const int G_UNICODE_SCRIPT_TIRHUTA = 124;
-  static const int G_UNICODE_SCRIPT_WARANG_CITI = 125;
-  static const int G_UNICODE_SCRIPT_AHOM = 126;
-  static const int G_UNICODE_SCRIPT_ANATOLIAN_HIEROGLYPHS = 127;
-  static const int G_UNICODE_SCRIPT_HATRAN = 128;
-  static const int G_UNICODE_SCRIPT_MULTANI = 129;
-  static const int G_UNICODE_SCRIPT_OLD_HUNGARIAN = 130;
-  static const int G_UNICODE_SCRIPT_SIGNWRITING = 131;
-  static const int G_UNICODE_SCRIPT_ADLAM = 132;
-  static const int G_UNICODE_SCRIPT_BHAIKSUKI = 133;
-  static const int G_UNICODE_SCRIPT_MARCHEN = 134;
-  static const int G_UNICODE_SCRIPT_NEWA = 135;
-  static const int G_UNICODE_SCRIPT_OSAGE = 136;
-  static const int G_UNICODE_SCRIPT_TANGUT = 137;
-  static const int G_UNICODE_SCRIPT_MASARAM_GONDI = 138;
-  static const int G_UNICODE_SCRIPT_NUSHU = 139;
-  static const int G_UNICODE_SCRIPT_SOYOMBO = 140;
-  static const int G_UNICODE_SCRIPT_ZANABAZAR_SQUARE = 141;
-  static const int G_UNICODE_SCRIPT_DOGRA = 142;
-  static const int G_UNICODE_SCRIPT_GUNJALA_GONDI = 143;
-  static const int G_UNICODE_SCRIPT_HANIFI_ROHINGYA = 144;
-  static const int G_UNICODE_SCRIPT_MAKASAR = 145;
-  static const int G_UNICODE_SCRIPT_MEDEFAIDRIN = 146;
-  static const int G_UNICODE_SCRIPT_OLD_SOGDIAN = 147;
-  static const int G_UNICODE_SCRIPT_SOGDIAN = 148;
-  static const int G_UNICODE_SCRIPT_ELYMAIC = 149;
-  static const int G_UNICODE_SCRIPT_NANDINAGARI = 150;
-  static const int G_UNICODE_SCRIPT_NYIAKENG_PUACHUE_HMONG = 151;
-  static const int G_UNICODE_SCRIPT_WANCHO = 152;
-  static const int G_UNICODE_SCRIPT_CHORASMIAN = 153;
-  static const int G_UNICODE_SCRIPT_DIVES_AKURU = 154;
-  static const int G_UNICODE_SCRIPT_KHITAN_SMALL_SCRIPT = 155;
-  static const int G_UNICODE_SCRIPT_YEZIDI = 156;
-  static const int G_UNICODE_SCRIPT_CYPRO_MINOAN = 157;
-  static const int G_UNICODE_SCRIPT_OLD_UYGHUR = 158;
-  static const int G_UNICODE_SCRIPT_TANGSA = 159;
-  static const int G_UNICODE_SCRIPT_TOTO = 160;
-  static const int G_UNICODE_SCRIPT_VITHKUQI = 161;
-  static const int G_UNICODE_SCRIPT_MATH = 162;
-}
-
-/// GNormalizeMode:
-/// @G_NORMALIZE_DEFAULT: standardize differences that do not affect the
-/// text content, such as the above-mentioned accent representation
-/// @G_NORMALIZE_NFD: another name for %G_NORMALIZE_DEFAULT
-/// @G_NORMALIZE_DEFAULT_COMPOSE: like %G_NORMALIZE_DEFAULT, but with
-/// composed forms rather than a maximally decomposed form
-/// @G_NORMALIZE_NFC: another name for %G_NORMALIZE_DEFAULT_COMPOSE
-/// @G_NORMALIZE_ALL: beyond %G_NORMALIZE_DEFAULT also standardize the
-/// "compatibility" characters in Unicode, such as SUPERSCRIPT THREE
-/// to the standard forms (in this case DIGIT THREE). Formatting
-/// information may be lost but for most text operations such
-/// characters should be considered the same
-/// @G_NORMALIZE_NFKD: another name for %G_NORMALIZE_ALL
-/// @G_NORMALIZE_ALL_COMPOSE: like %G_NORMALIZE_ALL, but with composed
-/// forms rather than a maximally decomposed form
-/// @G_NORMALIZE_NFKC: another name for %G_NORMALIZE_ALL_COMPOSE
-///
-/// Defines how a Unicode string is transformed in a canonical
-/// form, standardizing such issues as whether a character with
-/// an accent is represented as a base character and combining
-/// accent or as a single precomposed character. Unicode strings
-/// should generally be normalized before comparing them.
-abstract class GNormalizeMode {
-  static const int G_NORMALIZE_DEFAULT = 0;
-  static const int G_NORMALIZE_NFD = 0;
-  static const int G_NORMALIZE_DEFAULT_COMPOSE = 1;
-  static const int G_NORMALIZE_NFC = 1;
-  static const int G_NORMALIZE_ALL = 2;
-  static const int G_NORMALIZE_NFKD = 2;
-  static const int G_NORMALIZE_ALL_COMPOSE = 3;
-  static const int G_NORMALIZE_NFKC = 3;
-}
-
-class _GString extends ffi.Struct {
-  external ffi.Pointer<gchar> str;
-
-  @gsize()
-  external int len;
-
-  @gsize()
-  external int allocated_len;
-}
-
-class _GIOChannel extends ffi.Opaque {}
-
-class _GIOFuncs extends ffi.Struct {
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Int32 Function(ffi.Pointer<GIOChannel>, ffi.Pointer<gchar>, gsize,
-              ffi.Pointer<gsize>, ffi.Pointer<ffi.Pointer<GError>>)>> io_read;
-
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Int32 Function(ffi.Pointer<GIOChannel>, ffi.Pointer<gchar>, gsize,
-              ffi.Pointer<gsize>, ffi.Pointer<ffi.Pointer<GError>>)>> io_write;
-
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Int32 Function(ffi.Pointer<GIOChannel>, gint64, ffi.Int32,
-              ffi.Pointer<ffi.Pointer<GError>>)>> io_seek;
-
-  external ffi.Pointer<
-          ffi.NativeFunction<
-              ffi.Int32 Function(
-                  ffi.Pointer<GIOChannel>, ffi.Pointer<ffi.Pointer<GError>>)>>
-      io_close;
-
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Pointer<GSource> Function(
-              ffi.Pointer<GIOChannel>, ffi.Int32)>> io_create_watch;
-
-  external ffi.Pointer<
-      ffi.NativeFunction<ffi.Void Function(ffi.Pointer<GIOChannel>)>> io_free;
-
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Int32 Function(ffi.Pointer<GIOChannel>, ffi.Int32,
-              ffi.Pointer<ffi.Pointer<GError>>)>> io_set_flags;
-
-  external ffi.Pointer<
-          ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<GIOChannel>)>>
-      io_get_flags;
-}
-
-abstract class GIOStatus {
-  static const int G_IO_STATUS_ERROR = 0;
-  static const int G_IO_STATUS_NORMAL = 1;
-  static const int G_IO_STATUS_EOF = 2;
-  static const int G_IO_STATUS_AGAIN = 3;
-}
-
-typedef GIOChannel = _GIOChannel;
-
-abstract class GSeekType {
-  static const int G_SEEK_CUR = 0;
-  static const int G_SEEK_SET = 1;
-  static const int G_SEEK_END = 2;
-}
-
-abstract class GIOFlags {
-  static const int G_IO_FLAG_NONE = 0;
-  static const int G_IO_FLAG_APPEND = 1;
-  static const int G_IO_FLAG_NONBLOCK = 2;
-  static const int G_IO_FLAG_IS_READABLE = 4;
-  static const int G_IO_FLAG_IS_WRITABLE = 8;
-  static const int G_IO_FLAG_IS_WRITEABLE = 8;
-  static const int G_IO_FLAG_IS_SEEKABLE = 16;
-  static const int G_IO_FLAG_MASK = 31;
-  static const int G_IO_FLAG_GET_MASK = 31;
-  static const int G_IO_FLAG_SET_MASK = 3;
-}
-
-abstract class GIOError {
-  static const int G_IO_ERROR_NONE = 0;
-  static const int G_IO_ERROR_AGAIN = 1;
-  static const int G_IO_ERROR_INVAL = 2;
-  static const int G_IO_ERROR_UNKNOWN = 3;
-}
-
-abstract class GIOChannelError {
-  static const int G_IO_CHANNEL_ERROR_FBIG = 0;
-  static const int G_IO_CHANNEL_ERROR_INVAL = 1;
-  static const int G_IO_CHANNEL_ERROR_IO = 2;
-  static const int G_IO_CHANNEL_ERROR_ISDIR = 3;
-  static const int G_IO_CHANNEL_ERROR_NOSPC = 4;
-  static const int G_IO_CHANNEL_ERROR_NXIO = 5;
-  static const int G_IO_CHANNEL_ERROR_OVERFLOW = 6;
-  static const int G_IO_CHANNEL_ERROR_PIPE = 7;
-  static const int G_IO_CHANNEL_ERROR_FAILED = 8;
-}
-
-abstract class GKeyFileError {
-  static const int G_KEY_FILE_ERROR_UNKNOWN_ENCODING = 0;
-  static const int G_KEY_FILE_ERROR_PARSE = 1;
-  static const int G_KEY_FILE_ERROR_NOT_FOUND = 2;
-  static const int G_KEY_FILE_ERROR_KEY_NOT_FOUND = 3;
-  static const int G_KEY_FILE_ERROR_GROUP_NOT_FOUND = 4;
-  static const int G_KEY_FILE_ERROR_INVALID_VALUE = 5;
-}
-
-class _GKeyFile extends ffi.Opaque {}
-
-abstract class GKeyFileFlags {
-  static const int G_KEY_FILE_NONE = 0;
-  static const int G_KEY_FILE_KEEP_COMMENTS = 1;
-  static const int G_KEY_FILE_KEEP_TRANSLATIONS = 2;
-}
-
-class _GMappedFile extends ffi.Opaque {}
-
-/// GMarkupError:
-/// @G_MARKUP_ERROR_BAD_UTF8: text being parsed was not valid UTF-8
-/// @G_MARKUP_ERROR_EMPTY: document contained nothing, or only whitespace
-/// @G_MARKUP_ERROR_PARSE: document was ill-formed
-/// @G_MARKUP_ERROR_UNKNOWN_ELEMENT: error should be set by #GMarkupParser
-/// functions; element wasn't known
-/// @G_MARKUP_ERROR_UNKNOWN_ATTRIBUTE: error should be set by #GMarkupParser
-/// functions; attribute wasn't known
-/// @G_MARKUP_ERROR_INVALID_CONTENT: error should be set by #GMarkupParser
-/// functions; content was invalid
-/// @G_MARKUP_ERROR_MISSING_ATTRIBUTE: error should be set by #GMarkupParser
-/// functions; a required attribute was missing
-///
-/// Error codes returned by markup parsing.
-abstract class GMarkupError {
-  static const int G_MARKUP_ERROR_BAD_UTF8 = 0;
-  static const int G_MARKUP_ERROR_EMPTY = 1;
-  static const int G_MARKUP_ERROR_PARSE = 2;
-  static const int G_MARKUP_ERROR_UNKNOWN_ELEMENT = 3;
-  static const int G_MARKUP_ERROR_UNKNOWN_ATTRIBUTE = 4;
-  static const int G_MARKUP_ERROR_INVALID_CONTENT = 5;
-  static const int G_MARKUP_ERROR_MISSING_ATTRIBUTE = 6;
-}
-
-/// GMarkupParseFlags:
-/// @G_MARKUP_DEFAULT_FLAGS: No special behaviour. Since: 2.74
-/// @G_MARKUP_DO_NOT_USE_THIS_UNSUPPORTED_FLAG: flag you should not use
-/// @G_MARKUP_TREAT_CDATA_AS_TEXT: When this flag is set, CDATA marked
-/// sections are not passed literally to the @passthrough function of
-/// the parser. Instead, the content of the section (without the
-/// `<![CDATA[` and `]]>`) is
-/// passed to the @text function. This flag was added in GLib 2.12
-/// @G_MARKUP_PREFIX_ERROR_POSITION: Normally errors caught by GMarkup
-/// itself have line/column information prefixed to them to let the
-/// caller know the location of the error. When this flag is set the
-/// location information is also prefixed to errors generated by the
-/// #GMarkupParser implementation functions
-/// @G_MARKUP_IGNORE_QUALIFIED: Ignore (don't report) qualified
-/// attributes and tags, along with their contents.  A qualified
-/// attribute or tag is one that contains ':' in its name (ie: is in
-/// another namespace).  Since: 2.40.
-///
-/// Flags that affect the behaviour of the parser.
-abstract class GMarkupParseFlags {
-  static const int G_MARKUP_DEFAULT_FLAGS = 0;
-  static const int G_MARKUP_DO_NOT_USE_THIS_UNSUPPORTED_FLAG = 1;
-  static const int G_MARKUP_TREAT_CDATA_AS_TEXT = 2;
-  static const int G_MARKUP_PREFIX_ERROR_POSITION = 4;
-  static const int G_MARKUP_IGNORE_QUALIFIED = 8;
-}
-
-class _GMarkupParseContext extends ffi.Opaque {}
-
-/// GMarkupParser:
-/// @start_element: Callback to invoke when the opening tag of an element
-/// is seen. The callback's @attribute_names and @attribute_values parameters
-/// are %NULL-terminated.
-/// @end_element: Callback to invoke when the closing tag of an element
-/// is seen. Note that this is also called for empty tags like
-/// `<empty/>`.
-/// @text: Callback to invoke when some text is seen (text is always
-/// inside an element). Note that the text of an element may be spread
-/// over multiple calls of this function. If the
-/// %G_MARKUP_TREAT_CDATA_AS_TEXT flag is set, this function is also
-/// called for the content of CDATA marked sections.
-/// @passthrough: Callback to invoke for comments, processing instructions
-/// and doctype declarations; if you're re-writing the parsed document,
-/// write the passthrough text back out in the same position. If the
-/// %G_MARKUP_TREAT_CDATA_AS_TEXT flag is not set, this function is also
-/// called for CDATA marked sections.
-/// @error: Callback to invoke when an error occurs.
-///
-/// Any of the fields in #GMarkupParser can be %NULL, in which case they
-/// will be ignored. Except for the @error function, any of these callbacks
-/// can set an error; in particular the %G_MARKUP_ERROR_UNKNOWN_ELEMENT,
-/// %G_MARKUP_ERROR_UNKNOWN_ATTRIBUTE, and %G_MARKUP_ERROR_INVALID_CONTENT
-/// errors are intended to be set from these callbacks. If you set an error
-/// from a callback, g_markup_parse_context_parse() will report that error
-/// back to its caller.
-class _GMarkupParser extends ffi.Struct {
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Pointer<GMarkupParseContext>,
-              ffi.Pointer<gchar>,
-              ffi.Pointer<ffi.Pointer<gchar>>,
-              ffi.Pointer<ffi.Pointer<gchar>>,
-              gpointer,
-              ffi.Pointer<ffi.Pointer<GError>>)>> start_element;
-
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Pointer<GMarkupParseContext>,
-              ffi.Pointer<gchar>,
-              gpointer,
-              ffi.Pointer<ffi.Pointer<GError>>)>> end_element;
-
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Pointer<GMarkupParseContext>,
-              ffi.Pointer<gchar>,
-              gsize,
-              gpointer,
-              ffi.Pointer<ffi.Pointer<GError>>)>> text;
-
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Pointer<GMarkupParseContext>,
-              ffi.Pointer<gchar>,
-              gsize,
-              gpointer,
-              ffi.Pointer<ffi.Pointer<GError>>)>> passthrough;
-
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Pointer<GMarkupParseContext>,
-              ffi.Pointer<GError>, gpointer)>> error;
-}
-
-/// GMarkupParseContext:
-///
-/// A parse context is used to parse a stream of bytes that
-/// you expect to contain marked-up text.
-///
-/// See g_markup_parse_context_new(), #GMarkupParser, and so
-/// on for more details.
-typedef GMarkupParseContext = _GMarkupParseContext;
-
-abstract class GMarkupCollectType {
-  static const int G_MARKUP_COLLECT_INVALID = 0;
-  static const int G_MARKUP_COLLECT_STRING = 1;
-  static const int G_MARKUP_COLLECT_STRDUP = 2;
-  static const int G_MARKUP_COLLECT_BOOLEAN = 3;
-  static const int G_MARKUP_COLLECT_TRISTATE = 4;
-  static const int G_MARKUP_COLLECT_OPTIONAL = 65536;
-}
-
-class _GVariantType extends ffi.Opaque {}
-
-class _GVariant extends ffi.Opaque {}
-
-abstract class GVariantClass {
-  static const int G_VARIANT_CLASS_BOOLEAN = 98;
-  static const int G_VARIANT_CLASS_BYTE = 121;
-  static const int G_VARIANT_CLASS_INT16 = 110;
-  static const int G_VARIANT_CLASS_UINT16 = 113;
-  static const int G_VARIANT_CLASS_INT32 = 105;
-  static const int G_VARIANT_CLASS_UINT32 = 117;
-  static const int G_VARIANT_CLASS_INT64 = 120;
-  static const int G_VARIANT_CLASS_UINT64 = 116;
-  static const int G_VARIANT_CLASS_HANDLE = 104;
-  static const int G_VARIANT_CLASS_DOUBLE = 100;
-  static const int G_VARIANT_CLASS_STRING = 115;
-  static const int G_VARIANT_CLASS_OBJECT_PATH = 111;
-  static const int G_VARIANT_CLASS_SIGNATURE = 103;
-  static const int G_VARIANT_CLASS_VARIANT = 118;
-  static const int G_VARIANT_CLASS_MAYBE = 109;
-  static const int G_VARIANT_CLASS_ARRAY = 97;
-  static const int G_VARIANT_CLASS_TUPLE = 40;
-  static const int G_VARIANT_CLASS_DICT_ENTRY = 123;
-}
-
-class _GVariantIter extends ffi.Struct {
-  @ffi.Array.multi([16])
-  external ffi.Array<gsize> x;
-}
-
-class _GVariantBuilder extends ffi.Struct {
-  external UnnamedUnion1 u;
-}
-
-class UnnamedUnion1 extends ffi.Union {
-  external UnnamedStruct1 s;
-
-  @ffi.Array.multi([16])
-  external ffi.Array<gsize> x;
-}
-
-class UnnamedStruct1 extends ffi.Struct {
-  @gsize()
-  external int partial_magic;
-
-  external ffi.Pointer<GVariantType> type;
-
-  @ffi.Array.multi([14])
-  external ffi.Array<gsize> y;
-}
-
-/// GVariantType:
-///
-/// A type in the GVariant type system.
-///
-/// Two types may not be compared by value; use g_variant_type_equal() or
-/// g_variant_type_is_subtype_of().  May be copied using
-/// g_variant_type_copy() and freed using g_variant_type_free().
-typedef GVariantType = _GVariantType;
-
-abstract class GVariantParseError {
-  static const int G_VARIANT_PARSE_ERROR_FAILED = 0;
-  static const int G_VARIANT_PARSE_ERROR_BASIC_TYPE_EXPECTED = 1;
-  static const int G_VARIANT_PARSE_ERROR_CANNOT_INFER_TYPE = 2;
-  static const int G_VARIANT_PARSE_ERROR_DEFINITE_TYPE_EXPECTED = 3;
-  static const int G_VARIANT_PARSE_ERROR_INPUT_NOT_AT_END = 4;
-  static const int G_VARIANT_PARSE_ERROR_INVALID_CHARACTER = 5;
-  static const int G_VARIANT_PARSE_ERROR_INVALID_FORMAT_STRING = 6;
-  static const int G_VARIANT_PARSE_ERROR_INVALID_OBJECT_PATH = 7;
-  static const int G_VARIANT_PARSE_ERROR_INVALID_SIGNATURE = 8;
-  static const int G_VARIANT_PARSE_ERROR_INVALID_TYPE_STRING = 9;
-  static const int G_VARIANT_PARSE_ERROR_NO_COMMON_TYPE = 10;
-  static const int G_VARIANT_PARSE_ERROR_NUMBER_OUT_OF_RANGE = 11;
-  static const int G_VARIANT_PARSE_ERROR_NUMBER_TOO_BIG = 12;
-  static const int G_VARIANT_PARSE_ERROR_TYPE_ERROR = 13;
-  static const int G_VARIANT_PARSE_ERROR_UNEXPECTED_TOKEN = 14;
-  static const int G_VARIANT_PARSE_ERROR_UNKNOWN_KEYWORD = 15;
-  static const int G_VARIANT_PARSE_ERROR_UNTERMINATED_STRING_CONSTANT = 16;
-  static const int G_VARIANT_PARSE_ERROR_VALUE_EXPECTED = 17;
-  static const int G_VARIANT_PARSE_ERROR_RECURSION = 18;
-}
-
-class _GVariantDict extends ffi.Struct {
-  external UnnamedUnion2 u;
-}
-
-class UnnamedUnion2 extends ffi.Union {
-  external UnnamedStruct2 s;
-
-  @ffi.Array.multi([16])
-  external ffi.Array<gsize> x;
-}
-
-class UnnamedStruct2 extends ffi.Struct {
-  external ffi.Pointer<GVariant> asv;
-
-  @gsize()
-  external int partial_magic;
-
-  @ffi.Array.multi([14])
-  external ffi.Array<gsize> y;
-}
-
-typedef GVariant = _GVariant;
-
-abstract class GLogLevelFlags {
-  static const int G_LOG_FLAG_RECURSION = 1;
-  static const int G_LOG_FLAG_FATAL = 2;
-  static const int G_LOG_LEVEL_ERROR = 4;
-  static const int G_LOG_LEVEL_CRITICAL = 8;
-  static const int G_LOG_LEVEL_WARNING = 16;
-  static const int G_LOG_LEVEL_MESSAGE = 32;
-  static const int G_LOG_LEVEL_INFO = 64;
-  static const int G_LOG_LEVEL_DEBUG = 128;
-  static const int G_LOG_LEVEL_MASK = -4;
-}
-
-/// GLogWriterOutput:
-/// @G_LOG_WRITER_HANDLED: Log writer has handled the log entry.
-/// @G_LOG_WRITER_UNHANDLED: Log writer could not handle the log entry.
-///
-/// Return values from #GLogWriterFuncs to indicate whether the given log entry
-/// was successfully handled by the writer, or whether there was an error in
-/// handling it (and hence a fallback writer should be used).
-///
-/// If a #GLogWriterFunc ignores a log entry, it should return
-/// %G_LOG_WRITER_HANDLED.
-///
-/// Since: 2.50
-abstract class GLogWriterOutput {
-  static const int G_LOG_WRITER_HANDLED = 1;
-  static const int G_LOG_WRITER_UNHANDLED = 0;
-}
-
-class _GLogField extends ffi.Struct {
-  external ffi.Pointer<gchar> key;
-
-  external gconstpointer value;
-
-  @gssize()
-  external int length;
-}
-
-typedef gconstpointer = ffi.Pointer<ffi.Void>;
-typedef gssize = ffi.Long;
-
-/// GPrintFunc:
-/// @string: the message to output
-///
-/// Specifies the type of the print handler functions.
-/// These are called with the complete formatted string to output.
-typedef GPrintFunc
-    = ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<gchar>)>>;
-
-class _GOptionContext extends ffi.Opaque {}
-
-class _GOptionGroup extends ffi.Opaque {}
-
-/// GOptionEntry:
-/// @long_name: The long name of an option can be used to specify it
-/// in a commandline as `--long_name`. Every option must have a
-/// long name. To resolve conflicts if multiple option groups contain
-/// the same long name, it is also possible to specify the option as
-/// `--groupname-long_name`.
-/// @short_name: If an option has a short name, it can be specified
-/// `-short_name` in a commandline. @short_name must be  a printable
-/// ASCII character different from '-', or zero if the option has no
-/// short name.
-/// @flags: Flags from #GOptionFlags
-/// @arg: The type of the option, as a #GOptionArg
-/// @arg_data: If the @arg type is %G_OPTION_ARG_CALLBACK, then @arg_data
-/// must point to a #GOptionArgFunc callback function, which will be
-/// called to handle the extra argument. Otherwise, @arg_data is a
-/// pointer to a location to store the value, the required type of
-/// the location depends on the @arg type:
-/// - %G_OPTION_ARG_NONE: %gboolean
-/// - %G_OPTION_ARG_STRING: %gchar*
-/// - %G_OPTION_ARG_INT: %gint
-/// - %G_OPTION_ARG_FILENAME: %gchar*
-/// - %G_OPTION_ARG_STRING_ARRAY: %gchar**
-/// - %G_OPTION_ARG_FILENAME_ARRAY: %gchar**
-/// - %G_OPTION_ARG_DOUBLE: %gdouble
-/// If @arg type is %G_OPTION_ARG_STRING or %G_OPTION_ARG_FILENAME,
-/// the location will contain a newly allocated string if the option
-/// was given. That string needs to be freed by the callee using g_free().
-/// Likewise if @arg type is %G_OPTION_ARG_STRING_ARRAY or
-/// %G_OPTION_ARG_FILENAME_ARRAY, the data should be freed using g_strfreev().
-/// @description: the description for the option in `--help`
-/// output. The @description is translated using the @translate_func
-/// of the group, see g_option_group_set_translation_domain().
-/// @arg_description: The placeholder to use for the extra argument parsed
-/// by the option in `--help` output. The @arg_description is translated
-/// using the @translate_func of the group, see
-/// g_option_group_set_translation_domain().
-///
-/// A GOptionEntry struct defines a single option. To have an effect, they
-/// must be added to a #GOptionGroup with g_option_context_add_main_entries()
-/// or g_option_group_add_entries().
-class _GOptionEntry extends ffi.Struct {
-  external ffi.Pointer<gchar> long_name;
-
-  @gchar()
-  external int short_name;
-
-  @gint()
-  external int flags;
-
-  @ffi.Int32()
-  external int arg;
-
-  external gpointer arg_data;
-
-  external ffi.Pointer<gchar> description;
-
-  external ffi.Pointer<gchar> arg_description;
-}
-
-/// GOptionArg:
-/// @G_OPTION_ARG_NONE: No extra argument. This is useful for simple flags or booleans.
-/// @G_OPTION_ARG_STRING: The option takes a UTF-8 string argument.
-/// @G_OPTION_ARG_INT: The option takes an integer argument.
-/// @G_OPTION_ARG_CALLBACK: The option provides a callback (of type
-/// #GOptionArgFunc) to parse the extra argument.
-/// @G_OPTION_ARG_FILENAME: The option takes a filename as argument, which will
-/// be in the GLib filename encoding rather than UTF-8.
-/// @G_OPTION_ARG_STRING_ARRAY: The option takes a string argument, multiple
-/// uses of the option are collected into an array of strings.
-/// @G_OPTION_ARG_FILENAME_ARRAY: The option takes a filename as argument,
-/// multiple uses of the option are collected into an array of strings.
-/// @G_OPTION_ARG_DOUBLE: The option takes a double argument. The argument
-/// can be formatted either for the user's locale or for the "C" locale.
-/// Since 2.12
-/// @G_OPTION_ARG_INT64: The option takes a 64-bit integer. Like
-/// %G_OPTION_ARG_INT but for larger numbers. The number can be in
-/// decimal base, or in hexadecimal (when prefixed with `0x`, for
-/// example, `0xffffffff`). Since 2.12
-///
-/// The #GOptionArg enum values determine which type of extra argument the
-/// options expect to find. If an option expects an extra argument, it can
-/// be specified in several ways; with a short option: `-x arg`, with a long
-/// option: `--name arg` or combined in a single argument: `--name=arg`.
-abstract class GOptionArg {
-  static const int G_OPTION_ARG_NONE = 0;
-  static const int G_OPTION_ARG_STRING = 1;
-  static const int G_OPTION_ARG_INT = 2;
-  static const int G_OPTION_ARG_CALLBACK = 3;
-  static const int G_OPTION_ARG_FILENAME = 4;
-  static const int G_OPTION_ARG_STRING_ARRAY = 5;
-  static const int G_OPTION_ARG_FILENAME_ARRAY = 6;
-  static const int G_OPTION_ARG_DOUBLE = 7;
-  static const int G_OPTION_ARG_INT64 = 8;
-}
-
-/// GOptionFlags:
-/// @G_OPTION_FLAG_NONE: No flags. Since: 2.42.
-/// @G_OPTION_FLAG_HIDDEN: The option doesn't appear in `--help` output.
-/// @G_OPTION_FLAG_IN_MAIN: The option appears in the main section of the
-/// `--help` output, even if it is defined in a group.
-/// @G_OPTION_FLAG_REVERSE: For options of the %G_OPTION_ARG_NONE kind, this
-/// flag indicates that the sense of the option is reversed. i.e. %FALSE will
-/// be stored into the argument rather than %TRUE.
-/// @G_OPTION_FLAG_NO_ARG: For options of the %G_OPTION_ARG_CALLBACK kind,
-/// this flag indicates that the callback does not take any argument
-/// (like a %G_OPTION_ARG_NONE option). Since 2.8
-/// @G_OPTION_FLAG_FILENAME: For options of the %G_OPTION_ARG_CALLBACK
-/// kind, this flag indicates that the argument should be passed to the
-/// callback in the GLib filename encoding rather than UTF-8. Since 2.8
-/// @G_OPTION_FLAG_OPTIONAL_ARG: For options of the %G_OPTION_ARG_CALLBACK
-/// kind, this flag indicates that the argument supply is optional.
-/// If no argument is given then data of %GOptionParseFunc will be
-/// set to NULL. Since 2.8
-/// @G_OPTION_FLAG_NOALIAS: This flag turns off the automatic conflict
-/// resolution which prefixes long option names with `groupname-` if
-/// there is a conflict. This option should only be used in situations
-/// where aliasing is necessary to model some legacy commandline interface.
-/// It is not safe to use this option, unless all option groups are under
-/// your direct control. Since 2.8.
-///
-/// Flags which modify individual options.
-abstract class GOptionFlags {
-  static const int G_OPTION_FLAG_NONE = 0;
-  static const int G_OPTION_FLAG_HIDDEN = 1;
-  static const int G_OPTION_FLAG_IN_MAIN = 2;
-  static const int G_OPTION_FLAG_REVERSE = 4;
-  static const int G_OPTION_FLAG_NO_ARG = 8;
-  static const int G_OPTION_FLAG_FILENAME = 16;
-  static const int G_OPTION_FLAG_OPTIONAL_ARG = 32;
-  static const int G_OPTION_FLAG_NOALIAS = 64;
-}
-
-/// GOptionError:
-/// @G_OPTION_ERROR_UNKNOWN_OPTION: An option was not known to the parser.
-/// This error will only be reported, if the parser hasn't been instructed
-/// to ignore unknown options, see g_option_context_set_ignore_unknown_options().
-/// @G_OPTION_ERROR_BAD_VALUE: A value couldn't be parsed.
-/// @G_OPTION_ERROR_FAILED: A #GOptionArgFunc callback failed.
-///
-/// Error codes returned by option parsing.
-abstract class GOptionError {
-  static const int G_OPTION_ERROR_UNKNOWN_OPTION = 0;
-  static const int G_OPTION_ERROR_BAD_VALUE = 1;
-  static const int G_OPTION_ERROR_FAILED = 2;
-}
-
-class _GPatternSpec extends ffi.Opaque {}
-
-/// GQueue:
-/// @head: a pointer to the first element of the queue
-/// @tail: a pointer to the last element of the queue
-/// @length: the number of elements in the queue
-///
-/// Contains the public fields of a
-/// [Queue][glib-Double-ended-Queues].
-class _GQueue extends ffi.Struct {
-  external ffi.Pointer<GList> head;
-
-  external ffi.Pointer<GList> tail;
-
-  @guint()
-  external int length;
-}
-
-class _GRand extends ffi.Opaque {}
-
-/// GRegexError:
-/// @G_REGEX_ERROR_COMPILE: Compilation of the regular expression failed.
-/// @G_REGEX_ERROR_OPTIMIZE: Optimization of the regular expression failed.
-/// @G_REGEX_ERROR_REPLACE: Replacement failed due to an ill-formed replacement
-/// string.
-/// @G_REGEX_ERROR_MATCH: The match process failed.
-/// @G_REGEX_ERROR_INTERNAL: Internal error of the regular expression engine.
-/// Since 2.16
-/// @G_REGEX_ERROR_STRAY_BACKSLASH: "\\" at end of pattern. Since 2.16
-/// @G_REGEX_ERROR_MISSING_CONTROL_CHAR: "\\c" at end of pattern. Since 2.16
-/// @G_REGEX_ERROR_UNRECOGNIZED_ESCAPE: Unrecognized character follows "\\".
-/// Since 2.16
-/// @G_REGEX_ERROR_QUANTIFIERS_OUT_OF_ORDER: Numbers out of order in "{}"
-/// quantifier. Since 2.16
-/// @G_REGEX_ERROR_QUANTIFIER_TOO_BIG: Number too big in "{}" quantifier.
-/// Since 2.16
-/// @G_REGEX_ERROR_UNTERMINATED_CHARACTER_CLASS: Missing terminating "]" for
-/// character class. Since 2.16
-/// @G_REGEX_ERROR_INVALID_ESCAPE_IN_CHARACTER_CLASS: Invalid escape sequence
-/// in character class. Since 2.16
-/// @G_REGEX_ERROR_RANGE_OUT_OF_ORDER: Range out of order in character class.
-/// Since 2.16
-/// @G_REGEX_ERROR_NOTHING_TO_REPEAT: Nothing to repeat. Since 2.16
-/// @G_REGEX_ERROR_UNRECOGNIZED_CHARACTER: Unrecognized character after "(?",
-/// "(?<" or "(?P". Since 2.16
-/// @G_REGEX_ERROR_POSIX_NAMED_CLASS_OUTSIDE_CLASS: POSIX named classes are
-/// supported only within a class. Since 2.16
-/// @G_REGEX_ERROR_UNMATCHED_PARENTHESIS: Missing terminating ")" or ")"
-/// without opening "(". Since 2.16
-/// @G_REGEX_ERROR_INEXISTENT_SUBPATTERN_REFERENCE: Reference to non-existent
-/// subpattern. Since 2.16
-/// @G_REGEX_ERROR_UNTERMINATED_COMMENT: Missing terminating ")" after comment.
-/// Since 2.16
-/// @G_REGEX_ERROR_EXPRESSION_TOO_LARGE: Regular expression too large.
-/// Since 2.16
-/// @G_REGEX_ERROR_MEMORY_ERROR: Failed to get memory. Since 2.16
-/// @G_REGEX_ERROR_VARIABLE_LENGTH_LOOKBEHIND: Lookbehind assertion is not
-/// fixed length. Since 2.16
-/// @G_REGEX_ERROR_MALFORMED_CONDITION: Malformed number or name after "(?(".
-/// Since 2.16
-/// @G_REGEX_ERROR_TOO_MANY_CONDITIONAL_BRANCHES: Conditional group contains
-/// more than two branches. Since 2.16
-/// @G_REGEX_ERROR_ASSERTION_EXPECTED: Assertion expected after "(?(".
-/// Since 2.16
-/// @G_REGEX_ERROR_UNKNOWN_POSIX_CLASS_NAME: Unknown POSIX class name.
-/// Since 2.16
-/// @G_REGEX_ERROR_POSIX_COLLATING_ELEMENTS_NOT_SUPPORTED: POSIX collating
-/// elements are not supported. Since 2.16
-/// @G_REGEX_ERROR_HEX_CODE_TOO_LARGE: Character value in "\\x{...}" sequence
-/// is too large. Since 2.16
-/// @G_REGEX_ERROR_INVALID_CONDITION: Invalid condition "(?(0)". Since 2.16
-/// @G_REGEX_ERROR_SINGLE_BYTE_MATCH_IN_LOOKBEHIND: \\C not allowed in
-/// lookbehind assertion. Since 2.16
-/// @G_REGEX_ERROR_INFINITE_LOOP: Recursive call could loop indefinitely.
-/// Since 2.16
-/// @G_REGEX_ERROR_MISSING_SUBPATTERN_NAME_TERMINATOR: Missing terminator
-/// in subpattern name. Since 2.16
-/// @G_REGEX_ERROR_DUPLICATE_SUBPATTERN_NAME: Two named subpatterns have
-/// the same name. Since 2.16
-/// @G_REGEX_ERROR_MALFORMED_PROPERTY: Malformed "\\P" or "\\p" sequence.
-/// Since 2.16
-/// @G_REGEX_ERROR_UNKNOWN_PROPERTY: Unknown property name after "\\P" or
-/// "\\p". Since 2.16
-/// @G_REGEX_ERROR_SUBPATTERN_NAME_TOO_LONG: Subpattern name is too long
-/// (maximum 32 characters). Since 2.16
-/// @G_REGEX_ERROR_TOO_MANY_SUBPATTERNS: Too many named subpatterns (maximum
-/// 10,000). Since 2.16
-/// @G_REGEX_ERROR_INVALID_OCTAL_VALUE: Octal value is greater than "\\377".
-/// Since 2.16
-/// @G_REGEX_ERROR_TOO_MANY_BRANCHES_IN_DEFINE: "DEFINE" group contains more
-/// than one branch. Since 2.16
-/// @G_REGEX_ERROR_DEFINE_REPETION: Repeating a "DEFINE" group is not allowed.
-/// This error is never raised. Since: 2.16 Deprecated: 2.34
-/// @G_REGEX_ERROR_INCONSISTENT_NEWLINE_OPTIONS: Inconsistent newline options.
-/// Since 2.16
-/// @G_REGEX_ERROR_MISSING_BACK_REFERENCE: "\\g" is not followed by a braced,
-/// angle-bracketed, or quoted name or number, or by a plain number. Since: 2.16
-/// @G_REGEX_ERROR_INVALID_RELATIVE_REFERENCE: relative reference must not be zero. Since: 2.34
-/// @G_REGEX_ERROR_BACKTRACKING_CONTROL_VERB_ARGUMENT_FORBIDDEN: the backtracing
-/// control verb used does not allow an argument. Since: 2.34
-/// @G_REGEX_ERROR_UNKNOWN_BACKTRACKING_CONTROL_VERB: unknown backtracing
-/// control verb. Since: 2.34
-/// @G_REGEX_ERROR_NUMBER_TOO_BIG: number is too big in escape sequence. Since: 2.34
-/// @G_REGEX_ERROR_MISSING_SUBPATTERN_NAME: Missing subpattern name. Since: 2.34
-/// @G_REGEX_ERROR_MISSING_DIGIT: Missing digit. Since 2.34
-/// @G_REGEX_ERROR_INVALID_DATA_CHARACTER: In JavaScript compatibility mode,
-/// "[" is an invalid data character. Since: 2.34
-/// @G_REGEX_ERROR_EXTRA_SUBPATTERN_NAME: different names for subpatterns of the
-/// same number are not allowed. Since: 2.34
-/// @G_REGEX_ERROR_BACKTRACKING_CONTROL_VERB_ARGUMENT_REQUIRED: the backtracing control
-/// verb requires an argument. Since: 2.34
-/// @G_REGEX_ERROR_INVALID_CONTROL_CHAR: "\\c" must be followed by an ASCII
-/// character. Since: 2.34
-/// @G_REGEX_ERROR_MISSING_NAME: "\\k" is not followed by a braced, angle-bracketed, or
-/// quoted name. Since: 2.34
-/// @G_REGEX_ERROR_NOT_SUPPORTED_IN_CLASS: "\\N" is not supported in a class. Since: 2.34
-/// @G_REGEX_ERROR_TOO_MANY_FORWARD_REFERENCES: too many forward references. Since: 2.34
-/// @G_REGEX_ERROR_NAME_TOO_LONG: the name is too long in "(*MARK)", "(*PRUNE)",
-/// "(*SKIP)", or "(*THEN)". Since: 2.34
-/// @G_REGEX_ERROR_CHARACTER_VALUE_TOO_LARGE: the character value in the \\u sequence is
-/// too large. Since: 2.34
-///
-/// Error codes returned by regular expressions functions.
-///
-/// Since: 2.14
-abstract class GRegexError {
-  static const int G_REGEX_ERROR_COMPILE = 0;
-  static const int G_REGEX_ERROR_OPTIMIZE = 1;
-  static const int G_REGEX_ERROR_REPLACE = 2;
-  static const int G_REGEX_ERROR_MATCH = 3;
-  static const int G_REGEX_ERROR_INTERNAL = 4;
-  static const int G_REGEX_ERROR_STRAY_BACKSLASH = 101;
-  static const int G_REGEX_ERROR_MISSING_CONTROL_CHAR = 102;
-  static const int G_REGEX_ERROR_UNRECOGNIZED_ESCAPE = 103;
-  static const int G_REGEX_ERROR_QUANTIFIERS_OUT_OF_ORDER = 104;
-  static const int G_REGEX_ERROR_QUANTIFIER_TOO_BIG = 105;
-  static const int G_REGEX_ERROR_UNTERMINATED_CHARACTER_CLASS = 106;
-  static const int G_REGEX_ERROR_INVALID_ESCAPE_IN_CHARACTER_CLASS = 107;
-  static const int G_REGEX_ERROR_RANGE_OUT_OF_ORDER = 108;
-  static const int G_REGEX_ERROR_NOTHING_TO_REPEAT = 109;
-  static const int G_REGEX_ERROR_UNRECOGNIZED_CHARACTER = 112;
-  static const int G_REGEX_ERROR_POSIX_NAMED_CLASS_OUTSIDE_CLASS = 113;
-  static const int G_REGEX_ERROR_UNMATCHED_PARENTHESIS = 114;
-  static const int G_REGEX_ERROR_INEXISTENT_SUBPATTERN_REFERENCE = 115;
-  static const int G_REGEX_ERROR_UNTERMINATED_COMMENT = 118;
-  static const int G_REGEX_ERROR_EXPRESSION_TOO_LARGE = 120;
-  static const int G_REGEX_ERROR_MEMORY_ERROR = 121;
-  static const int G_REGEX_ERROR_VARIABLE_LENGTH_LOOKBEHIND = 125;
-  static const int G_REGEX_ERROR_MALFORMED_CONDITION = 126;
-  static const int G_REGEX_ERROR_TOO_MANY_CONDITIONAL_BRANCHES = 127;
-  static const int G_REGEX_ERROR_ASSERTION_EXPECTED = 128;
-  static const int G_REGEX_ERROR_UNKNOWN_POSIX_CLASS_NAME = 130;
-  static const int G_REGEX_ERROR_POSIX_COLLATING_ELEMENTS_NOT_SUPPORTED = 131;
-  static const int G_REGEX_ERROR_HEX_CODE_TOO_LARGE = 134;
-  static const int G_REGEX_ERROR_INVALID_CONDITION = 135;
-  static const int G_REGEX_ERROR_SINGLE_BYTE_MATCH_IN_LOOKBEHIND = 136;
-  static const int G_REGEX_ERROR_INFINITE_LOOP = 140;
-  static const int G_REGEX_ERROR_MISSING_SUBPATTERN_NAME_TERMINATOR = 142;
-  static const int G_REGEX_ERROR_DUPLICATE_SUBPATTERN_NAME = 143;
-  static const int G_REGEX_ERROR_MALFORMED_PROPERTY = 146;
-  static const int G_REGEX_ERROR_UNKNOWN_PROPERTY = 147;
-  static const int G_REGEX_ERROR_SUBPATTERN_NAME_TOO_LONG = 148;
-  static const int G_REGEX_ERROR_TOO_MANY_SUBPATTERNS = 149;
-  static const int G_REGEX_ERROR_INVALID_OCTAL_VALUE = 151;
-  static const int G_REGEX_ERROR_TOO_MANY_BRANCHES_IN_DEFINE = 154;
-  static const int G_REGEX_ERROR_DEFINE_REPETION = 155;
-  static const int G_REGEX_ERROR_INCONSISTENT_NEWLINE_OPTIONS = 156;
-  static const int G_REGEX_ERROR_MISSING_BACK_REFERENCE = 157;
-  static const int G_REGEX_ERROR_INVALID_RELATIVE_REFERENCE = 158;
-  static const int G_REGEX_ERROR_BACKTRACKING_CONTROL_VERB_ARGUMENT_FORBIDDEN =
-      159;
-  static const int G_REGEX_ERROR_UNKNOWN_BACKTRACKING_CONTROL_VERB = 160;
-  static const int G_REGEX_ERROR_NUMBER_TOO_BIG = 161;
-  static const int G_REGEX_ERROR_MISSING_SUBPATTERN_NAME = 162;
-  static const int G_REGEX_ERROR_MISSING_DIGIT = 163;
-  static const int G_REGEX_ERROR_INVALID_DATA_CHARACTER = 164;
-  static const int G_REGEX_ERROR_EXTRA_SUBPATTERN_NAME = 165;
-  static const int G_REGEX_ERROR_BACKTRACKING_CONTROL_VERB_ARGUMENT_REQUIRED =
-      166;
-  static const int G_REGEX_ERROR_INVALID_CONTROL_CHAR = 168;
-  static const int G_REGEX_ERROR_MISSING_NAME = 169;
-  static const int G_REGEX_ERROR_NOT_SUPPORTED_IN_CLASS = 171;
-  static const int G_REGEX_ERROR_TOO_MANY_FORWARD_REFERENCES = 172;
-  static const int G_REGEX_ERROR_NAME_TOO_LONG = 175;
-  static const int G_REGEX_ERROR_CHARACTER_VALUE_TOO_LARGE = 176;
-}
-
-/// GRegexCompileFlags:
-/// @G_REGEX_DEFAULT: No special options set. Since: 2.74
-/// @G_REGEX_CASELESS: Letters in the pattern match both upper- and
-/// lowercase letters. This option can be changed within a pattern
-/// by a "(?i)" option setting.
-/// @G_REGEX_MULTILINE: By default, GRegex treats the strings as consisting
-/// of a single line of characters (even if it actually contains
-/// newlines). The "start of line" metacharacter ("^") matches only
-/// at the start of the string, while the "end of line" metacharacter
-/// ("$") matches only at the end of the string, or before a terminating
-/// newline (unless %G_REGEX_DOLLAR_ENDONLY is set). When
-/// %G_REGEX_MULTILINE is set, the "start of line" and "end of line"
-/// constructs match immediately following or immediately before any
-/// newline in the string, respectively, as well as at the very start
-/// and end. This can be changed within a pattern by a "(?m)" option
-/// setting.
-/// @G_REGEX_DOTALL: A dot metacharacter (".") in the pattern matches all
-/// characters, including newlines. Without it, newlines are excluded.
-/// This option can be changed within a pattern by a ("?s") option setting.
-/// @G_REGEX_EXTENDED: Whitespace data characters in the pattern are
-/// totally ignored except when escaped or inside a character class.
-/// Whitespace does not include the VT character (code 11). In addition,
-/// characters between an unescaped "#" outside a character class and
-/// the next newline character, inclusive, are also ignored. This can
-/// be changed within a pattern by a "(?x)" option setting.
-/// @G_REGEX_ANCHORED: The pattern is forced to be "anchored", that is,
-/// it is constrained to match only at the first matching point in the
-/// string that is being searched. This effect can also be achieved by
-/// appropriate constructs in the pattern itself such as the "^"
-/// metacharacter.
-/// @G_REGEX_DOLLAR_ENDONLY: A dollar metacharacter ("$") in the pattern
-/// matches only at the end of the string. Without this option, a
-/// dollar also matches immediately before the final character if
-/// it is a newline (but not before any other newlines). This option
-/// is ignored if %G_REGEX_MULTILINE is set.
-/// @G_REGEX_UNGREEDY: Inverts the "greediness" of the quantifiers so that
-/// they are not greedy by default, but become greedy if followed by "?".
-/// It can also be set by a "(?U)" option setting within the pattern.
-/// @G_REGEX_RAW: Usually strings must be valid UTF-8 strings, using this
-/// flag they are considered as a raw sequence of bytes.
-/// @G_REGEX_NO_AUTO_CAPTURE: Disables the use of numbered capturing
-/// parentheses in the pattern. Any opening parenthesis that is not
-/// followed by "?" behaves as if it were followed by "?:" but named
-/// parentheses can still be used for capturing (and they acquire numbers
-/// in the usual way).
-/// @G_REGEX_OPTIMIZE: Since 2.74 and the port to pcre2, requests JIT
-/// compilation, which, if the just-in-time compiler is available, further
-/// processes a compiled pattern into machine code that executes much
-/// faster. However, it comes at the cost of extra processing before the
-/// match is performed, so it is most beneficial to use this when the same
-/// compiled pattern is used for matching many times. Before 2.74 this
-/// option used the built-in non-JIT optimizations in pcre1.
-/// @G_REGEX_FIRSTLINE: Limits an unanchored pattern to match before (or at) the
-/// first newline. Since: 2.34
-/// @G_REGEX_DUPNAMES: Names used to identify capturing subpatterns need not
-/// be unique. This can be helpful for certain types of pattern when it
-/// is known that only one instance of the named subpattern can ever be
-/// matched.
-/// @G_REGEX_NEWLINE_CR: Usually any newline character or character sequence is
-/// recognized. If this option is set, the only recognized newline character
-/// is '\r'.
-/// @G_REGEX_NEWLINE_LF: Usually any newline character or character sequence is
-/// recognized. If this option is set, the only recognized newline character
-/// is '\n'.
-/// @G_REGEX_NEWLINE_CRLF: Usually any newline character or character sequence is
-/// recognized. If this option is set, the only recognized newline character
-/// sequence is '\r\n'.
-/// @G_REGEX_NEWLINE_ANYCRLF: Usually any newline character or character sequence
-/// is recognized. If this option is set, the only recognized newline character
-/// sequences are '\r', '\n', and '\r\n'. Since: 2.34
-/// @G_REGEX_BSR_ANYCRLF: Usually any newline character or character sequence
-/// is recognised. If this option is set, then "\R" only recognizes the newline
-/// characters '\r', '\n' and '\r\n'. Since: 2.34
-/// @G_REGEX_JAVASCRIPT_COMPAT: Changes behaviour so that it is compatible with
-/// JavaScript rather than PCRE. Since GLib 2.74 this is no longer supported,
-/// as libpcre2 does not support it. Since: 2.34 Deprecated: 2.74
-///
-/// Flags specifying compile-time options.
-///
-/// Since: 2.14
-abstract class GRegexCompileFlags {
-  static const int G_REGEX_DEFAULT = 0;
-  static const int G_REGEX_CASELESS = 1;
-  static const int G_REGEX_MULTILINE = 2;
-  static const int G_REGEX_DOTALL = 4;
-  static const int G_REGEX_EXTENDED = 8;
-  static const int G_REGEX_ANCHORED = 16;
-  static const int G_REGEX_DOLLAR_ENDONLY = 32;
-  static const int G_REGEX_UNGREEDY = 512;
-  static const int G_REGEX_RAW = 2048;
-  static const int G_REGEX_NO_AUTO_CAPTURE = 4096;
-  static const int G_REGEX_OPTIMIZE = 8192;
-  static const int G_REGEX_FIRSTLINE = 262144;
-  static const int G_REGEX_DUPNAMES = 524288;
-  static const int G_REGEX_NEWLINE_CR = 1048576;
-  static const int G_REGEX_NEWLINE_LF = 2097152;
-  static const int G_REGEX_NEWLINE_CRLF = 3145728;
-  static const int G_REGEX_NEWLINE_ANYCRLF = 5242880;
-  static const int G_REGEX_BSR_ANYCRLF = 8388608;
-  static const int G_REGEX_JAVASCRIPT_COMPAT = 33554432;
-}
-
-/// GRegexMatchFlags:
-/// @G_REGEX_MATCH_DEFAULT: No special options set. Since: 2.74
-/// @G_REGEX_MATCH_ANCHORED: The pattern is forced to be "anchored", that is,
-/// it is constrained to match only at the first matching point in the
-/// string that is being searched. This effect can also be achieved by
-/// appropriate constructs in the pattern itself such as the "^"
-/// metacharacter.
-/// @G_REGEX_MATCH_NOTBOL: Specifies that first character of the string is
-/// not the beginning of a line, so the circumflex metacharacter should
-/// not match before it. Setting this without %G_REGEX_MULTILINE (at
-/// compile time) causes circumflex never to match. This option affects
-/// only the behaviour of the circumflex metacharacter, it does not
-/// affect "\A".
-/// @G_REGEX_MATCH_NOTEOL: Specifies that the end of the subject string is
-/// not the end of a line, so the dollar metacharacter should not match
-/// it nor (except in multiline mode) a newline immediately before it.
-/// Setting this without %G_REGEX_MULTILINE (at compile time) causes
-/// dollar never to match. This option affects only the behaviour of
-/// the dollar metacharacter, it does not affect "\Z" or "\z".
-/// @G_REGEX_MATCH_NOTEMPTY: An empty string is not considered to be a valid
-/// match if this option is set. If there are alternatives in the pattern,
-/// they are tried. If all the alternatives match the empty string, the
-/// entire match fails. For example, if the pattern "a?b?" is applied to
-/// a string not beginning with "a" or "b", it matches the empty string
-/// at the start of the string. With this flag set, this match is not
-/// valid, so GRegex searches further into the string for occurrences
-/// of "a" or "b".
-/// @G_REGEX_MATCH_PARTIAL: Turns on the partial matching feature, for more
-/// documentation on partial matching see g_match_info_is_partial_match().
-/// @G_REGEX_MATCH_NEWLINE_CR: Overrides the newline definition set when
-/// creating a new #GRegex, setting the '\r' character as line terminator.
-/// @G_REGEX_MATCH_NEWLINE_LF: Overrides the newline definition set when
-/// creating a new #GRegex, setting the '\n' character as line terminator.
-/// @G_REGEX_MATCH_NEWLINE_CRLF: Overrides the newline definition set when
-/// creating a new #GRegex, setting the '\r\n' characters sequence as line terminator.
-/// @G_REGEX_MATCH_NEWLINE_ANY: Overrides the newline definition set when
-/// creating a new #GRegex, any Unicode newline sequence
-/// is recognised as a newline. These are '\r', '\n' and '\rn', and the
-/// single characters U+000B LINE TABULATION, U+000C FORM FEED (FF),
-/// U+0085 NEXT LINE (NEL), U+2028 LINE SEPARATOR and
-/// U+2029 PARAGRAPH SEPARATOR.
-/// @G_REGEX_MATCH_NEWLINE_ANYCRLF: Overrides the newline definition set when
-/// creating a new #GRegex; any '\r', '\n', or '\r\n' character sequence
-/// is recognized as a newline. Since: 2.34
-/// @G_REGEX_MATCH_BSR_ANYCRLF: Overrides the newline definition for "\R" set when
-/// creating a new #GRegex; only '\r', '\n', or '\r\n' character sequences
-/// are recognized as a newline by "\R". Since: 2.34
-/// @G_REGEX_MATCH_BSR_ANY: Overrides the newline definition for "\R" set when
-/// creating a new #GRegex; any Unicode newline character or character sequence
-/// are recognized as a newline by "\R". These are '\r', '\n' and '\rn', and the
-/// single characters U+000B LINE TABULATION, U+000C FORM FEED (FF),
-/// U+0085 NEXT LINE (NEL), U+2028 LINE SEPARATOR and
-/// U+2029 PARAGRAPH SEPARATOR. Since: 2.34
-/// @G_REGEX_MATCH_PARTIAL_SOFT: An alias for %G_REGEX_MATCH_PARTIAL. Since: 2.34
-/// @G_REGEX_MATCH_PARTIAL_HARD: Turns on the partial matching feature. In contrast to
-/// to %G_REGEX_MATCH_PARTIAL_SOFT, this stops matching as soon as a partial match
-/// is found, without continuing to search for a possible complete match. See
-/// g_match_info_is_partial_match() for more information. Since: 2.34
-/// @G_REGEX_MATCH_NOTEMPTY_ATSTART: Like %G_REGEX_MATCH_NOTEMPTY, but only applied to
-/// the start of the matched string. For anchored
-/// patterns this can only happen for pattern containing "\K". Since: 2.34
-///
-/// Flags specifying match-time options.
-///
-/// Since: 2.14
-abstract class GRegexMatchFlags {
-  static const int G_REGEX_MATCH_DEFAULT = 0;
-  static const int G_REGEX_MATCH_ANCHORED = 16;
-  static const int G_REGEX_MATCH_NOTBOL = 128;
-  static const int G_REGEX_MATCH_NOTEOL = 256;
-  static const int G_REGEX_MATCH_NOTEMPTY = 1024;
-  static const int G_REGEX_MATCH_PARTIAL = 32768;
-  static const int G_REGEX_MATCH_NEWLINE_CR = 1048576;
-  static const int G_REGEX_MATCH_NEWLINE_LF = 2097152;
-  static const int G_REGEX_MATCH_NEWLINE_CRLF = 3145728;
-  static const int G_REGEX_MATCH_NEWLINE_ANY = 4194304;
-  static const int G_REGEX_MATCH_NEWLINE_ANYCRLF = 5242880;
-  static const int G_REGEX_MATCH_BSR_ANYCRLF = 8388608;
-  static const int G_REGEX_MATCH_BSR_ANY = 16777216;
-  static const int G_REGEX_MATCH_PARTIAL_SOFT = 32768;
-  static const int G_REGEX_MATCH_PARTIAL_HARD = 134217728;
-  static const int G_REGEX_MATCH_NOTEMPTY_ATSTART = 268435456;
-}
-
-class _GRegex extends ffi.Opaque {}
-
-class _GMatchInfo extends ffi.Opaque {}
-
-class _GScanner extends ffi.Struct {
-  external gpointer user_data;
-
-  @guint()
-  external int max_parse_errors;
-
-  @guint()
-  external int parse_errors;
-
-  external ffi.Pointer<gchar> input_name;
-
-  external ffi.Pointer<GData> qdata;
-
-  external ffi.Pointer<GScannerConfig> config;
-
-  @ffi.Int32()
-  external int token;
-
-  external GTokenValue value;
-
-  @guint()
-  external int line;
-
-  @guint()
-  external int position;
-
-  @ffi.Int32()
-  external int next_token;
-
-  external GTokenValue next_value;
-
-  @guint()
-  external int next_line;
-
-  @guint()
-  external int next_position;
-
-  external ffi.Pointer<GHashTable> symbol_table;
-
-  @gint()
-  external int input_fd;
-
-  external ffi.Pointer<gchar> text;
-
-  external ffi.Pointer<gchar> text_end;
-
-  external ffi.Pointer<gchar> buffer;
-
-  @guint()
-  external int scope_id;
-
-  external GScannerMsgFunc msg_handler;
-}
-
-typedef GData = _GData;
-typedef GScannerConfig = _GScannerConfig;
-
-class _GScannerConfig extends ffi.Opaque {}
-
-abstract class GTokenType {
-  static const int G_TOKEN_EOF = 0;
-  static const int G_TOKEN_LEFT_PAREN = 40;
-  static const int G_TOKEN_RIGHT_PAREN = 41;
-  static const int G_TOKEN_LEFT_CURLY = 123;
-  static const int G_TOKEN_RIGHT_CURLY = 125;
-  static const int G_TOKEN_LEFT_BRACE = 91;
-  static const int G_TOKEN_RIGHT_BRACE = 93;
-  static const int G_TOKEN_EQUAL_SIGN = 61;
-  static const int G_TOKEN_COMMA = 44;
-  static const int G_TOKEN_NONE = 256;
-  static const int G_TOKEN_ERROR = 257;
-  static const int G_TOKEN_CHAR = 258;
-  static const int G_TOKEN_BINARY = 259;
-  static const int G_TOKEN_OCTAL = 260;
-  static const int G_TOKEN_INT = 261;
-  static const int G_TOKEN_HEX = 262;
-  static const int G_TOKEN_FLOAT = 263;
-  static const int G_TOKEN_STRING = 264;
-  static const int G_TOKEN_SYMBOL = 265;
-  static const int G_TOKEN_IDENTIFIER = 266;
-  static const int G_TOKEN_IDENTIFIER_NULL = 267;
-  static const int G_TOKEN_COMMENT_SINGLE = 268;
-  static const int G_TOKEN_COMMENT_MULTI = 269;
-  static const int G_TOKEN_LAST = 270;
-}
-
-typedef GTokenValue = _GTokenValue;
-
-class _GTokenValue extends ffi.Union {
-  external gpointer v_symbol;
-
-  external ffi.Pointer<gchar> v_identifier;
-
-  @gulong()
-  external int v_binary;
-
-  @gulong()
-  external int v_octal;
-
-  @gulong()
-  external int v_int;
-
-  @guint64()
-  external int v_int64;
-
-  @gdouble()
-  external double v_float;
-
-  @gulong()
-  external int v_hex;
-
-  external ffi.Pointer<gchar> v_string;
-
-  external ffi.Pointer<gchar> v_comment;
-
-  @guchar()
-  external int v_char;
-
-  @guint()
-  external int v_error;
-}
-
-typedef gdouble = ffi.Double;
-typedef guchar = ffi.UnsignedChar;
-typedef GHashTable = _GHashTable;
-typedef GScannerMsgFunc = ffi.Pointer<
-    ffi.NativeFunction<
-        ffi.Void Function(
-            ffi.Pointer<GScanner>, ffi.Pointer<gchar>, gboolean)>>;
-typedef GScanner = _GScanner;
-
-abstract class GErrorType {
-  static const int G_ERR_UNKNOWN = 0;
-  static const int G_ERR_UNEXP_EOF = 1;
-  static const int G_ERR_UNEXP_EOF_IN_STRING = 2;
-  static const int G_ERR_UNEXP_EOF_IN_COMMENT = 3;
-  static const int G_ERR_NON_DIGIT_IN_CONST = 4;
-  static const int G_ERR_DIGIT_RADIX = 5;
-  static const int G_ERR_FLOAT_RADIX = 6;
-  static const int G_ERR_FLOAT_MALFORMED = 7;
-}
-
-class _GSequence extends ffi.Opaque {}
-
-class _GSequenceNode extends ffi.Opaque {}
-
-abstract class GShellError {
-  static const int G_SHELL_ERROR_BAD_QUOTING = 0;
-  static const int G_SHELL_ERROR_EMPTY_STRING = 1;
-  static const int G_SHELL_ERROR_FAILED = 2;
-}
-
-abstract class GSliceConfig {
-  static const int G_SLICE_CONFIG_ALWAYS_MALLOC = 1;
-  static const int G_SLICE_CONFIG_BYPASS_MAGAZINES = 2;
-  static const int G_SLICE_CONFIG_WORKING_SET_MSECS = 3;
-  static const int G_SLICE_CONFIG_COLOR_INCREMENT = 4;
-  static const int G_SLICE_CONFIG_CHUNK_SIZES = 5;
-  static const int G_SLICE_CONFIG_CONTENTION_COUNTER = 6;
-}
-
-/// GSpawnError:
-/// @G_SPAWN_ERROR_FORK: Fork failed due to lack of memory.
-/// @G_SPAWN_ERROR_READ: Read or select on pipes failed.
-/// @G_SPAWN_ERROR_CHDIR: Changing to working directory failed.
-/// @G_SPAWN_ERROR_ACCES: execv() returned `EACCES`
-/// @G_SPAWN_ERROR_PERM: execv() returned `EPERM`
-/// @G_SPAWN_ERROR_TOO_BIG: execv() returned `E2BIG`
-/// @G_SPAWN_ERROR_2BIG: deprecated alias for %G_SPAWN_ERROR_TOO_BIG (deprecated since GLib 2.32)
-/// @G_SPAWN_ERROR_NOEXEC: execv() returned `ENOEXEC`
-/// @G_SPAWN_ERROR_NAMETOOLONG: execv() returned `ENAMETOOLONG`
-/// @G_SPAWN_ERROR_NOENT: execv() returned `ENOENT`
-/// @G_SPAWN_ERROR_NOMEM: execv() returned `ENOMEM`
-/// @G_SPAWN_ERROR_NOTDIR: execv() returned `ENOTDIR`
-/// @G_SPAWN_ERROR_LOOP: execv() returned `ELOOP`
-/// @G_SPAWN_ERROR_TXTBUSY: execv() returned `ETXTBUSY`
-/// @G_SPAWN_ERROR_IO: execv() returned `EIO`
-/// @G_SPAWN_ERROR_NFILE: execv() returned `ENFILE`
-/// @G_SPAWN_ERROR_MFILE: execv() returned `EMFILE`
-/// @G_SPAWN_ERROR_INVAL: execv() returned `EINVAL`
-/// @G_SPAWN_ERROR_ISDIR: execv() returned `EISDIR`
-/// @G_SPAWN_ERROR_LIBBAD: execv() returned `ELIBBAD`
-/// @G_SPAWN_ERROR_FAILED: Some other fatal failure,
-/// `error->message` should explain.
-///
-/// Error codes returned by spawning processes.
-abstract class GSpawnError {
-  static const int G_SPAWN_ERROR_FORK = 0;
-  static const int G_SPAWN_ERROR_READ = 1;
-  static const int G_SPAWN_ERROR_CHDIR = 2;
-  static const int G_SPAWN_ERROR_ACCES = 3;
-  static const int G_SPAWN_ERROR_PERM = 4;
-  static const int G_SPAWN_ERROR_TOO_BIG = 5;
-  static const int G_SPAWN_ERROR_2BIG = 5;
-  static const int G_SPAWN_ERROR_NOEXEC = 6;
-  static const int G_SPAWN_ERROR_NAMETOOLONG = 7;
-  static const int G_SPAWN_ERROR_NOENT = 8;
-  static const int G_SPAWN_ERROR_NOMEM = 9;
-  static const int G_SPAWN_ERROR_NOTDIR = 10;
-  static const int G_SPAWN_ERROR_LOOP = 11;
-  static const int G_SPAWN_ERROR_TXTBUSY = 12;
-  static const int G_SPAWN_ERROR_IO = 13;
-  static const int G_SPAWN_ERROR_NFILE = 14;
-  static const int G_SPAWN_ERROR_MFILE = 15;
-  static const int G_SPAWN_ERROR_INVAL = 16;
-  static const int G_SPAWN_ERROR_ISDIR = 17;
-  static const int G_SPAWN_ERROR_LIBBAD = 18;
-  static const int G_SPAWN_ERROR_FAILED = 19;
-}
-
-/// GSpawnFlags:
-/// @G_SPAWN_DEFAULT: no flags, default behaviour
-/// @G_SPAWN_LEAVE_DESCRIPTORS_OPEN: the parent's open file descriptors will
-/// be inherited by the child; otherwise all descriptors except stdin,
-/// stdout and stderr will be closed before calling exec() in the child.
-/// @G_SPAWN_DO_NOT_REAP_CHILD: the child will not be automatically reaped;
-/// you must use g_child_watch_add() yourself (or call waitpid() or handle
-/// `SIGCHLD` yourself), or the child will become a zombie.
-/// @G_SPAWN_SEARCH_PATH: `argv[0]` need not be an absolute path, it will be
-/// looked for in the user's `PATH`.
-/// @G_SPAWN_STDOUT_TO_DEV_NULL: the child's standard output will be discarded,
-/// instead of going to the same location as the parent's standard output.
-/// @G_SPAWN_STDERR_TO_DEV_NULL: the child's standard error will be discarded.
-/// @G_SPAWN_CHILD_INHERITS_STDIN: the child will inherit the parent's standard
-/// input (by default, the child's standard input is attached to `/dev/null`).
-/// @G_SPAWN_FILE_AND_ARGV_ZERO: the first element of `argv` is the file to
-/// execute, while the remaining elements are the actual argument vector
-/// to pass to the file. Normally g_spawn_async_with_pipes() uses `argv[0]`
-/// as the file to execute, and passes all of `argv` to the child.
-/// @G_SPAWN_SEARCH_PATH_FROM_ENVP: if `argv[0]` is not an absolute path,
-/// it will be looked for in the `PATH` from the passed child environment.
-/// Since: 2.34
-/// @G_SPAWN_CLOEXEC_PIPES: create all pipes with the `O_CLOEXEC` flag set.
-/// Since: 2.40
-/// @G_SPAWN_CHILD_INHERITS_STDOUT: the child will inherit the parent's standard output.
-/// Since: 2.74
-/// @G_SPAWN_CHILD_INHERITS_STDERR: the child will inherit the parent's standard error.
-/// Since: 2.74
-/// @G_SPAWN_STDIN_FROM_DEV_NULL: the child's standard input is attached to `/dev/null`.
-/// Since: 2.74
-///
-/// Flags passed to g_spawn_sync(), g_spawn_async() and g_spawn_async_with_pipes().
-abstract class GSpawnFlags {
-  static const int G_SPAWN_DEFAULT = 0;
-  static const int G_SPAWN_LEAVE_DESCRIPTORS_OPEN = 1;
-  static const int G_SPAWN_DO_NOT_REAP_CHILD = 2;
-  static const int G_SPAWN_SEARCH_PATH = 4;
-  static const int G_SPAWN_STDOUT_TO_DEV_NULL = 8;
-  static const int G_SPAWN_STDERR_TO_DEV_NULL = 16;
-  static const int G_SPAWN_CHILD_INHERITS_STDIN = 32;
-  static const int G_SPAWN_FILE_AND_ARGV_ZERO = 64;
-  static const int G_SPAWN_SEARCH_PATH_FROM_ENVP = 128;
-  static const int G_SPAWN_CLOEXEC_PIPES = 256;
-
-  /// G_SPAWN_CHILD_INHERITS_STDOUT:
-  ///
-  /// The child will inherit the parent's standard output.
-  ///
-  /// Since: 2.74
-  static const int G_SPAWN_CHILD_INHERITS_STDOUT = 512;
-
-  /// G_SPAWN_CHILD_INHERITS_STDERR:
-  ///
-  /// The child will inherit the parent's standard error.
-  ///
-  /// Since: 2.74
-  static const int G_SPAWN_CHILD_INHERITS_STDERR = 1024;
-
-  /// G_SPAWN_STDIN_FROM_DEV_NULL:
-  ///
-  /// The child's standard input is attached to `/dev/null`.
-  ///
-  /// Since: 2.74
-  static const int G_SPAWN_STDIN_FROM_DEV_NULL = 2048;
-}
-
-abstract class GAsciiType {
-  static const int G_ASCII_ALNUM = 1;
-  static const int G_ASCII_ALPHA = 2;
-  static const int G_ASCII_CNTRL = 4;
-  static const int G_ASCII_DIGIT = 8;
-  static const int G_ASCII_GRAPH = 16;
-  static const int G_ASCII_LOWER = 32;
-  static const int G_ASCII_PRINT = 64;
-  static const int G_ASCII_PUNCT = 128;
-  static const int G_ASCII_SPACE = 256;
-  static const int G_ASCII_UPPER = 512;
-  static const int G_ASCII_XDIGIT = 1024;
-}
-
-typedef guint16 = ffi.UnsignedShort;
-
-/// GNumberParserError:
-/// @G_NUMBER_PARSER_ERROR_INVALID: String was not a valid number.
-/// @G_NUMBER_PARSER_ERROR_OUT_OF_BOUNDS: String was a number, but out of bounds.
-///
-/// Error codes returned by functions converting a string to a number.
-///
-/// Since: 2.54
-abstract class GNumberParserError {
-  static const int G_NUMBER_PARSER_ERROR_INVALID = 0;
-  static const int G_NUMBER_PARSER_ERROR_OUT_OF_BOUNDS = 1;
-}
-
-class _GStringChunk extends ffi.Opaque {}
-
-class _GStrvBuilder extends ffi.Opaque {}
-
-/// GTestTrapFlags:
-/// @G_TEST_TRAP_DEFAULT: Default behaviour. Since: 2.74
-/// @G_TEST_TRAP_SILENCE_STDOUT: Redirect stdout of the test child to
-/// `/dev/null` so it cannot be observed on the console during test
-/// runs. The actual output is still captured though to allow later
-/// tests with g_test_trap_assert_stdout().
-/// @G_TEST_TRAP_SILENCE_STDERR: Redirect stderr of the test child to
-/// `/dev/null` so it cannot be observed on the console during test
-/// runs. The actual output is still captured though to allow later
-/// tests with g_test_trap_assert_stderr().
-/// @G_TEST_TRAP_INHERIT_STDIN: If this flag is given, stdin of the
-/// child process is shared with stdin of its parent process.
-/// It is redirected to `/dev/null` otherwise.
-///
-/// Test traps are guards around forked tests.
-/// These flags determine what traps to set.
-///
-/// Deprecated: 2.38: #GTestTrapFlags is used only with g_test_trap_fork(),
-/// which is deprecated. g_test_trap_subprocess() uses
-/// #GTestSubprocessFlags.
-abstract class GTestTrapFlags {
-  static const int G_TEST_TRAP_DEFAULT = 0;
-  static const int G_TEST_TRAP_SILENCE_STDOUT = 128;
-  static const int G_TEST_TRAP_SILENCE_STDERR = 256;
-  static const int G_TEST_TRAP_INHERIT_STDIN = 512;
-}
-
-abstract class GTestSubprocessFlags {
-  static const int G_TEST_SUBPROCESS_DEFAULT = 0;
-  static const int G_TEST_SUBPROCESS_INHERIT_STDIN = 1;
-  static const int G_TEST_SUBPROCESS_INHERIT_STDOUT = 2;
-  static const int G_TEST_SUBPROCESS_INHERIT_STDERR = 4;
-}
-
-class GTestConfig extends ffi.Struct {
-  @gboolean()
-  external int test_initialized;
-
-  @gboolean()
-  external int test_quick;
-
-  @gboolean()
-  external int test_perf;
-
-  @gboolean()
-  external int test_verbose;
-
-  @gboolean()
-  external int test_quiet;
-
-  @gboolean()
-  external int test_undefined;
-}
-
-abstract class GTestResult {
-  static const int G_TEST_RUN_SUCCESS = 0;
-  static const int G_TEST_RUN_SKIPPED = 1;
-  static const int G_TEST_RUN_FAILURE = 2;
-  static const int G_TEST_RUN_INCOMPLETE = 3;
-}
-
-abstract class GTestLogType {
-  static const int G_TEST_LOG_NONE = 0;
-  static const int G_TEST_LOG_ERROR = 1;
-  static const int G_TEST_LOG_START_BINARY = 2;
-  static const int G_TEST_LOG_LIST_CASE = 3;
-  static const int G_TEST_LOG_SKIP_CASE = 4;
-  static const int G_TEST_LOG_START_CASE = 5;
-  static const int G_TEST_LOG_STOP_CASE = 6;
-  static const int G_TEST_LOG_MIN_RESULT = 7;
-  static const int G_TEST_LOG_MAX_RESULT = 8;
-  static const int G_TEST_LOG_MESSAGE = 9;
-  static const int G_TEST_LOG_START_SUITE = 10;
-  static const int G_TEST_LOG_STOP_SUITE = 11;
-}
-
-abstract class GTestFileType {
-  static const int G_TEST_DIST = 0;
-  static const int G_TEST_BUILT = 1;
-}
-
-class _GThreadPool extends ffi.Struct {
-  external GFunc func;
-
-  external gpointer user_data;
-
-  @gboolean()
-  external int exclusive;
-}
-
-typedef GFunc
-    = ffi.Pointer<ffi.NativeFunction<ffi.Void Function(gpointer, gpointer)>>;
-
-class _GTimer extends ffi.Opaque {}
-
-class _GTrashStack extends ffi.Struct {
-  external ffi.Pointer<GTrashStack> next;
-}
-
-typedef GTrashStack = _GTrashStack;
-
-class _GTree extends ffi.Opaque {}
-
-class _GTreeNode extends ffi.Opaque {}
-
-class _GUri extends ffi.Opaque {}
-
-/// GUriFlags:
-/// @G_URI_FLAGS_NONE: No flags set.
-/// @G_URI_FLAGS_PARSE_RELAXED: Parse the URI more relaxedly than the
-/// [RFC 3986](https://tools.ietf.org/html/rfc3986) grammar specifies,
-/// fixing up or ignoring common mistakes in URIs coming from external
-/// sources. This is also needed for some obscure URI schemes where `;`
-/// separates the host from the path. Don’t use this flag unless you need to.
-/// @G_URI_FLAGS_HAS_PASSWORD: The userinfo field may contain a password,
-/// which will be separated from the username by `:`.
-/// @G_URI_FLAGS_HAS_AUTH_PARAMS: The userinfo may contain additional
-/// authentication-related parameters, which will be separated from
-/// the username and/or password by `;`.
-/// @G_URI_FLAGS_NON_DNS: The host component should not be assumed to be a
-/// DNS hostname or IP address (for example, for `smb` URIs with NetBIOS
-/// hostnames).
-/// @G_URI_FLAGS_ENCODED: When parsing a URI, this indicates that `%`-encoded
-/// characters in the userinfo, path, query, and fragment fields
-/// should not be decoded. (And likewise the host field if
-/// %G_URI_FLAGS_NON_DNS is also set.) When building a URI, it indicates
-/// that you have already `%`-encoded the components, and so #GUri
-/// should not do any encoding itself.
-/// @G_URI_FLAGS_ENCODED_QUERY: Same as %G_URI_FLAGS_ENCODED, for the query
-/// field only.
-/// @G_URI_FLAGS_ENCODED_PATH: Same as %G_URI_FLAGS_ENCODED, for the path only.
-/// @G_URI_FLAGS_ENCODED_FRAGMENT: Same as %G_URI_FLAGS_ENCODED, for the
-/// fragment only.
-/// @G_URI_FLAGS_SCHEME_NORMALIZE: A scheme-based normalization will be applied.
-/// For example, when parsing an HTTP URI changing omitted path to `/` and
-/// omitted port to `80`; and when building a URI, changing empty path to `/`
-/// and default port `80`). This only supports a subset of known schemes. (Since: 2.68)
-///
-/// Flags that describe a URI.
-///
-/// When parsing a URI, if you need to choose different flags based on
-/// the type of URI, you can use g_uri_peek_scheme() on the URI string
-/// to check the scheme first, and use that to decide what flags to
-/// parse it with.
-///
-/// Since: 2.66
-abstract class GUriFlags {
-  static const int G_URI_FLAGS_NONE = 0;
-  static const int G_URI_FLAGS_PARSE_RELAXED = 1;
-  static const int G_URI_FLAGS_HAS_PASSWORD = 2;
-  static const int G_URI_FLAGS_HAS_AUTH_PARAMS = 4;
-  static const int G_URI_FLAGS_ENCODED = 8;
-  static const int G_URI_FLAGS_NON_DNS = 16;
-  static const int G_URI_FLAGS_ENCODED_QUERY = 32;
-  static const int G_URI_FLAGS_ENCODED_PATH = 64;
-  static const int G_URI_FLAGS_ENCODED_FRAGMENT = 128;
-  static const int G_URI_FLAGS_SCHEME_NORMALIZE = 256;
-}
-
-/// GUriHideFlags:
-/// @G_URI_HIDE_NONE: No flags set.
-/// @G_URI_HIDE_USERINFO: Hide the userinfo.
-/// @G_URI_HIDE_PASSWORD: Hide the password.
-/// @G_URI_HIDE_AUTH_PARAMS: Hide the auth_params.
-/// @G_URI_HIDE_QUERY: Hide the query.
-/// @G_URI_HIDE_FRAGMENT: Hide the fragment.
-///
-/// Flags describing what parts of the URI to hide in
-/// g_uri_to_string_partial(). Note that %G_URI_HIDE_PASSWORD and
-/// %G_URI_HIDE_AUTH_PARAMS will only work if the #GUri was parsed with
-/// the corresponding flags.
-///
-/// Since: 2.66
-abstract class GUriHideFlags {
-  static const int G_URI_HIDE_NONE = 0;
-  static const int G_URI_HIDE_USERINFO = 1;
-  static const int G_URI_HIDE_PASSWORD = 2;
-  static const int G_URI_HIDE_AUTH_PARAMS = 4;
-  static const int G_URI_HIDE_QUERY = 8;
-  static const int G_URI_HIDE_FRAGMENT = 16;
-}
-
-/// GUriParamsFlags:
-/// @G_URI_PARAMS_NONE: No flags set.
-/// @G_URI_PARAMS_CASE_INSENSITIVE: Parameter names are case insensitive.
-/// @G_URI_PARAMS_WWW_FORM: Replace `+` with space character. Only useful for
-/// URLs on the web, using the `https` or `http` schemas.
-/// @G_URI_PARAMS_PARSE_RELAXED: See %G_URI_FLAGS_PARSE_RELAXED.
-///
-/// Flags modifying the way parameters are handled by g_uri_parse_params() and
-/// #GUriParamsIter.
-///
-/// Since: 2.66
-abstract class GUriParamsFlags {
-  static const int G_URI_PARAMS_NONE = 0;
-  static const int G_URI_PARAMS_CASE_INSENSITIVE = 1;
-  static const int G_URI_PARAMS_WWW_FORM = 2;
-  static const int G_URI_PARAMS_PARSE_RELAXED = 4;
-}
-
-class _GUriParamsIter extends ffi.Struct {
-  @gint()
-  external int dummy0;
-
-  external gpointer dummy1;
-
-  external gpointer dummy2;
-
-  @ffi.Array.multi([256])
-  external ffi.Array<guint8> dummy3;
-}
-
-/// GUriError:
-/// @G_URI_ERROR_FAILED: Generic error if no more specific error is available.
-/// See the error message for details.
-/// @G_URI_ERROR_BAD_SCHEME: The scheme of a URI could not be parsed.
-/// @G_URI_ERROR_BAD_USER: The user/userinfo of a URI could not be parsed.
-/// @G_URI_ERROR_BAD_PASSWORD: The password of a URI could not be parsed.
-/// @G_URI_ERROR_BAD_AUTH_PARAMS: The authentication parameters of a URI could not be parsed.
-/// @G_URI_ERROR_BAD_HOST: The host of a URI could not be parsed.
-/// @G_URI_ERROR_BAD_PORT: The port of a URI could not be parsed.
-/// @G_URI_ERROR_BAD_PATH: The path of a URI could not be parsed.
-/// @G_URI_ERROR_BAD_QUERY: The query of a URI could not be parsed.
-/// @G_URI_ERROR_BAD_FRAGMENT: The fragment of a URI could not be parsed.
-///
-/// Error codes returned by #GUri methods.
-///
-/// Since: 2.66
-abstract class GUriError {
-  static const int G_URI_ERROR_FAILED = 0;
-  static const int G_URI_ERROR_BAD_SCHEME = 1;
-  static const int G_URI_ERROR_BAD_USER = 2;
-  static const int G_URI_ERROR_BAD_PASSWORD = 3;
-  static const int G_URI_ERROR_BAD_AUTH_PARAMS = 4;
-  static const int G_URI_ERROR_BAD_HOST = 5;
-  static const int G_URI_ERROR_BAD_PORT = 6;
-  static const int G_URI_ERROR_BAD_PATH = 7;
-  static const int G_URI_ERROR_BAD_QUERY = 8;
-  static const int G_URI_ERROR_BAD_FRAGMENT = 9;
+class _GTimeVal extends ffi.Struct {
+  @ffi.Long()
+  external int tv_sec;
+
+  @ffi.Long()
+  external int tv_usec;
 }

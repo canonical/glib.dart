@@ -14,16 +14,6 @@ void main() {
     expect(glib.getHostName(), isNotEmpty);
   });
 
-  test('prg name', () {
-    glib.setPrgName('gutils_test');
-    expect(glib.getPrgName(), 'gutils_test');
-  });
-
-  test('application name', () {
-    glib.setApplicationName('GLib utils test');
-    expect(glib.getApplicationName(), 'GLib utils test');
-  });
-
   test('os info', () {
     final isNullEmptyOrNot = anyOf(isNull, isEmpty, isNotEmpty);
     expect(glib.getOsInfo(GOsInfoKey.name), isNullEmptyOrNot);

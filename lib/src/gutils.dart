@@ -23,15 +23,8 @@ mixin GUtilsMixin {
   String getTmpDir();
   String getHostName();
 
-  String? getPrgName();
-  void setPrgName(String prg_name);
-
-  String? getApplicationName();
-  void setApplicationName(String application_name);
-
   String? getOsInfo(String key);
 
-  void reloadUserSpecialDirsCache();
   String getUserDataDir();
   String getUserConfigDir();
   String getUserCacheDir();
