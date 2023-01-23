@@ -2,6 +2,7 @@ import 'dart:ffi' as ffi;
 
 import 'package:ffi/ffi.dart' as ffi;
 
+import '../gtype.dart';
 import '../gvalue.dart';
 import 'ffi_x.dart';
 import 'finalizer.dart';
@@ -13,7 +14,7 @@ mixin GValueFfiMixin on GValueMixin {
   @override
   GValue createValue(GType type) {
     final value = ffi.calloc<g.GValue>();
-    libgobject.g_value_init(value, type);
+    libgobject.g_value_init(value, type.value);
     return GValueFfi(value);
   }
 }
@@ -27,12 +28,12 @@ class GValueFfi implements GValue, ffi.Finalizable {
   final ffi.Pointer<g.GValue> _ptr;
 
   @override
-  GType get type => _ptr.ref.g_type;
+  GType get type => GType(_ptr.ref.g_type);
 
   @override
   GValue copy() {
     final dst = ffi.calloc<g.GValue>();
-    libgobject.g_value_init(dst, type);
+    libgobject.g_value_init(dst, type.value);
     libgobject.g_value_copy(_ptr, dst);
     return GValueFfi(dst);
   }

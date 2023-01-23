@@ -1,27 +1,25 @@
 import 'glib.dart';
-import 'gmacros.dart';
-
-typedef GType = int;
+import 'gtype.dart';
 
 abstract class GValue {
   factory GValue.type(GType type) => glib.createValue(type);
   factory GValue.boolean(bool value) =>
-      GValue.type(G_TYPE_BOOLEAN)..setBoolean(value);
-  factory GValue.schar(int value) => GValue.type(G_TYPE_CHAR)..setSchar(value);
-  factory GValue.uchar(int value) => GValue.type(G_TYPE_UCHAR)..setUchar(value);
-  factory GValue.int(int value) => GValue.type(G_TYPE_INT)..setInt(value);
-  factory GValue.uint(int value) => GValue.type(G_TYPE_UINT)..setUint(value);
-  factory GValue.long(int value) => GValue.type(G_TYPE_LONG)..setLong(value);
-  factory GValue.ulong(int value) => GValue.type(G_TYPE_ULONG)..setUlong(value);
-  factory GValue.int64(int value) => GValue.type(G_TYPE_INT64)..setInt64(value);
+      GValue.type(GType.boolean)..setBoolean(value);
+  factory GValue.schar(int value) => GValue.type(GType.schar)..setSchar(value);
+  factory GValue.uchar(int value) => GValue.type(GType.uchar)..setUchar(value);
+  factory GValue.int(int value) => GValue.type(GType.int32)..setInt(value);
+  factory GValue.uint(int value) => GValue.type(GType.uint32)..setUint(value);
+  factory GValue.long(int value) => GValue.type(GType.long)..setLong(value);
+  factory GValue.ulong(int value) => GValue.type(GType.ulong)..setUlong(value);
+  factory GValue.int64(int value) => GValue.type(GType.int64)..setInt64(value);
   factory GValue.uint64(int value) =>
-      GValue.type(G_TYPE_UINT64)..setUint64(value);
+      GValue.type(GType.uint64)..setUint64(value);
   factory GValue.float(double value) =>
-      GValue.type(G_TYPE_FLOAT)..setFloat(value);
+      GValue.type(GType.float)..setFloat(value);
   factory GValue.double(double value) =>
-      GValue.type(G_TYPE_DOUBLE)..setDouble(value);
+      GValue.type(GType.double)..setDouble(value);
   factory GValue.string(String value) =>
-      GValue.type(G_TYPE_STRING)..setString(value);
+      GValue.type(GType.string)..setString(value);
 
   GType get type;
 
