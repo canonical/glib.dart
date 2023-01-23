@@ -26,17 +26,17 @@ void main() {
 
   test('os info', () {
     final isNullEmptyOrNot = anyOf(isNull, isEmpty, isNotEmpty);
-    expect(glib.getOsInfo(G_OS_INFO_KEY_NAME), isNullEmptyOrNot);
-    expect(glib.getOsInfo(G_OS_INFO_KEY_PRETTY_NAME), isNullEmptyOrNot);
-    expect(glib.getOsInfo(G_OS_INFO_KEY_VERSION), isNullEmptyOrNot);
-    expect(glib.getOsInfo(G_OS_INFO_KEY_VERSION_CODENAME), isNullEmptyOrNot);
-    expect(glib.getOsInfo(G_OS_INFO_KEY_VERSION_ID), isNullEmptyOrNot);
-    expect(glib.getOsInfo(G_OS_INFO_KEY_ID), isNullEmptyOrNot);
-    expect(glib.getOsInfo(G_OS_INFO_KEY_HOME_URL), isNullEmptyOrNot);
-    expect(glib.getOsInfo(G_OS_INFO_KEY_DOCUMENTATION_URL), isNullEmptyOrNot);
-    expect(glib.getOsInfo(G_OS_INFO_KEY_SUPPORT_URL), isNullEmptyOrNot);
-    expect(glib.getOsInfo(G_OS_INFO_KEY_BUG_REPORT_URL), isNullEmptyOrNot);
-    expect(glib.getOsInfo(G_OS_INFO_KEY_PRIVACY_POLICY_URL), isNullEmptyOrNot);
+    expect(glib.getOsInfo(GOsInfoKey.name), isNullEmptyOrNot);
+    expect(glib.getOsInfo(GOsInfoKey.prettyName), isNullEmptyOrNot);
+    expect(glib.getOsInfo(GOsInfoKey.version), isNullEmptyOrNot);
+    expect(glib.getOsInfo(GOsInfoKey.versionCodename), isNullEmptyOrNot);
+    expect(glib.getOsInfo(GOsInfoKey.versionId), isNullEmptyOrNot);
+    expect(glib.getOsInfo(GOsInfoKey.id), isNullEmptyOrNot);
+    expect(glib.getOsInfo(GOsInfoKey.homeUrl), isNullEmptyOrNot);
+    expect(glib.getOsInfo(GOsInfoKey.documentationUrl), isNullEmptyOrNot);
+    expect(glib.getOsInfo(GOsInfoKey.supportUrl), isNullEmptyOrNot);
+    expect(glib.getOsInfo(GOsInfoKey.bugReportUrl), isNullEmptyOrNot);
+    expect(glib.getOsInfo(GOsInfoKey.privacyPolicyUrl), isNullEmptyOrNot);
     expect(glib.getOsInfo('unknown'), anyOf(isNull, isEmpty));
   });
 

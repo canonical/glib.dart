@@ -14,17 +14,17 @@ void main() {
   }
 
   print('\nos info:');
-  printOsInfo(G_OS_INFO_KEY_NAME);
-  printOsInfo(G_OS_INFO_KEY_PRETTY_NAME);
-  printOsInfo(G_OS_INFO_KEY_VERSION);
-  printOsInfo(G_OS_INFO_KEY_VERSION_CODENAME);
-  printOsInfo(G_OS_INFO_KEY_VERSION_ID);
-  printOsInfo(G_OS_INFO_KEY_ID);
-  printOsInfo(G_OS_INFO_KEY_HOME_URL);
-  printOsInfo(G_OS_INFO_KEY_DOCUMENTATION_URL);
-  printOsInfo(G_OS_INFO_KEY_SUPPORT_URL);
-  printOsInfo(G_OS_INFO_KEY_BUG_REPORT_URL);
-  printOsInfo(G_OS_INFO_KEY_PRIVACY_POLICY_URL);
+  printOsInfo(GOsInfoKey.name);
+  printOsInfo(GOsInfoKey.prettyName);
+  printOsInfo(GOsInfoKey.version);
+  printOsInfo(GOsInfoKey.versionCodename);
+  printOsInfo(GOsInfoKey.versionId);
+  printOsInfo(GOsInfoKey.id);
+  printOsInfo(GOsInfoKey.homeUrl);
+  printOsInfo(GOsInfoKey.documentationUrl);
+  printOsInfo(GOsInfoKey.supportUrl);
+  printOsInfo(GOsInfoKey.bugReportUrl);
+  printOsInfo(GOsInfoKey.privacyPolicyUrl);
 
   print('\nsystem directories:');
   print('- temp: ${glib.getTmpDir()}');
