@@ -25,12 +25,16 @@ globals:
     - 'glib_.*'
 functions:
   include:
-    - 'g_.*'
+    - 'g_find_program_in_path'
+    - 'g_format_size_full'
+    - 'g_free'
+    - 'g_get_.*'
+    - 'g_reload_user_special_dirs_cache'
+    - 'g_set_.*'
     - 'glib_.*'
   symbol-address:
     include:
       - 'g_free'
-      - 'g_time_zone_unref'
 structs:
   include:
     - '_G.*'
