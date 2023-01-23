@@ -3,7 +3,7 @@ import 'gutils.dart';
 import 'gvalue.dart';
 import 'gversion.dart';
 
-final glib = GLib();
+final GLib glib = GLibFfi();
 
-class GLib extends GLibInterface
+class GLibFfi extends GLib
     with GUtilsFfiMixin, GValueFfiMixin, GVersionFfiMixin {}

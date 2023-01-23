@@ -2,14 +2,15 @@ import 'package:glib/glib.dart';
 
 void main() {
   print('names:');
-  print('- user name: ${g_get_user_name()}');
-  print('- real name: ${g_get_real_name()}');
-  print('- host name: ${g_get_host_name()}');
-  print('- prg name: ${g_get_prg_name()}');
-  print('- application name: ${g_get_application_name()}');
+  print('- user name: ${glib.getUserName()}');
+  print('- real name: ${glib.getRealName()}');
+  print('- host name: ${glib.getHostName()}');
+  print('- prg name: ${glib.getPrgName()}');
+  print('- application name: ${glib.getApplicationName()}');
 
   void printOsInfo(String key) {
-    print('- ${key.toLowerCase().replaceAll('_', ' ')}: ${g_get_os_info(key)}');
+    print(
+        '- ${key.toLowerCase().replaceAll('_', ' ')}: ${glib.getOsInfo(key)}');
   }
 
   print('\nos info:');
@@ -26,44 +27,44 @@ void main() {
   printOsInfo(G_OS_INFO_KEY_PRIVACY_POLICY_URL);
 
   print('\nsystem directories:');
-  print('- temp: ${g_get_tmp_dir()}');
+  print('- temp: ${glib.getTmpDir()}');
   print('- data:');
-  for (final data_dir in g_get_system_data_dirs()) {
+  for (final data_dir in glib.getSystemDataDirs()) {
     print('  - $data_dir');
   }
   print('- config:');
-  for (final config_dir in g_get_system_config_dirs()) {
+  for (final config_dir in glib.getSystemConfigDirs()) {
     print('  - $config_dir');
   }
 
   print('\nuser directories:');
-  print('- home: ${g_get_home_dir()}');
-  print('- data: ${g_get_user_data_dir()}');
-  print('- config: ${g_get_user_config_dir()}');
-  print('- cache: ${g_get_user_cache_dir()}');
-  print('- state: ${g_get_user_state_dir()}');
-  print('- runtime: ${g_get_user_runtime_dir()}');
+  print('- home: ${glib.getHomeDir()}');
+  print('- data: ${glib.getUserDataDir()}');
+  print('- config: ${glib.getUserConfigDir()}');
+  print('- cache: ${glib.getUserCacheDir()}');
+  print('- state: ${glib.getUserStateDir()}');
+  print('- runtime: ${glib.getUserRuntimeDir()}');
   print('- special directories:');
   void printUserSpecialDirectory(String type, GUserDirectory directory) {
-    print('  - $type: ${g_get_user_special_dir(directory)}');
+    print('  - $type: ${glib.getUserSpecialDir(directory)}');
   }
 
-  printUserSpecialDirectory('desktop', G_USER_DIRECTORY_DESKTOP);
-  printUserSpecialDirectory('documents', G_USER_DIRECTORY_DOCUMENTS);
-  printUserSpecialDirectory('download', G_USER_DIRECTORY_DOWNLOAD);
-  printUserSpecialDirectory('music', G_USER_DIRECTORY_MUSIC);
-  printUserSpecialDirectory('pictures', G_USER_DIRECTORY_PICTURES);
-  printUserSpecialDirectory('public share', G_USER_DIRECTORY_PUBLIC_SHARE);
-  printUserSpecialDirectory('templates', G_USER_DIRECTORY_TEMPLATES);
-  printUserSpecialDirectory('videos', G_USER_DIRECTORY_VIDEOS);
+  printUserSpecialDirectory('desktop', GUserDirectory.desktop);
+  printUserSpecialDirectory('documents', GUserDirectory.documents);
+  printUserSpecialDirectory('download', GUserDirectory.download);
+  printUserSpecialDirectory('music', GUserDirectory.music);
+  printUserSpecialDirectory('pictures', GUserDirectory.pictures);
+  printUserSpecialDirectory('public share', GUserDirectory.publicShare);
+  printUserSpecialDirectory('templates', GUserDirectory.templates);
+  printUserSpecialDirectory('videos', GUserDirectory.videos);
 
   print('\nprograms:');
-  print('- dart: ${g_find_program_in_path('dart')}');
-  print('- flutter: ${g_find_program_in_path('flutter')}');
+  print('- dart: ${glib.findProgramInPath('dart')}');
+  print('- flutter: ${glib.findProgramInPath('flutter')}');
 
   print('\nformat sizes:');
-  print('- 123: ${g_format_size(123)}');
-  print('- 123456: ${g_format_size(123456)}');
-  print('- 123456789: ${g_format_size(123456789)}');
-  print('- 123456789012: ${g_format_size(123456789012)}');
+  print('- 123: ${glib.formatSize(123)}');
+  print('- 123456: ${glib.formatSize(123456)}');
+  print('- 123456789: ${glib.formatSize(123456789)}');
+  print('- 123456789012: ${glib.formatSize(123456789012)}');
 }
