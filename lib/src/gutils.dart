@@ -1,4 +1,3 @@
-import 'genums.dart';
 import 'gmacros.g.dart';
 import 'gtypes.dart';
 
@@ -14,6 +13,27 @@ abstract class GOsInfoKey {
   static const supportUrl = G_OS_INFO_KEY_SUPPORT_URL;
   static const bugReportUrl = G_OS_INFO_KEY_BUG_REPORT_URL;
   static const privacyPolicyUrl = G_OS_INFO_KEY_PRIVACY_POLICY_URL;
+}
+
+enum GUserDirectory {
+  desktop,
+  documents,
+  download,
+  music,
+  pictures,
+  publicShare,
+  templates,
+  videos,
+}
+
+enum GFormatSizeFlags {
+  defaults(0),
+  longFormat(1 << 0),
+  iecUnits(1 << 1),
+  bits(1 << 2);
+
+  const GFormatSizeFlags(this.value);
+  final int value;
 }
 
 mixin GUtilsMixin {

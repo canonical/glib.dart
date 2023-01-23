@@ -1,7 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:ffi/ffi.dart' as ffi;
 
-import '../genums.dart';
 import '../gutils.dart';
 import 'ffi_x.dart';
 import 'libglib.dart';
