@@ -1,5 +1,4 @@
 import 'package:glib/glib.dart';
-import 'package:glib/src/gvalue.dart';
 import 'package:test/test.dart';
 
 void main() {
