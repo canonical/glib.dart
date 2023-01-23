@@ -1,3 +1,4 @@
+import 'genums.dart';
 import 'glib.dart';
 import 'gtypes.dart';
 
@@ -24,28 +25,11 @@ List<String> g_get_system_data_dirs() => glib.g_get_system_data_dirs();
 List<String> g_get_system_config_dirs() => glib.g_get_system_config_dirs();
 String g_get_user_runtime_dir() => glib.g_get_user_runtime_dir();
 
-typedef GUserDirectory = int;
-const GUserDirectory G_USER_DIRECTORY_DESKTOP = 0;
-const GUserDirectory G_USER_DIRECTORY_DOCUMENTS = 1;
-const GUserDirectory G_USER_DIRECTORY_DOWNLOAD = 2;
-const GUserDirectory G_USER_DIRECTORY_MUSIC = 3;
-const GUserDirectory G_USER_DIRECTORY_PICTURES = 4;
-const GUserDirectory G_USER_DIRECTORY_PUBLIC_SHARE = 5;
-const GUserDirectory G_USER_DIRECTORY_TEMPLATES = 6;
-const GUserDirectory G_USER_DIRECTORY_VIDEOS = 7;
-const GUserDirectory G_USER_N_DIRECTORIES = 8;
-
 String? g_get_user_special_dir(GUserDirectory directory) =>
-    glib.g_get_user_special_dir(directory);
-
-const GFormatSizeFlags G_FORMAT_SIZE_DEFAULT = 0;
-const GFormatSizeFlags G_FORMAT_SIZE_LONG_FORMAT = 1 << 0;
-const GFormatSizeFlags G_FORMAT_SIZE_IEC_UNITS = 1 << 1;
-const GFormatSizeFlags G_FORMAT_SIZE_BITS = 1 << 2;
-typedef GFormatSizeFlags = int;
+    glib.g_get_user_special_dir(directory.index);
 
 String g_format_size_full(guint64 size, GFormatSizeFlags flags) =>
-    glib.g_format_size_full(size, flags);
+    glib.g_format_size_full(size, flags.value);
 String g_format_size(guint64 size) => glib.g_format_size(size);
 
 String? g_find_program_in_path(String program) =>
@@ -80,9 +64,9 @@ mixin GUtilsMixin {
   List<String> g_get_system_data_dirs();
   List<String> g_get_system_config_dirs();
   String g_get_user_runtime_dir();
-  String? g_get_user_special_dir(GUserDirectory directory);
+  String? g_get_user_special_dir(int directory);
 
-  String g_format_size_full(guint64 size, GFormatSizeFlags flags);
+  String g_format_size_full(guint64 size, int flags);
   String g_format_size(guint64 size);
 
   String? g_find_program_in_path(String program);
