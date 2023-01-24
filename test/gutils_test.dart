@@ -1,6 +1,10 @@
 import 'package:glib/glib.dart';
 import 'package:test/test.dart';
 
+final isNullOrEmpty = anyOf(isNull, isEmpty);
+final isNullOrNotEmpty = anyOf(isNull, isNotEmpty);
+final isNullEmptyOrNot = anyOf(isNull, isEmpty, isNotEmpty);
+
 void main() {
   test('user name', () {
     expect(glib.getUserName(), isNotEmpty);
@@ -15,7 +19,6 @@ void main() {
   });
 
   test('os info', () {
-    final isNullEmptyOrNot = anyOf(isNull, isEmpty, isNotEmpty);
     expect(glib.getOsInfo(GOsInfoKey.name), isNullEmptyOrNot);
     expect(glib.getOsInfo(GOsInfoKey.prettyName), isNullEmptyOrNot);
     expect(glib.getOsInfo(GOsInfoKey.version), isNullEmptyOrNot);
@@ -27,7 +30,7 @@ void main() {
     expect(glib.getOsInfo(GOsInfoKey.supportUrl), isNullEmptyOrNot);
     expect(glib.getOsInfo(GOsInfoKey.bugReportUrl), isNullEmptyOrNot);
     expect(glib.getOsInfo(GOsInfoKey.privacyPolicyUrl), isNullEmptyOrNot);
-    expect(glib.getOsInfo('unknown'), anyOf(isNull, isEmpty));
+    expect(glib.getOsInfo('unknown'), isNullOrEmpty);
   });
 
   test('system directories', () {
@@ -62,7 +65,8 @@ void main() {
     expect(glib.formatSize(123, flags: GFormatSizeFlags.bits), isNotEmpty);
   });
 
-  test('find program in path', () {
-    expect(glib.findProgramInPath('dart'), anyOf(isNull, isNotEmpty));
+  test('programs', () {
+    expect(glib.getProgramName(), isNullEmptyOrNot);
+    expect(glib.findProgramInPath('dart'), isNullOrNotEmpty);
   });
 }

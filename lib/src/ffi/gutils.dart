@@ -71,6 +71,9 @@ mixin GUtilsFfiMixin on GUtilsMixin {
   }
 
   @override
+  String? getProgramName() => libglib.g_get_prgname().toDartString();
+
+  @override
   String? findProgramInPath(String program) {
     return ffi.using((arena) {
       final ptr = libglib.g_find_program_in_path(program.toCString(arena));

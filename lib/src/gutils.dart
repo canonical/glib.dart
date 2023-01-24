@@ -56,5 +56,6 @@ mixin GUtilsMixin {
 
   String formatSize(guint64 size, {GFormatSizeFlags? flags});
 
+  String? getProgramName();
   String? findProgramInPath(String program);
 }
