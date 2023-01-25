@@ -1,3 +1,3 @@
-## 0.0.0-dev.0
+## 0.0.1
 
-- Coming soon.
+- Initial version.
